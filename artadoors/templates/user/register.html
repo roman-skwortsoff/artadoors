@@ -1,0 +1,42 @@
+{% extends 'base-page.html' %} {% load static %} {% block title %}
+<title>Register</title>
+{% endblock title %} {% block container %}
+<main class="main">
+<div class="container">
+    <br>
+    <div class="row other_text">
+        <div class="col"><a href="/">Главная </a> > <a href=".">Регистрация</a></div>
+    </div>    
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 text-center">
+        <h2 class="">Регистрация</h2>
+      </div>
+    </div>
+    <br>
+    {% for field in user_form %}
+    <div class="row" style="padding-bottom: 10px">
+      <div class="col-xl-4 col-lg-3 col-md-3 col-sm-1"></div>
+      <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2">{{ field.label_tag}}</div>
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">{{ field }} </div>
+    <div class="row">
+      <div class="col text-center">
+        <span style="color: red; font-size: 12px;">{{ field.errors }}</span>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+    <br>
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 text-center">
+          <button type="submit" id="mybtn">Зарегистрировать</button>
+        </div>
+    </div>
+    <br>
+  </form>
+</div>
+</main>
+{% endblock container %}

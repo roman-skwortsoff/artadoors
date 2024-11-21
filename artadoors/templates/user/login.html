@@ -1,0 +1,88 @@
+{% extends 'base-page.html' %} {% load static %} {% block title %}
+<title>Log In</title>
+{% endblock title %} {% block container %}
+<main class="main">
+  <div class="container">
+    <br />
+    <div class="row other_text">
+      <div class="col"><a href="/">Главная </a> > <a href=".">Вход</a></div>
+    </div>
+    <br />
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 text-center">
+          <h2>Авторизация</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center text-danger">
+          <h4 class="">{{ attention }}</h4>
+        </div>
+      </div>
+      {% for error in login_form.non_field_errors %}
+      <div class="row">
+        <div class="col text-center text-danger">
+          <h4 class="">{{ error }}</h4>
+        </div>
+      </div>
+      {% endfor %}
+      <br />
+      <div class="row" style="padding-bottom: 10px">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1"></div>
+        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
+          <label class="form-label" for="id_username">Email</label>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Email"
+            id="id_username"
+            name="username"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1"></div>
+        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
+          <label class="form-label" for="id_password">Пароль</label>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+          <input
+            type="password"
+            class="form-input"
+            placeholder="Password"
+            id="id_password"
+            name="password"
+            required
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 text-center">
+          <button type="submit" id="mybtn" class="">Войти</button>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1"></div>
+        <div
+          class="col-xl-2 col-lg-2 col-md-2 col-sm-3"
+          style="margin-bottom: 10px"
+        >
+          <a href="{% url 'register' %}">Регистрация</a>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+          <a href="#">Забыли пароль?</a>
+        </div>
+      </div>
+      <br />
+    </form>
+  </div>
+</main>
+{% endblock container %}

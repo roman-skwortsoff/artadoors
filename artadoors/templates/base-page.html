@@ -1,0 +1,399 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="{% static 'imgs/icons/favicon.ico' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% block title %} {% endblock title %}
+  </head>
+  <body>
+    <header class="header">
+      <div class="headerContainer container">
+        <div class="logo">
+          <a href="/">
+            <img
+              src="{% static 'imgs/logo.png' %}"
+              alt="что-то не так, как надо"
+          /></a>
+        </div>
+        <div class="hmenu">
+          <ul class="hmenu-list">
+            <li style="align-items: center">
+              <a href="#"
+                ><i
+                  ><img
+                    src="{% static 'imgs/icons/location-dot-icon.png' %}"
+                    title="Адрес"
+                    alt="Адрес"
+                    width="22"
+                    height="22"
+                /></i>
+                Ижевск пер.Выставочный д.2</a
+              >
+            </li>
+            <li>
+              <a href="#">О компании </a>
+            </li>
+            <li>
+              <a href="#"
+                ><i>
+                  <img
+                    src="{% static 'imgs/icons/truck.svg' %}"
+                    title="Доставка"
+                    alt="Доставка"
+                    width="25"
+                    height="25"
+                /></i>
+                Доставка и оплата</a
+              >
+            </li>
+            <li>
+              <a href="tel:89090606920">
+                <i
+                  ><img
+                    src="{% static 'imgs/icons/telephone.svg' %}"
+                    title="Телефон"
+                    alt="телефон"
+                    width="25"
+                    height="25" /></i
+                >+7 (909) 060-69-20
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=89090606920"
+                ><i
+                  ><img
+                    class="icon__whatsapp"
+                    title="Написать в WhatsApp"
+                    alt="Написать в WhatsApp"
+                    src="{% static 'imgs/icons/whatsapp_logo_small.svg' %}"
+                    width="25"
+                    height="25"
+                /></i>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=89090606920"
+                ><i
+                  ><img
+                    class="icon__viber"
+                    title="Написать в Viber"
+                    alt="Написать в Viber"
+                    src="{% static 'imgs/icons/viber-icon.svg' %}"
+                    width="25"
+                    height="25"
+                /></i>
+              </a>
+              <a
+                class="link__telegram"
+                target="_blank"
+                title="Написать в Telegram"
+                href="https://t.me/89090606920"
+              >
+                <i>
+                  <img
+                    class="icon__telegram"
+                    title="Написать в Telegram"
+                    alt="Написать в Telegram"
+                    src="{% static 'imgs/icons/telegram_logo.svg' %}"
+                    width="25"
+                    height="25"
+                  />
+                </i>
+              </a>
+
+              <a href="#"></a>
+              <div class="other_text">Пн. – Пт.: с 09:00 до 17:00</div>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="hmenu-list-mob">
+          <li>
+            <a href="#"
+              ><i>
+                <img
+                  src="{% static 'imgs/icons/telephone.svg' %}"
+                  title="Телефон"
+                  alt="телефон"
+                  width="40"
+                  height="40"
+                /> </i
+            ></a>
+          </li>
+          <li>
+            <a href="https://api.whatsapp.com/send?phone=89090606920"
+              ><i
+                ><img
+                  class="icon__whatsapp"
+                  title="Написать в WhatsApp"
+                  alt="Написать в WhatsApp"
+                  src="{% static 'imgs/icons/whatsapp_logo_small.svg' %}"
+                  width="40"
+                  height="40"
+                />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i
+                ><img
+                  class="icon__viber"
+                  title="Написать в Viber"
+                  alt="Написать в Viber"
+                  src="{% static 'imgs/icons/viber-icon.svg' %}"
+                  width="40"
+                  height="40"
+              /></i>
+            </a>
+          </li>
+          <li>
+            <a
+              class="link__telegram"
+              target="_blank"
+              title="Написать в Telegram"
+              href="https://t.me/89090606920"
+            >
+              <i>
+                <img
+                  class="icon__telegram"
+                  title="Написать в Telegram"
+                  alt="Написать в Telegram"
+                  src="{% static 'imgs/icons/telegram_logo.svg' %}"
+                  width="40"
+                  height="40"
+                />
+              </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <nav class="nav color_back_nf">
+      <ul class="menu-list">
+        <li class="dropdown">
+          <div class="menu-link">
+            <a href="#">
+              <img
+                src="{% static 'imgs/icons/catalog-icon.svg' %}"
+                alt="Каталог"
+                title="Каталог"
+                width="20"
+                height="20"
+              />
+              <div>Каталог</div>
+            </a>
+          </div>
+          <ul class="dropdown-menu">
+            <i class="dropdown-img">
+              <img
+                src="{% static 'imgs/hamam.jpg'%}"
+                alt="Hamam"
+                title="Hamam"
+                height="225px"
+              />
+            </i>
+            <div class="dropdown-hamam">
+              <li class="hdr-link"><a href="#">Двери в хамам</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Премьер</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Престиж</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Элит</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Стандарт</a></li>
+              <li class="hdr-sublink"><a href="#">Серия АРТ</a></li>
+            </div>
+            <i class="dropdown-img">
+              <img
+                src="{% static 'imgs/sauna.jpg' %}"
+                alt="Sauna"
+                title="Sauna"
+                height="225px"
+              />
+            </i>
+            <div class="dropdown-sauna">
+              <li class="hdr-link">
+                <a href="#">Двери для сауны и бани</a>
+              </li>
+              <li class="hdr-sublink"><a href="#">Серия Статус</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Люкс</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Элит</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Стандарт</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Креатив</a></li>
+            </div>
+            <i class="dropdown-img">
+              <img
+                src="{% static 'imgs/Hpart.jpg' %}"
+                alt="Sauna"
+                title="Sauna"
+                height="225px"
+              />
+            </i>
+            <div class="dropdown-parts">
+              <li class="hdr-link">
+                <a href="#">Стеклянные перегородки</a>
+              </li>
+              <li class="hdr-sublink"><a href="#">Перегородки в хамам</a></li>
+              <li class="hdr-sublink"><a href="#">Перегородки в сауну</a></li>
+            </div>
+          </ul>
+        </li>
+        <li>
+          <div class="menu-link">
+            {% if user.is_authenticated %}
+            <a href="." 
+            {% else %} 
+            <a href="{% url 'login' %}" 
+            {% endif %}
+            >
+              <img
+                src="{% static 'imgs/icons/login.svg' %}"
+                alt="Войти"
+                title="Войти"
+                width="20"
+                height="20"
+              />
+              <div>Вход</div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="menu-link">
+            <a href="#">
+              <img
+                src="{% static 'imgs/icons/favorite.svg' %}"
+                alt="Избранное"
+                title="Избранное"
+                width="20"
+                height="20"
+              />
+              <div>Избранное</div></a
+            >
+          </div>
+        </li>
+        <li>
+          <div class="menu-link">
+            <a href="#">
+              <img
+                src="{% static 'imgs/icons/compare.svg' %}"
+                alt="Конфигуратор"
+                title="Конфигуратор"
+                width="20"
+                height="20"
+              />
+              <div>Подбор</div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="menu-link">
+            <a href="#">
+              <img
+                src="{% static 'imgs/icons/cart-icon.svg' %}"
+                alt="Избранное"
+                title="Избранное"
+                width="20"
+                height="20"
+              />
+              <div>Корзина</div></a
+            >
+          </div>
+        </li>
+      </ul>
+    </nav>
+    {% block container %} {% endblock container %}
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+            <h5><a href="#">О компании</a></h5>
+            <div
+              class="footer-list d-flex justify-content-between col-xl-8 col-lg-8 col-md-12 col-sm-12"
+            >
+              <div class="col">
+                <ul>
+                  <li><a href="#">Наши Партнеры</a></li>
+                  <li><a href="#">Наши работы</a></li>
+                </ul>
+              </div>
+              <div class="col">
+                <ul>
+                  <li><a href="#">Доставка и оплата</a></li>
+                  <li><a href="#">Реквизиты</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+            <h5><a href="#">Контакты</a></h5>
+            <ul>
+              <li>
+                <h5><a href="tel:89090606920">+7 (909) 060-69-20 </a></h5>
+              </li>
+              <li class="mess">
+                <i>
+                  <a href="#"
+                    ><i>
+                      <img
+                        class="icon__vk"
+                        title="Написать в vk"
+                        alt="Написать в vk"
+                        src="{% static 'imgs/icons/vk-icon.png' %}"
+                        width="30"
+                        height="30"
+                    /></i>
+                  </a>
+                </i>
+                <a href="https://api.whatsapp.com/send?phone=89090606920"
+                  ><i>
+                    <img
+                      class="icon__whatsapp"
+                      title="Написать в WhatsApp"
+                      alt="Написать в WhatsApp"
+                      src="{% static 'imgs/icons/whatsapp_logo_small.svg' %}"
+                      width="30"
+                      height="30"
+                  /></i>
+                </a>
+                <i>
+                  <a href="#">
+                    <img
+                      class="icon__viber"
+                      title="Написать в Viber"
+                      alt="Написать в Viber"
+                      src="{% static 'imgs/icons/viber-icon.svg' %}"
+                      width="30"
+                      height="30"
+                    />
+                  </a>
+                </i>
+                <i>
+                  <a href="https://t.me/89090606920">
+                    <img
+                      class="icon__telegram"
+                      title="Написать в Telegram"
+                      alt="Написать в Telegram"
+                      src="{% static 'imgs/icons/telegram_logo.svg' %}"
+                      width="30"
+                      height="30"
+                    />
+                  </a>
+                </i>
+              </li>
+              <li class="email">
+                <a href="#">arta.doors@bk.ru</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/nav.js' %}"></script>
+  </body>
+</html>
