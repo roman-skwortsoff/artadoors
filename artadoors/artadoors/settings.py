@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # --- my apps
     'shop',
     'myauth',
+    'mptt',
+    'django_mptt_admin',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Baku'
 
 USE_I18N = True
 
