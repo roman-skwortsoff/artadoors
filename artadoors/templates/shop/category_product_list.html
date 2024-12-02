@@ -1,0 +1,72 @@
+{% extends 'base-page.html' %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block title %}
+<title>{{category.title}}</title>
+<link rel="stylesheet" href="{% static 'css/catalog-styles.css' %}" />
+{% endblock %}
+
+{% block container %}
+<main class="main">
+<div class="container">
+	<br>
+	<div class="row other_text">
+		<div class="col"><a href="/">Главная </a> > <a href="/shop/">Каталог</a>
+		{% for ancestor in ancestors %}
+		 	> <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
+		{% endfor %}
+		> <a href="{% url 'shop:product-by-category' category_slug=category.slug %}"> {{ category.temp_name }}</a>
+		</div>
+	</div>
+	<br>
+	<div class="row justify-content-center">
+	{% for child in childrens %}
+		<div class="col-хl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center">
+		<a href="{% url 'shop:product-by-category' category_slug=child.slug %}">
+			<div class="row text-start menu-item"> 
+				<div class="col-4">
+				{% with first_image=child.images.all|first %}                   
+					<img src="{{ first_image.image.url }}" 
+					title="{{child.temp_name}}" 
+					width="125px"
+					alt="{{child.temp_name}}"
+					style="border-radius: 5px;"> 
+				{% endwith %}
+				</div>    
+				<div class="col-8">                      
+					<h5>{{ child.temp_name }}</h5>
+					<div class="other_text">{{child.description}}</div>
+				</div>
+			</div>
+		</a>
+		</div>
+	{% endfor %}
+    </div>
+	<br>
+	<div class="row justify-content-center">
+	{% for .,product in products.items %}
+		<div class="col-хl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center">
+			<a href="{% url 'shop:product-view' product_slug=product.slug %}">
+				<div class="row menu-item">
+					<div class="col">
+						{% with first_image=product.images.all|first %}
+						<img src="{{ first_image.image.url }}"
+               			title="{{product.temp_name}}"
+               			width="400px"
+               			alt="{{product.temp_name}}"
+               			style="border-radius: 10px">
+            			{% endwith %}
+						<h4>{{ product.name }}</h4>
+					</div>
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+	</div>
+
+</div>
+<br>
+</main>
+
+{% endblock container %}

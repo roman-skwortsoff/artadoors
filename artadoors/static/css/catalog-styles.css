@@ -1,0 +1,30 @@
+
+.dropdown:hover .dropdown-menu {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-item {
+    padding: 1rem;
+}
+
+.menu-item:hover {
+    border-radius: 10px;
+    box-shadow: 4px 4px 14px rgba(66, 95, 86, 0.5);
+    transition: 0.3s;    
+}
+
+
+@media (min-width: 1119px) {
+}
+
+
+@media (max-width: 1118px) {
+}
+
+@media (max-width: 999px){
+}
+
+
+@media (max-width: 520px){
+}
