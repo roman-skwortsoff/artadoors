@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
-from .models import Product, Category, SizeOption, AdditionalOption, Price, ProductImage
+from .models import Product, Category, SizeOption, AdditionalOption, Price, ProductImage, CategoryImage
 from django_mptt_admin.admin import DjangoMpttAdmin
 class Sizes(admin.TabularInline):
     model = SizeOption
@@ -9,6 +9,8 @@ class AdditionalOptions(admin.TabularInline):
     model = AdditionalOption
 class ImagesInLine(admin.TabularInline):
     model = ProductImage
+class CatImagesInLine(admin.TabularInline):
+    model = CategoryImage
 
 
 @admin.action(description='Archive products')
@@ -43,6 +45,10 @@ admin.site.register(Product, ProductAdmin)
 
 
 class CategoryAdmin(DjangoMpttAdmin):
-    prepopulated_fields = {"slug": ("title",)}
+    prepopulated_fields = {"slug": ("title",), "temp_name": ("title",)}
+
+    inlines = [
+        CatImagesInLine,
+    ]
 admin.site.register(Category, CategoryAdmin)
 

@@ -208,7 +208,7 @@
 }
 
 .hdr-sublink a:hover {
-    color: #0ea8b0;
+    color: #0b707b;
 }
 
 .dropdown-img img {
@@ -230,7 +230,7 @@
 }
 
 .footer a:hover {
-    color: #41bdbd;    
+    color: #0b707b;    
 }
 
 #mybtn {
@@ -250,7 +250,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background-color: #26afb6;
+    background-color: #0b707b;
     content: '';
     transition: width 0.2s ease-out;
 }

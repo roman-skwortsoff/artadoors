@@ -1,0 +1,56 @@
+{% extends 'base-page.html' %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block title %}
+<title>{{product.name}}</title>
+{% endblock %}
+
+{% block container %}
+<main class="main">
+<div class="container">
+	<br>
+	<div class="row other_text">
+		<div class="col"><a href="/">Главная </a> > <a href="/shop/">Каталог</a>
+		{% for ancestor in ancestors %}
+		 	> <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
+		{% endfor %}
+		> <a href="{% url 'shop:product-by-category' category_slug=product.category.slug %}"> {{ product.category.temp_name }}</a>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col">
+			<h3>Дверь {{product.name}} </h3>
+		</div>
+	</div>
+
+	<div class="row text-start">
+		<div class="col-7"> 
+		{% with first_image=product.images.all|first %}                   
+			<img src="{{ first_image.image.url }}" 
+			title="{{product.name}}" 
+			width="600px"
+			alt="{{product.name}}"
+			style="border-radius: 5px;"> 
+		{% endwith %}
+		</div>
+		<div class="col-5">
+			<h4>{{product.base_price}} руб./шт.</h4>
+	
+		</div>
+		
+	</div>
+	<div class="row text-start">
+		<div class="col">
+			<div>{{ product.category.products_description|safe  }}</div>
+			<div>{{ product.description|safe }}</div>
+		</div>
+	</div>
+	<br>
+	<br>
+</div>
+<br>
+</main>
+
+{% endblock container %}

@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('admin/', admin.site.urls),
     path('', include('myauth.urls')),
-    path('', include('shop.urls')),
+    path('shop/', include('shop.urls')),
 ]
