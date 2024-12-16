@@ -1,3 +1,7 @@
+.row {
+    margin-left: -4px;
+    margin-right: 0;
+}
 
 * {
     max-width: 100%;
@@ -191,7 +195,7 @@
 }
 
 .hdr-link {
-    color: #0ea8b0;;
+    color: #10717e;
     font-weight: bolder;
 }
 
@@ -204,7 +208,7 @@
 }
 
 .hdr-link a:hover {
-    color: #101010;
+    color: #0ea8b0;
 }
 
 .hdr-sublink a:hover {

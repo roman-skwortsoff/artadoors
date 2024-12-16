@@ -1,12 +1,14 @@
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
-from .models import Product, Category, SizeOption, AdditionalOption, Price, ProductImage, CategoryImage
+from .models import Product, Category, SizeOption, HandleOption, ProductImage, CategoryImage
 from django_mptt_admin.admin import DjangoMpttAdmin
+
+
 class Sizes(admin.TabularInline):
     model = SizeOption
-class AdditionalOptions(admin.TabularInline):
-    model = AdditionalOption
+class HandleOptions(admin.TabularInline):
+    model = HandleOption
 class ImagesInLine(admin.TabularInline):
     model = ProductImage
 class CatImagesInLine(admin.TabularInline):
@@ -24,7 +26,7 @@ def mark_unarchived (modeladmin: admin.ModelAdmin, request: HttpRequest, queryse
 class ProductAdmin(admin.ModelAdmin,):
     inlines = [
         Sizes,
-        AdditionalOptions,
+        HandleOptions,
         ImagesInLine,
                ]
     list_display = 'name', 'slug', 'category', 'description_short', 'archived'
@@ -51,4 +53,3 @@ class CategoryAdmin(DjangoMpttAdmin):
         CatImagesInLine,
     ]
 admin.site.register(Category, CategoryAdmin)
-

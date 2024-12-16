@@ -20,7 +20,29 @@
 		</div>
 	</div>
 	<br>
-	<div class="row justify-content-center">
+
+	<div class="row cat-title">
+		<div class="col-1 hidden"></div>
+		<div class="col">
+			{% if ancestors %}
+				{% if ancestors|length == 1 %}
+					{% if childrens|length > 0 %}
+					<h5>Варианты исполнения дверей {{category.title}}</h5>
+					{% endif %}
+				{% elif ancestors|length >= 2 %}
+					{% if childrens|length > 0 %}
+						{% for item in ancestors|slice:"1:2" %}
+						<h5>Варианты исполнения дверей {{ item.temp_name }}</h5>
+						{% endfor %}
+					{% endif %}
+				{% endif %}
+			{% else %}
+			<h3>{{category.title}} представлены следующими комплектациями:</h3>	
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="row justify-content-center cat-items">
 	{% for child in childrens %}
 		<div class="col-хl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center">
 		<a href="{% url 'shop:product-by-category' category_slug=child.slug %}">
@@ -34,7 +56,7 @@
 					style="border-radius: 5px;"> 
 				{% endwith %}
 				</div>    
-				<div class="col-8">                      
+				<div class="col-8 cat-name">                      
 					<h5>{{ child.temp_name }}</h5>
 					<div class="other_text">{{child.description}}</div>
 				</div>
@@ -44,21 +66,33 @@
 	{% endfor %}
     </div>
 	<br>
+	<div class="row cat-name">
+		<div class="col-1"></div>
+		<div class="col">
+	{% if ancestors %}
+		<h3>Двери {{category.title}}:</h3>
+	{% else %}
+		<h3>{{category.title}}:</h3>
+	</div>
+	{% endif %}
+	</div>
 	<div class="row justify-content-center">
 	{% for .,product in products.items %}
-		<div class="col-хl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center">
+		<div class="col-хl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center products-list">
 			<a href="{% url 'shop:product-view' product_slug=product.slug %}">
-				<div class="row menu-item">
-					<div class="col">
+
+					<div class="col menu-item">
 						{% with first_image=product.images.all|first %}
 						<img src="{{ first_image.image.url }}"
                			title="{{product.temp_name}}"
-               			width="400px"
+               			width="300px"
                			alt="{{product.temp_name}}"
                			style="border-radius: 10px">
             			{% endwith %}
-						<h4>{{ product.name }}</h4>
-					</div>
+						<div class="product-name">
+						<h5 style="min-height: 3rem;">{{ product.name }}</h5>
+						<h5>от {{ product.base_price }} руб.</h5></div>
+
 				</div>
 			</a>
 		</div>

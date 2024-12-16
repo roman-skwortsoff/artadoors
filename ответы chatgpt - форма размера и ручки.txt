@@ -1,0 +1,167 @@
+Чтобы добавить выбор ручки в форму наряду с выбором размера для продукта, вам нужно будет немного расширить текущую форму. Для этого добавим аналогичное поле для выбора ручки, используя ModelChoiceField для модели HandleOption.
+
+Я покажу, как это сделать, чтобы в зависимости от выбранного продукта отображались доступные размеры и ручки.
+Шаг 1: Обновление формы для выбора продукта
+
+Вам нужно будет добавить новое поле в форму для выбора ручки, аналогично тому, как вы добавили поле для выбора размера.
+Обновленная форма ProductDetailForm:
+
+from django import forms
+from .models import Product, SizeOption, HandleOption
+
+class ProductDetailForm(forms.Form):
+    # Поле для выбора размера
+    size_option = forms.ModelChoiceField(
+        queryset=None,  # Сначала пустой запрос, позже будет заполняться в представлении
+        empty_label="Выберите размер",
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
+    # Поле для выбора ручки
+    handle_option = forms.ModelChoiceField(
+        queryset=None,  # Сначала пустой запрос, позже будет заполняться в представлении
+        empty_label="Выберите ручку",
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
+    def __init__(self, *args, **kwargs):
+        product = kwargs.pop('product', None)  # Получаем продукт, для которого заполняем форму
+        super().__init__(*args, **kwargs)
+        if product:
+            # Заполняем queryset доступных размеров для конкретного продукта
+            self.fields['size_option'].queryset = SizeOption.objects.filter(product=product)
+            # Заполняем queryset доступных ручек для конкретного продукта
+            self.fields['handle_option'].queryset = HandleOption.objects.filter(products=product)
+
+    def clean_size_option(self):
+        size_option = self.cleaned_data['size_option']
+        return size_option
+
+    def clean_handle_option(self):
+        handle_option = self.cleaned_data['handle_option']
+        return handle_option
+
+Пояснения:
+
+    Поле для выбора размера (size_option):
+        Это поле останется таким же, как в вашем примере. В нем отображаются все доступные размеры для выбранного продукта.
+
+    Поле для выбора ручки (handle_option):
+        Мы добавляем аналогичное поле для ручки, которое будет отображать доступные ручки для конкретного продукта.
+        queryset для ручки будет зависеть от переданного объекта product, как и в случае с размерами.
+
+    Методы clean_size_option и clean_handle_option:
+        Эти методы очищают и возвращают выбранные значения, что важно для дальнейшей обработки формы.
+
+Шаг 2: Обновление представления
+
+Теперь в представлении нам нужно передать правильный product в форму, чтобы она могла корректно отобразить размеры и ручки для этого продукта.
+Обновленное представление:
+
+from django.shortcuts import render, get_object_or_404
+from .models import Product
+from .forms import ProductDetailForm
+
+def product_detail(request, product_id):
+    # Получаем продукт по id
+    product = get_object_or_404(Product, id=product_id)
+
+    if request.method == 'POST':
+        form = ProductDetailForm(request.POST, product=product)
+        if form.is_valid():
+            # Обработка формы, например, создание заказа
+            size_option = form.cleaned_data['size_option']
+            handle_option = form.cleaned_data['handle_option']
+            # Рассчитываем итоговую цену (пример)
+            final_price = product.base_price + size_option.price_increase + handle_option.price_increase
+
+            # Создаем заказ или что-то еще в зависимости от вашего логики
+            # order = Order.objects.create(...)
+
+            return render(request, 'order_confirmation.html', {
+                'form': form,
+                'product': product,
+                'final_price': final_price
+            })
+    else:
+        form = ProductDetailForm(product=product)
+
+    return render(request, 'product_detail.html', {'form': form, 'product': product})
+
+Пояснения:
+
+    Получение продукта: Мы получаем объект продукта с помощью get_object_or_404, чтобы использовать его для фильтрации доступных размеров и ручек.
+
+    Передача продукта в форму: Когда форма инициализируется, мы передаем product, чтобы она могла корректно заполнять поля size_option и handle_option.
+
+    Обработка данных формы: После того как форма отправлена и проверена, мы получаем выбранные пользователем параметры (размер и ручку) через form.cleaned_data и рассчитываем итоговую цену.
+
+    Отображение результата: Мы отображаем итоговую цену на странице, а также передаем в шаблон объект формы, чтобы пользователь мог видеть выбранные опции.
+
+Шаг 3: Обновление шаблона
+
+Теперь нужно обновить шаблон, чтобы отобразить форму выбора размера и ручки, а также показать итоговую цену.
+Обновленный шаблон (product_detail.html):
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали продукта</title>
+</head>
+<body>
+
+<h1>{{ product.name }}</h1>
+<p>Базовая цена: <span id="base-price">{{ product.base_price }}</span> руб.</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Выводим форму как абзацы -->
+
+    <h4>Итоговая цена: <span id="final-price">{{ product.base_price }}</span> руб.</h4>
+
+    <button type="submit">Оформить заказ</button>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Функция для обновления итоговой цены
+    function updateFinalPrice() {
+        var basePrice = parseFloat(document.getElementById('base-price').textContent);
+        var sizePrice = parseFloat(document.querySelector('#id_size_option option:checked').dataset.price);
+        var handlePrice = parseFloat(document.querySelector('#id_handle_option option:checked').dataset.price);
+
+        var finalPrice = basePrice + sizePrice + handlePrice;
+        document.getElementById('final-price').textContent = finalPrice.toFixed(2);
+    }
+
+    // Слушаем изменения в полях выбора
+    document.getElementById('id_size_option').addEventListener('change', updateFinalPrice);
+    document.getElementById('id_handle_option').addEventListener('change', updateFinalPrice);
+
+    // Инициализация цены
+    updateFinalPrice();
+});
+</script>
+
+</body>
+</html>
+
+Пояснения:
+
+    HTML: Мы используем {{ form.as_p }}, чтобы вывести все поля формы, и добавляем элемент для отображения итоговой цены (#final-price).
+
+    JavaScript:
+        Функция updateFinalPrice обновляет итоговую цену на основе выбранных опций (размера и ручки). Она считает цену как сумму базовой цены, увеличения за размер и увеличения за ручку.
+        Мы используем dataset.price для получения стоимости из атрибутов data-price, которые мы добавим в каждый элемент <option>.
+
+    Обработчики изменений: Мы добавляем обработчики событий на изменение значения в полях выбора (размер и ручка), чтобы обновить итоговую цену.
+
+Заключение
+
+Теперь у вас есть форма, которая позволяет пользователю выбирать размер и ручку для двери, а итоговая цена будет обновляться динамически с использованием JavaScript. Django передает необходимые данные в шаблон и обрабатывает форму на сервере, а JavaScript отвечает за обновление итоговой цены на клиенте в реальном времени.
+
+    Если у вас разные ручки и размеры для разных дверей, то в представлении и форме мы уже фильтруем данные в зависимости от продукта.
+    Этот подход с динамическим обновлением цены на клиенте сделает процесс выбора более удобным и интерактивным для пользователя.
+

@@ -1,9 +1,12 @@
 {% extends 'base-page.html' %}
 {% load mptt_tags %}
 {% load static %}
+{% load custom_filters %}
+
 
 {% block title %}
 <title>{{product.name}}</title>
+<link rel="stylesheet" href="{% static 'css/product-styles.css' %}" />
 {% endblock %}
 
 {% block container %}
@@ -19,38 +22,230 @@
 		</div>
 	</div>
 	<br>
-	<div class="row">
-		<div class="col">
-			<h3>Дверь {{product.name}} </h3>
+	<div class="product-details">
+		<div class="row">
+			<div class="col">
+				<h3>Дверь {{product.name}} </h3>
+			</div>
 		</div>
-	</div>
 
-	<div class="row text-start">
-		<div class="col-7"> 
-		{% with first_image=product.images.all|first %}                   
-			<img src="{{ first_image.image.url }}" 
-			title="{{product.name}}" 
-			width="600px"
-			alt="{{product.name}}"
-			style="border-radius: 5px;"> 
-		{% endwith %}
+	<div class="row text-start order-details">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 product-image"> 
+			{% with first_image=product.images.all|first %}                   
+				<img 
+					src="{{ first_image.image.url }}" 
+					title="{{ product.name }}" 
+					width="100%"
+					alt="{{ product.name }}"
+					style="border-radius: 5px; cursor: pointer;"
+					onclick="openModal('{{ first_image.image.url }}')"
+				> 
+			{% endwith %}
 		</div>
-		<div class="col-5">
-			<h4>{{product.base_price}} руб./шт.</h4>
-	
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 product-card">
+			{% if product.name|contains:"Хамам" %}
+				<div>Двери Хамам — отличное решение для помещений с высокой влажностью, таких как турецкие парные, душевые и бассейны, где пластик не справляется с высокими температурами, а дерево поддается воздействию влаги. Также эти двери прекрасно подходят для саун, гарантируя стойкость и долговечность эксплуатации. </div>
+			{% endif %}
+			<div><a href="javascript:void(0);" class="btn btn-link" id="scroll-to-details">Подробнее</a></div>
+			<h3><span>Цена: <input type="hidden" id="base-price" value="{{ product.base_price }}"> <span id="total-price">{{ product.base_price }}</span> руб.</span></h3>
+
+			<div class="row">
+			<form method="POST" id="product-form">
+    		{% csrf_token %}
+			<button id="favorites" type="submit" name="action" value="add_to_favorites" "> <img
+				src="{% static 'imgs/icons/favorite.svg' %}"
+				alt="Избранное"
+				title="Избранное"
+				width="28"
+				height="28"
+				style="padding-right: 0.5rem;
+				margin-top: -0.2rem;"
+			  />В избранное / Cравнить</button>
+			<br>	
+
+			<label for="size-select" class="card-header-select">Размер:</label>
+			<div class="custom-select-wrapper">
+    			<select name="Размер" id="size-select" class="form-select">
+				{% for option in form.Размер.field.queryset %}
+					<option value="{{ option.id }}" data-size="{{ option.size_name }}" data-price-increase="{{ option.price_increase }}">
+						{{ option.size_name }}
+					</option>
+				{% endfor %}
+				</select>
+			</div>
+
+			<label for="handle-select" class="card-header-select">Ручка:</label>
+			<div class="custom-select-wrapper">
+				<select name="Ручка" id="handle-select" class="form-select">
+				{% for option in form.Ручка.field.queryset %}
+					<option value="{{ option.id }}" data-name="{{ option.handle_name }}" data-price-increase="{{ option.price_increase }}">
+						{{ option.handle_name }}
+					</option>
+				{% endfor %}
+				</select>
+			</div>
+
+			{% if product.name|contains:"Хамам Элит" or product.name|contains:"Хамам Стандарт" %}
+
+				<div class="card-threshold">
+					<label class="threshold-selection">
+						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
+						без порога
+					</label>
+					<label  class="threshold-selection">
+						<input type="radio" name="Порог" data-price-increase="1500" value="да" id="threshold-yes">
+						с порогом
+					</label>
+				</div>
+			{% endif %}
+
+				<div class="door-selection d-flex">
+				<label class="door-option">
+					<input type="radio" name="Открывание" value="Правое (на себя, петли справа)" id="right" checked style="display: none;">
+					<div class="d-flex align-items-center card-info-general-door__item">
+						<div class="card-info-general-door__icon">
+							<svg width="29" height="50" viewBox="0 0 29 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="-0.74986" y="0.74986" width="26.7951" height="39.8472" rx="1.49972" transform="matrix(-1 0 0 1 27.34 2)" stroke="#656565" stroke-width="1.49972"></rect>
+								<path d="M28.8397 5.20249C28.8397 3.64394 27.2932 2.55762 25.8271 3.08627L9.5299 8.9626C8.63792 9.28422 8.04337 10.1306 8.04337 11.0788V47.643C8.04337 49.2016 9.58985 50.2879 11.056 49.7593L27.3532 43.8829C28.2452 43.5613 28.8397 42.7149 28.8397 41.7667V5.20249Z" fill="#656565"></path>
+								<ellipse cx="0.965861" cy="1.50674" rx="0.965861" ry="1.50674" transform="matrix(-1 0 0 1 12.5406 25.9233)" fill="white"></ellipse>
+							</svg>
+						</div>
+						<div class="card-info-general-door__text">Правая дверь</div>
+					</div>
+				</label>
+				<label class="door-option">
+					<input type="radio" name="Открывание" value="Левое (на себя, петли слева)" id="left" style="display: none;">
+					<div class="d-flex align-items-center card-info-general-door__item ">
+						<div class="card-info-general-door__icon">
+							<svg width="29" height="50" viewBox="0 0 29 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="0.99986" y="2.74986" width="26.7951" height="39.8472" rx="1.49972" stroke="#656565" stroke-width="1.49972"></rect>
+								<path d="M0.25 5.20249C0.25 3.64394 1.79648 2.55762 3.26263 3.08627L19.5598 8.9626C20.4518 9.28422 21.0464 10.1306 21.0464 11.0788V47.643C21.0464 49.2016 19.4999 50.2879 18.0337 49.7593L1.73653 43.8829C0.844548 43.5613 0.25 42.7149 0.25 41.7667V5.20249Z" fill="#656565"></path>
+								<ellipse cx="17.5149" cy="27.43" rx="0.965861" ry="1.50674" fill="white"></ellipse>
+							</svg>
+						</div>
+						<div class="card-info-general-door__text">Левая дверь</div>
+					</div>
+				</label>
+				</div>
+
+				
+			<div class="d-flex bd-highlight align-items-center card-cart">
+				<div class="quantity p-2 bd-highlight">
+					<label for="quantity-input">Количество:</label>
+					<input type="number" name="Количество" id="quantity-input" class="form-control" value="1" min="1" max="100">
+				</div>
+
+				<div class="cart p-2 bd-highlight">
+					<button id="cart" type="submit" name="action" value="add_to_cart"> 
+					<img
+                	src="{% static 'imgs/icons/cart-icon.svg' %}"
+                	alt="В корзину"
+                	title="В корзину"
+                	width="28"
+                	height="28"
+					style="margin-top: -0.2rem;"
+              		/> В корзину</button>
+				</div>
+			</div>
+			</form>
 		</div>
-		
+		<div class="row other_text"><span><a href="javascript:void(0);" id="scroll-to-characteristics">*перед оформлением заказа рекомендуем ознакомиться с характеристиками двери</a></span></div>
+
+		</div>
 	</div>
-	<div class="row text-start">
-		<div class="col">
+	<div id="product-details">
+	<!-- Кнопки переключения -->
+    <div class="tabs">
+        <button id="description-tab" class="tab-button active">Описание</button>
+        <button id="characteristics-tab" class="tab-button">Характеристики</button>
+    </div>
+	<div class="row text-start" >
+		<div class="col tab-content" id="description-content" >
 			<div>{{ product.category.products_description|safe  }}</div>
 			<div>{{ product.description|safe }}</div>
 		</div>
+		<div id="characteristics-content" class="tab-content hidden row">
+			<table>
+				<tbody>
+					<tr>
+						<td style="width: 11rem;">Размер проема</td>
+						<td id="aperture-size">—</td>
+					</tr>
+					<tr>
+						<td>Размер коробки</td>
+						<td id="box-size">—</td>
+					</tr>
+					<tr>
+						<td>Размер стекла</td>
+						<td id="glass-size">—</td>
+					</tr>
+					{% for key, value in product.characteristics.items %}
+					<tr>
+						<td> {{ key }}</td>
+						<td>{{ value }}</td>
+					</tr>
+					{% endfor %}
+
+					<tr>
+					<td>Ручка</th>
+					<td id="handle-name">—</td>
+					</tr>
+					<tr>
+						<td>Порог</th>
+						<td id="threshold">—</td>
+					</tr>
+					<tr>
+						<td>Приточка воздуха</th>
+						<td id="air-supply">—</td>
+					</tr>
+					<tr>
+						<td>Открывание</th>
+						<td id="opening-side">—</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
+	</div>
+
+
+
+
+	<h3>Комплектация:</h3>
+
+	<div class='row justify-content-center'>
+		{% for image in product.category.images.all %}
+			{% if not forloop.first %}
+				<div class='col-xl-4 col-lg-6 col-md-6 col-xs-12 col-sm-12 text-center description-image'>
+					<img 
+						src="{{ image.image.url }}" 
+						alt="{{ image.description }}" 
+						style="border-radius:15px; height: 250px; cursor: pointer;" 
+						onclick="openModal('{{ image.image.url }}')"
+					>
+					<div class="">{{ image.description }}</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	
+<!-- Модальное окно -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" src="" alt="Modal Image">
+</div>
 	<br>
 	<br>
 </div>
+</div>
 <br>
 </main>
+
+<script src="{% static 'js/product-view.js' %}"></script>
+
+{% if product.name|contains:"Хамам Стандарт" or product.name|contains:"Хамам Элит" %}
+	<script src="{% static 'js/hamam-standart-elit.js' %}"></script>
+{% endif %}
+
 
 {% endblock container %}

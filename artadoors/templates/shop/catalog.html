@@ -47,23 +47,3 @@
 
 {% endblock %}
 
-
-
-Все картинки
-{% for image in child.images.all %}
-<div><img src="{{ image.image.url }}" alt="{{ image.description }}"></div>
-{% endfor %}
-
-
-Кроме первой картинки
-{% for image in child.images.all %}
-    {% if not forloop.first %}  # Проверяем, не является ли текущая итерация первой
-        <div>
-            <img src="{{ image.image.url }}" alt="{{ image.description }}">
-        </div>
-    {% endif %}
-{% endfor %}
-
-
-
-

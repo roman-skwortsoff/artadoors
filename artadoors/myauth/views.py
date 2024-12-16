@@ -2,11 +2,7 @@
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-
 from myauth.forms import LoginForm, RegisterForm
-
-# Create your views here.
-
 
 
 def login_user(request):
@@ -29,7 +25,6 @@ def login_user(request):
             context = {
                 'login_form': login_form,
             }
-
     return render(request, 'user/login.html', context)
 
 
