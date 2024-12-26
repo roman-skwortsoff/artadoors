@@ -178,7 +178,7 @@
       <ul class="menu-list">
         <li class="dropdown">
           <div class="menu-link">
-            <a href="/shop/">
+            <a href="{% url 'shop:catalog' %}">
               <img
                 src="{% static 'imgs/icons/catalog-icon.svg' %}"
                 alt="Каталог"
@@ -199,10 +199,10 @@
               />
             </i>
             <div class="dropdown-hamam">
-              <li class="hdr-link"><a href="/shop/hamam/">Двери в хамам</a></li>
-              <li class="hdr-sublink"><a href="#">Серия Престиж</a></li>
-              <li class="hdr-sublink"><a href="#">Серия Элит</a></li>
-              <li class="hdr-sublink"><a href="#">Серия Стандарт</a></li>
+              <li class="hdr-link"><a href="{% url 'shop:product-by-category' category_slug='hamam'%}">Двери в хамам</a></li>
+              <li class="hdr-sublink"><a href="{% url 'shop:product-by-category' category_slug='hamam-prestizh-60g'%}">Серия Престиж 60G</a></li>
+              <li class="hdr-sublink"><a href="{% url 'shop:product-by-category' category_slug='hamam-elit'%}">Серия Элит</a></li>
+              <li class="hdr-sublink"><a href="{% url 'shop:product-by-category' category_slug='hamam-standart'%}">Серия Стандарт</a></li>
             </div>
             <i class="dropdown-img">
               <img
@@ -214,9 +214,9 @@
             </i>
             <div class="dropdown-sauna">
               <li class="hdr-link">
-                <a href="/shop/sauna/">Двери для сауны и бани</a>
+                <a href="/shop/catalog/sauna/">Двери для сауны и бани</a>
               </li>
-              <li class="hdr-sublink"><a href="#">Серия Статус</a></li>
+              <li class="hdr-sublink"><a href="#">Серия Статус 60G</a></li>
               <li class="hdr-sublink"><a href="#">Серия Люкс</a></li>
               <li class="hdr-sublink"><a href="#">Серия Элит</a></li>
               <li class="hdr-sublink"><a href="#">Серия Стандарт</a></li>
@@ -241,7 +241,7 @@
         <li>
           <div class="menu-link">
             {% if user.is_authenticated %}
-            <a href="." 
+            <a href="{% url 'user_detail' %}" 
             {% else %} 
             <a href="{% url 'login' %}" 
             {% endif %}
@@ -259,7 +259,7 @@
         </li>
         <li>
           <div class="menu-link">
-            <a href="#">
+            <a href="{% url 'shop:favorites' %}">
               <img
                 src="{% static 'imgs/icons/favorite.svg' %}"
                 alt="Избранное"
@@ -287,7 +287,7 @@
         </li>
         <li>
           <div class="menu-link">
-            <a href="#">
+            <a href="{% url 'shop:cart' %}">
               <img
                 src="{% static 'imgs/icons/cart-icon.svg' %}"
                 alt="Корзина"

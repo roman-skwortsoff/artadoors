@@ -1,0 +1,24 @@
+{% extends 'base-page.html' %} {% load static %} {% block title %}
+<title>Log In</title>
+{% endblock title %} {% block container %}
+<main class="main">
+  <div class="container">
+    <br />
+    <div class="row other_text">
+      <div class="col"><a href="/">Главная </a> > <a href=".">Личные данные</a></div>
+    </div>
+    <br />
+    
+    <h1>Личная информация</h1>
+    <p>Имя: {{ request.user.first_name }}</p>
+    <p>Фамилия: {{ request.user.last_name }}</p>
+    <p>Email: {{ request.user.email }}</p>
+    <p>Город: {{ request.user.profile.city }}</p>
+    <p>Дата рождения: {{ request.user.profile.birth_date|date:"d E Y" }}</p>
+    <p>Номер телефона: {{ request.user.profile.phone_number }}</p>
+    
+    <a href="{% url 'edit_user' %}">Изменить данные</a>
+
+  </div>
+</main>
+{% endblock container %}

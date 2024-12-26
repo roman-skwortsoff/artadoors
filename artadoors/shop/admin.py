@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
-from .models import Product, Category, SizeOption, HandleOption, ProductImage, CategoryImage
+from .models import Product, Category, SizeOption, HandleOption, ProductImage, CategoryImage, Favorite, Cart
 from django_mptt_admin.admin import DjangoMpttAdmin
 
 
@@ -13,6 +13,7 @@ class ImagesInLine(admin.TabularInline):
     model = ProductImage
 class CatImagesInLine(admin.TabularInline):
     model = CategoryImage
+
 
 
 @admin.action(description='Archive products')
@@ -53,3 +54,13 @@ class CategoryAdmin(DjangoMpttAdmin):
         CatImagesInLine,
     ]
 admin.site.register(Category, CategoryAdmin)
+
+class FavoriteAdmin(admin.ModelAdmin):
+    list_display = 'user', 'session_key', 'product', 'size_option', 'handle_option', 'threshold', 'opening_side', 'price', 'added_at'
+
+admin.site.register(Favorite, FavoriteAdmin)
+
+class CartAdmin(admin.ModelAdmin):
+    list_display = 'user', 'session_key', 'product', 'size_option', 'handle_option', 'threshold', 'opening_side', 'price', 'added_at'
+
+admin.site.register(Cart, CartAdmin)

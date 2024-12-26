@@ -1,0 +1,142 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+<title>Избранное</title>
+<link rel="stylesheet" href="{% static 'css/product-styles.css' %}" />
+{% endblock %}
+
+{% block container %}
+<div class="main">
+
+<div class="container">
+    <br>
+	<div class="row other_text">
+		<div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:favorites' %}">Избранное</a>
+        </div>
+    </div>
+    <br>
+    <h1>Избранное</h1>
+    {% if messages %}
+        <div class="row">
+        {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+              </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% if favorite_items.exists %}
+    <div class="row justify-content-center">
+    {% for item in favorite_items %}
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-md-6 col-sm-12 col-xs-12 favorite-card" > 
+            <a href="{% url 'shop:product-view' item.product.slug %}" class="product-name">
+                <h3 style="padding-left: 1rem;">{{ item.product.name }}</h3></a>
+            <div>
+            {% with first_image=item.product.images.all|first %}                   
+				<img 
+					src="{{ first_image.image.url }}" 
+					title="{{ product.name }}" 
+					alt="{{ product.name }}"
+					style="border-radius: 5px; max-height: 350px; cursor: pointer;"
+                    onclick="openModal('{{ first_image.image.url }}')"
+				> 
+			{% endwith %}
+            </div>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width: 9rem;">Размер проема:</td>
+                    <td>{{ item.size_option.size_name }}</td>
+                </tr>
+                <tr>
+                    <td>Размер коробки:</td>
+                    <td>{{ item.box_size }}</td>
+                </tr>
+                <tr>
+                    <td>Размер стекла:</td>
+                    <td>{{ item.glass_size }}</td>
+                </tr>
+                {% for key, value in item.product.characteristics.items %}
+                <tr>
+				<td>{{ key }}:</td> <td>{{ value }}</td>
+                </tr>
+			    {% endfor %}
+                <tr>
+                    <td>Ручка: </td>
+                    <td>{{ item.handle_option.handle_name }}</td>
+                </tr>
+                <tr>
+                    <td>Порог: </td>
+                    <td>{{ item.threshold }}</td>
+                </tr>
+                <tr>
+                    <td>Открывание:</td>
+                    <td>{{ item.opening_side }}</td>
+                </tr>
+                <tr>
+                    <td>Приточка воздуха: </td>
+                    <td>{{ item.air_gap }}</td>
+                </tr>
+                <tr>
+                    <td>Цена: </td>
+                    <td>{{ item.price|floatformat:0 }} руб.</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="d-flex align-items-center card-cart"> 
+		        <form method="POST" class="d-flex align-items-center">
+                    {% csrf_token %}
+                    <div class="quantity p-2 bd-highlight">
+                        <label for="quantity-input">Количество:</label>
+                        <input type="hidden" name="action" value="add_to_cart">
+                        <input type="hidden" name="favorite_id" value="{{ item.id }}">
+                        <input type="number" name="quantity" id="quantity-input" value="1" min="1" max="100" class="form-control" style="width: 70px; margin-right: 10px;">
+                    </div>
+                    <div class="cart p-2 bd-highlight">
+                        <button id="cart" type="submit" name="action" value="add_to_cart"> 
+                        <img
+                        src="{% static 'imgs/icons/cart-icon.svg' %}"
+                        alt="В корзину"
+                        title="В корзину"
+                        width="28"
+                        height="28"
+                        style="margin-top: -0.2rem;"
+                          /> В корзину</button>
+                    </div>
+                </form>
+                <div class="col">
+                    <form method="POST" style="display: inline-block;">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="remove">
+                        <input type="hidden" name="favorite_id" value="{{ item.id }}">
+                        <button type="submit" class="btn delete">Удалить</button>
+                    </form>
+                </div> 
+            </div>
+                       
+        </div>
+    {% endfor %}
+    {% else %}
+    <div>Избранное пусто. Добавьте товары в избранное!</div>
+    {% endif %}
+        
+<!-- Модальное окно -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" src="" alt="Modal Image">
+</div>
+<div>
+<br>
+<a href="{% url 'shop:catalog' %}" class="btn btn-secondary">Вернуться к покупкам</a></div>
+
+<script src="{% static 'js/favorite-view.js' %}"></script>
+</div>
+<br>
+
+</div>
+
+{% endblock %}

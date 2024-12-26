@@ -12,7 +12,7 @@
 <div class="container">
 	<br>
 	<div class="row other_text">
-		<div class="col"><a href="/">Главная </a> > <a href="/shop/">Каталог</a>
+		<div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:catalog' %}">Каталог</a>
 		{% for ancestor in ancestors %}
 		 	> <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
 		{% endfor %}

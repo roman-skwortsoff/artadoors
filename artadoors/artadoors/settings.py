@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'myauth',
     'mptt',
     'django_mptt_admin',
+    'cart',
+    'favorites',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'shop.middleware.SaveOldSessionKeyMiddleware',
 ]
 
 ROOT_URLCONF = 'artadoors.urls'
@@ -109,9 +112,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Asia/Baku'
+
+USE_L10N = True
 
 USE_I18N = True
 

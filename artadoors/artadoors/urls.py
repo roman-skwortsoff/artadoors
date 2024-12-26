@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myauth.urls')),
     path('shop/', include('shop.urls')),
+    path('cart/', include('cart.urls')),
+    path('favorites/', include('favorites.urls')),
 ]

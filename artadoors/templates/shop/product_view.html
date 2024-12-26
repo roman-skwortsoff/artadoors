@@ -14,7 +14,7 @@
 <div class="container">
 	<br>
 	<div class="row other_text">
-		<div class="col"><a href="/">Главная </a> > <a href="/shop/">Каталог</a>
+		<div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:catalog' %}">Каталог</a>
 		{% for ancestor in ancestors %}
 		 	> <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
 		{% endfor %}
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 
-	<div class="row text-start order-details">
+		<div class="row text-start order-details">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 product-image"> 
 			{% with first_image=product.images.all|first %}                   
 				<img 
@@ -48,8 +48,15 @@
 			{% endif %}
 			<div><a href="javascript:void(0);" class="btn btn-link" id="scroll-to-details">Подробнее</a></div>
 			<h3><span>Цена: <input type="hidden" id="base-price" value="{{ product.base_price }}"> <span id="total-price">{{ product.base_price }}</span> руб.</span></h3>
-
+			
+			{% if messages %}
 			<div class="row">
+    			{% for message in messages %}
+      				<div class="alert alert-{{ message.tags }}">
+        			{{ message }}
+      				</div>
+    			{% endfor %}
+			{% endif %}
 			<form method="POST" id="product-form">
     		{% csrf_token %}
 			<button id="favorites" type="submit" name="action" value="add_to_favorites" "> <img
@@ -86,14 +93,13 @@
 			</div>
 
 			{% if product.name|contains:"Хамам Элит" or product.name|contains:"Хамам Стандарт" %}
-
 				<div class="card-threshold">
 					<label class="threshold-selection">
 						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
 						без порога
 					</label>
 					<label  class="threshold-selection">
-						<input type="radio" name="Порог" data-price-increase="1500" value="да" id="threshold-yes">
+						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes">
 						с порогом
 					</label>
 				</div>
@@ -146,13 +152,12 @@
 					style="margin-top: -0.2rem;"
               		/> В корзину</button>
 				</div>
+				
 			</div>
-			</form>
+		    </form>
+			<div class="row other_text"><span><a href="javascript:void(0);" id="scroll-to-characteristics">*перед оформлением заказа рекомендуем ознакомиться с характеристиками двери</a></span></div>
 		</div>
-		<div class="row other_text"><span><a href="javascript:void(0);" id="scroll-to-characteristics">*перед оформлением заказа рекомендуем ознакомиться с характеристиками двери</a></span></div>
-
 		</div>
-	</div>
 	<div id="product-details">
 	<!-- Кнопки переключения -->
     <div class="tabs">

@@ -1,9 +1,0 @@
-Радио по пунктам:
-label>
-	<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
-	без порога
-</label>
-<label>
-	<input type="radio" name="Порог" data-price-increase="1500" value="да" id="threshold-yes">
-	с порогом 12мм
-</label>

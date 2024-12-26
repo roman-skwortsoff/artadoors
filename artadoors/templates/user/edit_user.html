@@ -1,0 +1,37 @@
+{% extends 'base-page.html' %} {% load static %} {% block title %}
+<title>Log In</title>
+{% endblock title %} {% block container %}
+<main class="main">
+  <div class="container">
+    <br />
+    <div class="row other_text">
+      <div class="col"><a href="/">Главная </a> > <a href=".">Личные данные</a></div>
+    </div>
+    <br />
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <h1>Редактирование данных</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profile_form.city.label_tag }} {{ profile_form.city }}
+      {{ profile_form.phone_number.label_tag }} {{ profile_form.phone_number }}
+  
+      <label for="id_day">День</label>
+      {{ profile_form.day }}
+      <label for="id_month">Месяц</label>
+      {{ profile_form.month }}
+      <label for="id_year">Год</label>
+      {{ profile_form.year }}
+  
+      <button type="submit">Сохранить</button>
+  </form>
+  </div>
+</main>
+{% endblock container %}

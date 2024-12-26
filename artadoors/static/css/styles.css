@@ -185,8 +185,8 @@
 
 .dropdown-menu li {
     margin: 0;
-    padding: 4px 0;
-    font-size: 14px;
+    padding: 3px 0;
+    font-size: 15px;
 }
 
 .dropdown-menu a {
@@ -204,7 +204,7 @@
 }
 
 .hdr-sublink a {
-    margin: 0 20px;
+    margin: 0 3px 0 10px;
 }
 
 .hdr-link a:hover {
@@ -222,7 +222,7 @@
 .dropdown-menu {
     display: flex;
     gap: 1rem;
-    padding: 20px 50px;
+    padding: 20px 30px;
 }
 
 

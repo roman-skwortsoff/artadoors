@@ -3,6 +3,10 @@ from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from myauth.forms import LoginForm, RegisterForm
+from django.contrib.auth.decorators import login_required
+from .forms import UserUpdateForm, ProfileUpdateForm
+from .models import Profile
+from django.contrib import messages
 
 
 def login_user(request):
@@ -43,8 +47,11 @@ class RegisterView(TemplateView):
             user.set_password(user.password)
             user.email = user_form.cleaned_data['username']
             user.save()
+            session_key = request.session.session_key
+            if session_key:
+                request.session['old_session_key'] = session_key
             login(request, user)
-            return redirect('index')
+            return redirect('edit_user')
 
         context = {'user_form': user_form}
         return render(request, 'user/register.html', context)
@@ -53,3 +60,37 @@ class RegisterView(TemplateView):
 def logout_user(request):
     logout(request)
     return redirect('index')
+
+
+@login_required
+def user_detail(request):
+    profile = getattr(request.user, 'profile', None)
+    if not profile:
+        Profile.objects.create(user=request.user)  # Создаем профиль, если его нет
+    return render(request, 'user/user_detail.html')
+
+
+@login_required
+def edit_user(request):
+    profile = getattr(request.user, 'profile', None)
+    if not profile:
+        Profile.objects.create(user=request.user)  # Создаем профиль, если его нет
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Ваши данные успешно сохранены.')
+            return redirect('user_detail')
+        else:
+            messages.error(request, 'Пожалуйста, исправьте ошибки в форме.')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+    return render(request, 'user/edit_user.html', context)
