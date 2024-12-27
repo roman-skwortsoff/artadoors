@@ -1,8 +1,4 @@
 
-.dropdown:hover .dropdown-menu {
-    opacity: 0;
-    pointer-events: none;
-}
 
 .menu-item {
     padding: 1rem;

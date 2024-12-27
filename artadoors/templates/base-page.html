@@ -260,13 +260,18 @@
         <li>
           <div class="menu-link">
             <a href="{% url 'shop:favorites' %}">
-              <img
-                src="{% static 'imgs/icons/favorite.svg' %}"
-                alt="Избранное"
-                title="Избранное"
-                width="20"
-                height="20"
-              />
+              <div class="icon-container">
+                <img
+                  src="{% static 'imgs/icons/favorite.svg' %}"
+                  alt="Избранное"
+                  title="Избранное"
+                  width="20"
+                  height="20"
+                />
+                {% if favorites_count > 0 %} 
+                <span class="badge">{{ favorites_count }}</span>
+                {% endif %}
+              </div>
               <div>Избранное</div></a
             >
           </div>
@@ -288,13 +293,18 @@
         <li>
           <div class="menu-link">
             <a href="{% url 'shop:cart' %}">
-              <img
+              <div class="icon-container">
+                <img
                 src="{% static 'imgs/icons/cart-icon.svg' %}"
                 alt="Корзина"
                 title="Корзина"
                 width="20"
                 height="20"
-              />
+                />
+                {% if cart_count > 0 %} 
+                <span class="badge">{{ cart_count }}</span>
+                {% endif %}
+              </div>
               <div>Корзина</div></a
             >
           </div>
@@ -388,6 +398,9 @@
           </div>
         </div>
       </div>
+      <div>
+
+    </div>
     </footer>
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

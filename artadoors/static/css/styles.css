@@ -114,6 +114,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1000;
     animation: fixedMenu 0.00s forwards
 }
 .with_nav {
@@ -130,8 +131,13 @@
 }
 
 .menu-link:hover {
-    filter: invert(11%) sepia(80%) saturate(480%) hue-rotate(75deg) brightness(123%) contrast(57%)
+    filter: invert(11%) sepia(80%) saturate(480%) hue-rotate(75deg) brightness(123%) contrast(57%);
 }
+
+.menu-link:hover .badge {
+    filter: invert(100%) sepia(100%) saturate(8%) hue-rotate(0deg) brightness(104%) contrast(300%);
+}
+
 
 .menu-link {
     display: flex;
@@ -159,6 +165,35 @@
     color: inherit;
     text-decoration: none;
     padding: 10px 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-container img {
+    display: block;
+}
+
+
+.badge {
+    position: absolute;
+    top: -8px; /* Сдвиг вверх */
+    right: -19px; /* Сдвиг вправо */
+    background-color: #0b707b;
+    color: white;
+    font-size: 11px; /* Размер текста */
+    font-weight: bold;
+    border-radius: 50%; /* Закругление для круга */
+    padding: 2px 4px; /* Внутренние отступы */
+    min-width: 20px; /* Минимальная ширина для цифр */
+    text-align: center; /* Центрирование текста */
 }
 
 .dropdown-menu {

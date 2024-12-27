@@ -147,51 +147,10 @@ def custom_logout(request):
     return redirect('shop:catalog')  # Перенаправление после разлогина
 
 
-def sync_favorites(user, session_key):
-    """Синхронизирует избранное из сессии и аккаунта пользователя"""
-    print("[SYNC] Начало синхронизации для пользователя:", user, "session_key:", session_key)
-    session_favorites = Favorite.objects.filter(session_key=session_key, user__isnull=True)
-    print("[SYNC] Товары в сессии до синхронизации:", session_favorites)
-
-    for item in session_favorites:
-        # Проверяем, есть ли уже этот товар в избранном у пользователя
-        favorite_exists = Favorite.objects.filter(
-            user=user,
-            product=item.product,
-            size_option=item.size_option,
-            handle_option=item.handle_option,
-            threshold=item.threshold,
-            opening_side=item.opening_side,
-        ).exists()
-
-        if not favorite_exists:
-            # Переносим товар из сессии в избранное пользователя
-            item.user = user
-            item.session_key = None  # Убираем привязку к сессии
-            item.save()
-            print("[SYNC] Перенесено в избранное пользователя:", item)
-
-    # Удаляем все товары из сессии
-    session_favorites.delete()
-    print("[SYNC] Синхронизация завершена, товары из сессии удалены.")
-
-
 def favorites_view(request):
     # Получаем или создаем session_key
     session_key = request.session.session_key or request.session.create()
-    print("[VIEW] session_key:", session_key)
-    print("[VIEW] Пользователь:", "Анонимный" if not request.user.is_authenticated else request.user)
-
-    if not request.user.is_authenticated:
-        # Проверяем и сохраняем old_session_key
-        old_session_key = request.session.get('old_session_key')
-        if old_session_key is None:
-            request.session['old_session_key'] = session_key
-            request.session.modified = True  # Указываем, что сессия была изменена
-            print("[VIEW] Сохранен old_session_key для анонимного пользователя:", session_key)
-        else:
-            print("[VIEW] old_session_key уже существует:", old_session_key)
-
+    
     # Избранное для авторизованных и анонимных
     if request.user.is_authenticated:
         favorite_items = Favorite.objects.filter(user=request.user)
@@ -240,19 +199,7 @@ def favorites_view(request):
 def cart_view(request):
     # Получаем или создаем session_key
     session_key = request.session.session_key or request.session.create()
-    print("[VIEW] session_key:", session_key)
-    print("[VIEW] Пользователь:", "Анонимный" if not request.user.is_authenticated else request.user)
-
-    if not request.user.is_authenticated:
-        # Проверяем и сохраняем old_session_key
-        old_session_key = request.session.get('old_session_key')
-        if old_session_key is None:
-            request.session['old_session_key'] = session_key
-            request.session.modified = True  # Указываем, что сессия была изменена
-            print("[VIEW] Сохранен old_session_key для анонимного пользователя:", session_key)
-        else:
-            print("[VIEW] old_session_key уже существует:", old_session_key)
-
+    
     # Предзаполнение формы, если пользователь аутентифицирован
     initial_data = {}
     # корзина для авторизованных и анонимных

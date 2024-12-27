@@ -6,6 +6,7 @@ from myauth.forms import LoginForm, RegisterForm
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .models import Profile
+from shop.models import Cart, Favorite  # Импорт моделей корзины и избранного
 from django.contrib import messages
 
 
@@ -16,6 +17,11 @@ def login_user(request):
         if login_form.is_valid():
             username = login_form.cleaned_data['username']
             password = login_form.cleaned_data['password']
+            # Сохраняем old_session_key
+            session_key = request.session.session_key or request.session.create()
+            request.session['old_session_key'] = session_key
+            print("[LOGIN] Сохранен old_session_key:", session_key)
+
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
@@ -43,14 +49,20 @@ class RegisterView(TemplateView):
     def post(self, request):
         user_form = RegisterForm(request.POST)
         if user_form.is_valid():
+            # Создаем пользователя
             user = user_form.save()
             user.set_password(user.password)
             user.email = user_form.cleaned_data['username']
             user.save()
-            session_key = request.session.session_key
-            if session_key:
-                request.session['old_session_key'] = session_key
+
+            # Сохраняем old_session_key
+            session_key = request.session.session_key or request.session.create()
+            request.session['old_session_key'] = session_key
+            print("[REGISTER] Сохранен old_session_key:", session_key)
+
+            # Логиним пользователя
             login(request, user)
+
             return redirect('edit_user')
 
         context = {'user_form': user_form}
