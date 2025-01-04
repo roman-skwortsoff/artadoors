@@ -2,6 +2,14 @@
     margin-left: -4px;
     margin-right: 0;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #0b707b;
+}
 
 * {
     max-width: 100%;
@@ -136,6 +144,7 @@
 
 .menu-link:hover .badge {
     filter: invert(100%) sepia(100%) saturate(8%) hue-rotate(0deg) brightness(104%) contrast(300%);
+    opacity: 0.7;
 }
 
 
@@ -272,16 +281,17 @@
     color: #0b707b;    
 }
 
-#mybtn {
+.mybtn {
     background: linear-gradient(#837372, #7a5f5d);
     color: #faf7f5;
     text-decoration: none;    
-    padding: 6px 12px;
+    padding: 15px 15px;
     border: 1px solid #837372;
     border-radius: 7px;
 }
 
-#mybtn:hover{ color: #6ed3ca; }
+.mybtn:hover  {
+    color: #79bbbb; }
 
 .footer a:after {
     display: block;
@@ -310,15 +320,6 @@
 
 .mess a{
     margin-bottom: 3px;
-}
-
-.main a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.main a:hover {
-    color: #0b707b;
 }
 
 .other_text a {

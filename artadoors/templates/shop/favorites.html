@@ -1,9 +1,11 @@
 {% extends 'base-page.html' %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %}
 <title>Избранное</title>
 <link rel="stylesheet" href="{% static 'css/product-styles.css' %}" />
+<link rel="stylesheet" href="{% static 'css/favorites-styles.css' %}" />
 {% endblock %}
 
 {% block container %}
@@ -30,9 +32,9 @@
     <div class="row justify-content-center">
     {% for item in favorite_items %}
 
-        <div class="col-xl-6 col-lg-6 col-md-6 col-md-6 col-sm-12 col-xs-12 favorite-card" > 
-            <a href="{% url 'shop:product-view' item.product.slug %}" class="product-name">
-                <h3 style="padding-left: 1rem;">{{ item.product.name }}</h3></a>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 favorite-card"  > 
+            <a href="{% url 'shop:product-view' item.product.slug %}" >
+                <h3 class="product-name" >{{ item.product.name }}</h3></a>
             <div>
             {% with first_image=item.product.images.all|first %}                   
 				<img 
@@ -45,27 +47,31 @@
 			{% endwith %}
             </div>
 
-            <table>
+            <table class="fav-table">
                 <tbody>
                 <tr>
-                    <td style="width: 9rem;">Размер проема:</td>
-                    <td>{{ item.size_option.size_name }}</td>
+                    <td class="fav-table-first">Размер проема:</td>
+                    <td>{{ item.size_option.size_name }} мм</td>
                 </tr>
                 <tr>
                     <td>Размер коробки:</td>
-                    <td>{{ item.box_size }}</td>
+                    <td>{{ item.box_size }} мм</td>
                 </tr>
                 <tr>
                     <td>Размер стекла:</td>
-                    <td>{{ item.glass_size }}</td>
+                    <td>{{ item.glass_size }} мм</td>
                 </tr>
                 {% for key, value in item.product.characteristics.items %}
                 <tr>
-				<td>{{ key }}:</td> <td>{{ value }}</td>
+                    <td
+                    {% if key|contains:"Петли" %}
+                     class="fav-table-big-field"
+                    {% endif %} >{{ key }}:</td>
+                    <td >{{ value }}</td>
                 </tr>
 			    {% endfor %}
                 <tr>
-                    <td>Ручка: </td>
+                    <td class="fav-table-big-field">Ручка: </td>
                     <td>{{ item.handle_option.handle_name }}</td>
                 </tr>
                 <tr>
@@ -87,16 +93,16 @@
                 </tbody>
             </table>
 
-            <div class="d-flex align-items-center card-cart"> 
-		        <form method="POST" class="d-flex align-items-center">
+            <div class="row d-flex align-items-center card-cart"> 
+		        <form method="POST" class="d-flex justify-content-center align-items-center col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-6 col-7 form">
                     {% csrf_token %}
-                    <div class="quantity p-2 bd-highlight">
+                    <div class="quantity ">
                         <label for="quantity-input">Количество:</label>
                         <input type="hidden" name="action" value="add_to_cart">
                         <input type="hidden" name="favorite_id" value="{{ item.id }}">
                         <input type="number" name="quantity" id="quantity-input" value="1" min="1" max="100" class="form-control" style="width: 70px; margin-right: 10px;">
                     </div>
-                    <div class="cart p-2 bd-highlight">
+                    <div class="cart">
                         <button id="cart" type="submit" name="action" value="add_to_cart"> 
                         <img
                         src="{% static 'imgs/icons/cart-icon.svg' %}"
@@ -105,15 +111,24 @@
                         width="28"
                         height="28"
                         style="margin-top: -0.2rem;"
-                          /> В корзину</button>
+                          /><span class="mob-no">В корзину</span></button>
                     </div>
                 </form>
-                <div class="col">
-                    <form method="POST" style="display: inline-block;">
+                <div class="col-xxl-7 col-xl-6 col-lg-5 col-md-3 col-sm-6 col-5 del-form">
+                    <form method="POST" class="form"  >
                         {% csrf_token %}
                         <input type="hidden" name="action" value="remove">
                         <input type="hidden" name="favorite_id" value="{{ item.id }}">
-                        <button type="submit" class="btn delete">Удалить</button>
+                        <button type="submit" class="btn delete"><span class="mob-img"><svg xmlns="http://www.w3.org/2000/svg" 
+                            width="20" 
+                            height="20" 
+                            fill="currentColor" 
+                            class="bi bi-x-lg" 
+                            viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                            </svg></span>
+                            <span class="mob-no">Удалить</span>
+                        </button>
                     </form>
                 </div> 
             </div>
@@ -121,7 +136,9 @@
         </div>
     {% endfor %}
     {% else %}
-    <div>Избранное пусто. Добавьте товары в избранное!</div>
+    <br>
+    <div class="row">Избранное пусто. Добавьте товары в избранное!</div>
+    <br>
     {% endif %}
         
 <!-- Модальное окно -->
@@ -131,12 +148,13 @@
 </div>
 <div>
 <br>
-<a href="{% url 'shop:catalog' %}" class="btn btn-secondary">Вернуться к покупкам</a></div>
+<br>
+<a href="{% url 'shop:catalog' %}" class="mybtn">Вернуться к покупкам</a></div>
 
 <script src="{% static 'js/favorite-view.js' %}"></script>
 </div>
 <br>
-
+<br>
 </div>
 
 {% endblock %}

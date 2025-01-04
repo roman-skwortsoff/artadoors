@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'myauth',
     'mptt',
     'django_mptt_admin',
-    'cart',
-    'favorites',
+    'selection',
 ]
 
 MIDDLEWARE = [

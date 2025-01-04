@@ -1,0 +1,62 @@
+{% extends 'base-page.html' %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block title %}
+<title>Каталог</title>
+<link rel="stylesheet" href="{% static 'css/catalog-styles.css' %}" />
+{% endblock %}
+
+{% block container %}
+<main class="main">
+    <div class="container">
+        <br>
+        <h4>Данный раздел в разработке, в процессе оформления. Логика работает, оформление планируется после записи базы данных.</h4>
+        <h2>Шаг 1</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ wizard.management_form }}
+    
+            <!-- Ошибки формы -->
+            {% if wizard.form.non_field_errors %}
+                <div class="form-errors">
+                    <ul>
+                        {% for error in wizard.form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+    
+            <!-- Поля формы -->
+            {% for field in wizard.form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small>{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <ul class="field-errors">
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+    
+            <!-- Навигация между шагами -->
+            <div class="form-navigation">
+                {% if wizard.steps.prev %}
+                    <button type="submit" name="wizard_goto_step" value="{{ wizard.steps.prev }}">Назад</button>
+                {% endif %}
+                <button type="submit">Далее</button>
+            </div>
+        </form>
+    </div>
+    <br>
+</main>
+
+{% endblock %}
+

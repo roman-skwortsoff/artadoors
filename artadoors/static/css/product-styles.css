@@ -1,18 +1,3 @@
-
-.favorite-card {
-    padding: 1rem;
-}
-
-.favorite-card:hover {
-    border-radius: 5px;
-    box-shadow: 4px 4px 14px rgba(66, 95, 86, 0.2);
-    transition: 0.3s;
-}
-
-.product-name:hover {
-    color: #10717e;
-}
-
 .product-image {
     padding-left: 0;
     padding-right: 0.5rem;
@@ -69,7 +54,6 @@ input[type="text"] {
 }
 
 .delete {
-    margin-left: 0.8rem;
     height: 4rem; 
     border: 2px solid #ddd;
     width: 120px;
@@ -78,14 +62,15 @@ input[type="text"] {
 .delete:hover {
     background-color: #ccc;
     color: #f9f9f9;
+    border: 2px solid #585151b9
 }
 
-.form-select:hover {
+.form-select:hover, .form-control:hover {
     border-color: #10717e; /* Бирюзовая рамка */
     box-shadow: 0 0 0 0.15rem rgba(25, 114, 105, 0.2); /* Бирюзовая тень */
 }
 
-.form-select:focus {
+.form-select:focus, .form-control:focus {
     border-color: #10717e; /* Бирюзовая рамка */
     box-shadow: 0 0 0 0.15rem #f9f9f9;
 }
@@ -147,24 +132,28 @@ input[type="text"] {
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    width: 38px; /* Устанавливаем ширину стрелочек */
-    height: 32px; /* Устанавливаем высоту стрелочек */
+    width: 22px; /* Устанавливаем ширину стрелочек */
+    height: 20px; /* Устанавливаем высоту стрелочек */
     background-size: 50%; /* Увеличиваем изображение стрелочек */
 }
 
 input[type="number"]::-moz-inner-spin-button {
-    width: 38px; /* Для Firefox (ограниченная поддержка) */
-    height: 32px;
+    width: 22px; /* Для Firefox (ограниченная поддержка) */
+    height: 20px;
 }
 
 input[type="radio"]:checked {
     accent-color: #10717e; /* Бирюзовый цвет */
 }
 
-.threshold-selection, .door-selection, .card-header-select, .quantity, .card-cart, .delete  {
+.threshold-selection, .door-selection, .card-header-select, .card-cart, .delete  {
     padding-top: 0.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+}
+
+.quantity {
+    padding: 0.25rem 0.5rem;
 }
 
 .order-details {
@@ -244,9 +233,12 @@ button#cart:hover img, button#favorites:hover img {
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 45%; /* Ширина картинки — 80% экрана */
-
+    max-width: 90%; /* Максимальная ширина на мобильных устройствах */
+    max-height: 90%; /* Максимальная высота */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
     border-radius: 10px;
+    object-fit: contain; /* Сохраняет пропорции, вписывая изображение */
 }
 
 /* Крестик для закрытия */

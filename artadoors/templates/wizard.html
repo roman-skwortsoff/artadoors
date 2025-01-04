@@ -1,0 +1,25 @@
+{% extends 'base-page.html' %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block title %}
+<title>Каталог</title>
+<link rel="stylesheet" href="{% static 'css/catalog-styles.css' %}" />
+{% endblock %}
+
+{% block container %}
+<main class="main">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ wizard.management_form }}
+            <!-- Отображение текущей формы -->
+            {{ wizard.form.as_p }}
+            <button type="submit">Далее</button>
+        </form>
+    </div>
+    <br>
+</main>
+
+{% endblock %}
+
