@@ -4,6 +4,7 @@
 
 {% block title %}
 <title>Каталог</title>
+<link rel="stylesheet" href="{% static 'css/catalog-first-page.css' %}" />
 <link rel="stylesheet" href="{% static 'css/catalog-styles.css' %}" />
 {% endblock %}
 
@@ -26,7 +27,7 @@
                         {% with first_image=child.images.all|first %}                   
                             <img src="{{ first_image.image.url }}" 
                             title="{{child.temp_name}}" 
-                            width="250px"
+                            width="200px"
                             alt="{{child.temp_name}}"
                             style="border-radius: 10px;"> 
                             {% endwith %}

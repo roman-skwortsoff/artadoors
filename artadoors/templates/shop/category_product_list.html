@@ -50,13 +50,13 @@
 				{% with first_image=child.images.all|first %}                   
 					<img src="{{ first_image.image.url }}" 
 					title="{{child.temp_name}}" 
-					width="130px"
+					width="140px"
 					alt="{{child.temp_name}}"
 					style="border-radius: 5px;"> 
 				{% endwith %}
 				</div>    
 				<div class="col-8 cat-name">                      
-					<h5>{{ child.temp_name }}</h5>
+					<h5 style="margin-top: 15px;">{{ child.temp_name }}</h5>
 					<div class="other_text">{{child.description}}</div>
 				</div>
 			</div>
