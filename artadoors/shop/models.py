@@ -187,6 +187,7 @@ class Order(models.Model):
     def __str__(self):
         return f"Order #{self.id} ({self.get_status_display()})"
 
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True)

@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'shop.middleware.SaveOldSessionKeyMiddleware',
+    'shop.middleware.SessionRateLimitMiddleware',
 ]
 
 ROOT_URLCONF = 'artadoors.urls'

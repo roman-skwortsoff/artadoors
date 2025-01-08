@@ -65,16 +65,6 @@ input[type="text"] {
     border: 2px solid #585151b9
 }
 
-.form-select:hover, .form-control:hover {
-    border-color: #10717e; /* Бирюзовая рамка */
-    box-shadow: 0 0 0 0.15rem rgba(25, 114, 105, 0.2); /* Бирюзовая тень */
-}
-
-.form-select:focus, .form-control:focus {
-    border-color: #10717e; /* Бирюзовая рамка */
-    box-shadow: 0 0 0 0.15rem #f9f9f9;
-}
-
 
 /* Скрытие содержимого */
 .tab-content {
@@ -233,8 +223,8 @@ button#cart:hover img, button#favorites:hover img {
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 90%; /* Максимальная ширина на мобильных устройствах */
-    max-height: 90%; /* Максимальная высота */
+    max-width: 70%; /* Максимальная ширина на мобильных устройствах */
+    max-height: 70%; /* Максимальная высота */
     width: auto; /* Автоматическая ширина для сохранения пропорций */
     height: auto; /* Автоматическая высота для сохранения пропорций */
     border-radius: 10px;
@@ -269,6 +259,13 @@ button#cart:hover img, button#favorites:hover img {
     .product-image {
         padding: 0;
     }
+
+    .modal{
+        min-width: 80%;
+
+    }
+
+    
 }
 
 @media (max-width: 999px){

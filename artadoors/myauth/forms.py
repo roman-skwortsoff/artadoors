@@ -44,7 +44,6 @@ class RegisterForm(forms.ModelForm):
     last_name = forms.CharField(label='Фамилия', validators=[validators.RegexValidator(r'^[А-Яа-я]', 'Только русскими буквами, не должно быть пустым')])
 
 
-
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
@@ -76,6 +75,8 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['city', 'phone_number']  # Исключаем birth_date
+
+    phone_number = forms.CharField(label='Номер телефона', validators=[validators.RegexValidator(r'^((\+7|8)[-\s]?)?(\(?\d{3}\)?[-\s]?)?\d{3}[-\s]?\d{2}[-\s]?\d{2}$', 'Корректный номер телефона!')])
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -1,23 +1,80 @@
-{% extends 'base-page.html' %} {% load static %} {% block title %}
+{% extends 'base-page.html' %} 
+{% load static %} 
+
+{% block title %}
 <title>Log In</title>
-{% endblock title %} {% block container %}
+{% endblock title %} 
+
+{% block container %}
 <main class="main">
   <div class="container">
     <br />
     <div class="row other_text">
-      <div class="col"><a href="/">Главная </a> > <a href=".">Личные данные</a></div>
+      <div class="col"><a href="/">Главная </a> > <a href=".">Личный кабинет</a></div>
     </div>
     <br />
+
+    <h2 class="row">
+      Здравствуйте, {{ request.user.first_name }}!
+    </h2>
+    <h5 class="row">
+      На данной странице можно смотреть выполнение заказов и редактировать личные данные.
+    </h5>
+    <br>
+
+    {% if orders %}
+    <h4 class="row">Ваши заказы:</h4>
+            {% for order in orders reversed %}            
+            <a href="{% url 'user_order' pk=order.id %}"> <div class="row" style="margin-left: 1rem; font-size: 18px;"> {{ forloop.counter }}. Заказ от {{ order.created_at }} на {{ order.total_price|floatformat:0 }} руб. <strong>Статус заказа: {{ order.status }}</strong></div></a>
+            {% endfor %}
+    {% else %}
+    <h4 class="row" style="margin-left: 40px;"> Пока нет заказов </h4>
+    {% endif %}
+
+    <br>
+    <h3 style="margin-bottom: 20px;">Личная информация</h3>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Имя:</td>
+          <td>{{ request.user.first_name }}</td>
+        </tr>
+        <tr>
+          <td>Фамилия:</td>
+          <td>{{ request.user.last_name }}</td>
+        </tr>
+
+        <tr>
+          <td>Город:</td>
+          <td>{{ request.user.profile.city }}</td>
+        </tr>
+        <tr>
+          <td>Дата рождения:</td>
+          <td>{{ request.user.profile.birth_date|date:"d E Y" }}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{ request.user.email }}</td>
+        </tr>
+        <tr>
+          <td>Номер телефона:</td>
+          <td>{{ request.user.profile.phone_number }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+    <br>
     
-    <h1>Личная информация</h1>
-    <p>Имя: {{ request.user.first_name }}</p>
-    <p>Фамилия: {{ request.user.last_name }}</p>
-    <p>Email: {{ request.user.email }}</p>
-    <p>Город: {{ request.user.profile.city }}</p>
-    <p>Дата рождения: {{ request.user.profile.birth_date|date:"d E Y" }}</p>
-    <p>Номер телефона: {{ request.user.profile.phone_number }}</p>
-    
-    <a href="{% url 'edit_user' %}">Изменить данные</a>
+    <div class="row d-flex justify-content-space-beetwen"> 
+      <div class="col"><a href="{% url 'edit_user' %}" class="mybtn">Изменить данные</a></div>
+      <div class="col-1"><a href="{% url 'logout' %}" class="mybtn">Выйти</a></div></div>
+
+    </div>
+    <br>
+    <br>
 
   </div>
 </main>

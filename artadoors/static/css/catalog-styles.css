@@ -1,5 +1,12 @@
 
 
+.mybtn {
+    height: 60px;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+}
+
 .menu-item {
     padding: 1rem;
 }
@@ -15,12 +22,34 @@
     padding-top: 0.7rem;
 }
 
+.menu-item h5 {
+    font-size: 1.2rem;
+}
+
+.rotate {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 
 @media (min-width: 1119px) {
 }
 
 
-@media (max-width: 1118px) {
+@media (max-width: 1199px) {
+    .menu-item h5 {
+        font-size: 1.1rem;
+    }
+
 }
 
 @media (max-width: 999px){

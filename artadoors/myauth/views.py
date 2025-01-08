@@ -1,13 +1,14 @@
 
 from django.contrib.auth import logout, authenticate, login
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from myauth.forms import LoginForm, RegisterForm
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .models import Profile
-from shop.models import Cart, Favorite  # Импорт моделей корзины и избранного
+from shop.models import Cart, Favorite, Order, OrderItem  # Импорт моделей корзины и избранного
 from django.contrib import messages
+from django.http import HttpRequest, HttpResponse, HttpResponseForbidden
 
 
 def login_user(request):
@@ -79,7 +80,26 @@ def user_detail(request):
     profile = getattr(request.user, 'profile', None)
     if not profile:
         Profile.objects.create(user=request.user)  # Создаем профиль, если его нет
-    return render(request, 'user/user_detail.html')
+    orders = Order.objects.filter(user=request.user)
+    print(orders)    
+    return render(request, 'user/user_detail.html', {'orders': orders})
+
+@login_required
+def user_order(request: HttpRequest, pk: int) -> HttpResponse:
+    order = get_object_or_404(Order, id=pk)
+
+    # Проверяем, что заказ принадлежит текущему пользователю или сессии
+    if request.user.is_authenticated:
+        if order.user != request.user:
+            return HttpResponseForbidden("У вас нет доступа к этому заказу.")
+    else:
+        session_key = request.session.session_key
+        if order.session_key != session_key:
+            return HttpResponseForbidden("У вас нет доступа к этому заказу.")
+    
+    # Если всё в порядке, отобразить заказ
+    order_items = OrderItem.objects.filter(order=order)
+    return render(request, 'user/user_order.html', {'order': order, 'order_items': order_items})
 
 
 @login_required

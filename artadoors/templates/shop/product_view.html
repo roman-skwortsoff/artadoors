@@ -7,6 +7,7 @@
 {% block title %}
 <title>{{product.name}}</title>
 <link rel="stylesheet" href="{% static 'css/product-styles.css' %}" />
+<link rel="stylesheet" href="{% static 'css/product-catalog-styles.css' %}" />
 {% endblock %}
 
 {% block container %}
@@ -14,11 +15,12 @@
 <div class="container">
 	<br>
 	<div class="row other_text">
-		<div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:catalog' %}">Каталог</a>
-		{% for ancestor in ancestors %}
-		 	> <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
-		{% endfor %}
-		> <a href="{% url 'shop:product-by-category' category_slug=product.category.slug %}"> {{ product.category.temp_name }}</a>
+		<div class="col"><a href="/">Главная</a>><a href="{% url 'shop:catalog' %}">Каталог</a>
+			{% for ancestor in ancestors %}
+			><a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}">{{ ancestor.temp_name }}</a>
+			{% endfor %}
+			><a href="{% url 'shop:product-by-category' category_slug=product.category.slug %}">{{ product.category.temp_name }}</a>>
+			<a href="."> Дверь {{ product.name }}</a>
 		</div>
 	</div>
 	<br>
@@ -92,8 +94,8 @@
 				</select>
 			</div>
 
+			<div class="card-threshold">
 			{% if product.name|contains:"Хамам Элит" or product.name|contains:"Хамам Стандарт" %}
-				<div class="card-threshold">
 					<label class="threshold-selection">
 						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
 						без порога
@@ -102,8 +104,28 @@
 						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes">
 						с порогом
 					</label>
-				</div>
+			{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"без порога" %}
+			        <br>
+					<label class="threshold-selection" style="margin-left: 20px; display: none;">
+						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
+						без порога
+					</label>
+					<label  class="threshold-selection" style="display: none;">
+						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes">
+						с порогом
+					</label>
+			{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"с порогом" %}
+			        <br>
+					<label class="threshold-selection" style="display: none;">
+						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no">
+						без порога
+					</label>
+					<label  class="threshold-selection" style="margin-left: 20px; display: none;">
+						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes" checked>
+						с порогом
+					</label>
 			{% endif %}
+		    </div>
 
 				<div class="door-selection d-flex">
 				<label class="door-option">
@@ -225,7 +247,7 @@
 					<img 
 						src="{{ image.image.url }}" 
 						alt="{{ image.description }}" 
-						style="border-radius:15px; height: 250px; cursor: pointer;" 
+						style="border-radius:15px; height: 250px; cursor: pointer; padding: 0 5px;" 
 						onclick="openModal('{{ image.image.url }}')"
 					>
 					<div class="">{{ image.description }}</div>
@@ -244,13 +266,25 @@
 </div>
 </div>
 <br>
+<div class="container">
+	<div class="nav-buttons">
+	<div class="d-flex justify-content-between align-items-center">
+		<div class="col" ><a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn btn-back"> <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+		  </svg> Назад</span></a></div>
+        <div class="col text-end"> <div><a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">Каталог</a></div></div>
+	</div>
+</div>
 </main>
 
 <script src="{% static 'js/product-view.js' %}"></script>
 
 {% if product.name|contains:"Хамам Стандарт" or product.name|contains:"Хамам Элит" %}
 	<script src="{% static 'js/hamam-standart-elit.js' %}"></script>
+{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"с порогом" %}
+	<script src="{% static 'js/hamam-prestizh.js' %}"></script>
+{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"без порога" %}
+	<script src="{% static 'js/hamam-prestizh_bp.js' %}"></script>
 {% endif %}
-
 
 {% endblock container %}

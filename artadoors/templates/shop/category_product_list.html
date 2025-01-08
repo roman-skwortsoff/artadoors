@@ -5,6 +5,7 @@
 {% block title %}
 <title>{{category.title}}</title>
 <link rel="stylesheet" href="{% static 'css/catalog-styles.css' %}" />
+<link rel="stylesheet" href="{% static 'css/product-catalog-styles.css' %}" />
 {% endblock %}
 
 {% block container %}
@@ -19,20 +20,18 @@
 		> <a href="{% url 'shop:product-by-category' category_slug=category.slug %}"> {{ category.temp_name }}</a>
 		</div>
 	</div>
-	<br>
-
-	<div class="row cat-title">
+	<div class="row cat-title" style="margin-top: 15px;">
 		<div class="col-1 hidden"></div>
 		<div class="col">
 			{% if ancestors %}
 				{% if ancestors|length == 1 %}
 					{% if childrens|length > 0 %}
-					<h5>Варианты исполнения дверей {{category.title}}</h5>
+					<h5>Варианты исполнения дверей {{category.title}}:</h5>
 					{% endif %}
 				{% elif ancestors|length >= 2 %}
 					{% if childrens|length > 0 %}
 						{% for item in ancestors|slice:"1:2" %}
-						<h5>Варианты исполнения дверей {{ item.temp_name }}</h5>
+						<h5>Варианты исполнения дверей {{ item.temp_name }}:</h5>
 						{% endfor %}
 					{% endif %}
 				{% endif %}
@@ -51,7 +50,7 @@
 				{% with first_image=child.images.all|first %}                   
 					<img src="{{ first_image.image.url }}" 
 					title="{{child.temp_name}}" 
-					width="125px"
+					width="130px"
 					alt="{{child.temp_name}}"
 					style="border-radius: 5px;"> 
 				{% endwith %}
@@ -66,6 +65,7 @@
 	{% endfor %}
     </div>
 	<br>
+
 	<div class="row cat-name">
 		<div class="col-1"></div>
 		<div class="col">
@@ -73,34 +73,119 @@
 		<h3>Двери {{category.title}}:</h3>
 	{% else %}
 		<h3>{{category.title}}:</h3>
-	</div>
+	    </div>
 	{% endif %}
 	</div>
-	<div class="row justify-content-center">
-	{% for .,product in products.items %}
-		<div class="col-хl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center products-list">
-			<a href="{% url 'shop:product-view' product_slug=product.slug %}">
-
-					<div class="col menu-item">
-						{% with first_image=product.images.all|first %}
-						<img src="{{ first_image.image.url }}"
-               			title="{{product.temp_name}}"
-               			width="300px"
-               			alt="{{product.temp_name}}"
-               			style="border-radius: 10px">
-            			{% endwith %}
-						<div class="product-name">
-						<h5 style="min-height: 3rem;">{{ product.name }}</h5>
-						<h5>от {{ product.base_price }} руб.</h5></div>
-
-				</div>
-			</a>
+</div>
+</div>
+<div class="products">
+	
+	<div class=" container">
+	<div id="product-list" class="row justify-content-center">
+	{% for product in products %}
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 text-center products-list">
+        <a href="{% url 'shop:product-view' product_slug=product.slug %}">
+            <div class="col menu-item">
+                {% with first_image=product.images.all|first %}
+                <img src="{{ first_image.image.url }}"
+                     title="{{ product.temp_name }}"
+                     width="240px"
+                     alt="{{ product.temp_name }}"
+                     style="border-radius: 10px">
+                {% endwith %}
+                <div class="product-name">
+                    <h5 style="min-height: 3rem;">{{ product.name }}</h5>
+                    <h5>от {{ product.base_price }} руб.</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+</div>
+</div>
+<div class="container">
+	<div class="nav-buttons">
+	<div class="d-flex justify-content-between align-items-center">
+		<div class="col" ><a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn btn-back"> <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+		  </svg> Назад</span></a></div>
+		{% if has_next %}
+		<div class="col text-center">
+			<button id="load-more" class="mybtn" data-page="2">
+				<svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" style="margin-left: 8px; ">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+				</svg>
+				Показать ещё 
+			</button>
 		</div>
-	{% endfor %}
+		{% endif %}
+        <div class="col text-end"> <div><a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">Каталог</a></div></div>
 	</div>
+</div>
 
 </div>
-<br>
+{% if has_next %}
+<script>
+    document.getElementById('load-more').addEventListener('click', function () {
+        const button = this;
+        const spinner = document.getElementById('spinner');
+        const page = button.getAttribute('data-page');
+        
+        // Показываем иконку и добавляем вращение
+        spinner.style.display = 'inline-block';
+        spinner.classList.add('rotate');
+
+        // Устанавливаем задержку перед загрузкой
+        setTimeout(() => {
+            // Отправка AJAX-запроса
+            fetch(`?page=${page}`, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const productList = document.getElementById('product-list');
+                
+                // Добавляем новые товары в список
+                data.products.forEach(product => {
+                    const productHtml = `
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 text-center products-list">
+                            <a href="/shop/product-view/${product.slug}">
+                                <div class="col menu-item">
+                                    <img src="${product.image_url}" title="${product.name}" width="300px" alt="${product.name}" style="border-radius: 10px">
+                                    <div class="product-name">
+                                        <h5 style="min-height: 3rem;">${product.name}</h5>
+                                        <h5>от ${product.base_price} руб.</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    `;
+                    productList.insertAdjacentHTML('beforeend', productHtml);
+                });
+
+                // Обновляем номер страницы
+                button.setAttribute('data-page', parseInt(page) + 1);
+
+                // Скрываем кнопку, если больше страниц нет
+                if (!data.has_next) {
+                    button.style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Ошибка при загрузке товаров:', error))
+            .finally(() => {
+                // Скрываем и останавливаем вращение иконки
+                //spinner.style.display = 'none';
+                spinner.classList.remove('rotate');
+            });
+        }, 300); // Задержка в миллисекундах (500 = 0.5 секунды)
+    });
+</script>
+{% endif %}
+
 </main>
+
 
 {% endblock container %}

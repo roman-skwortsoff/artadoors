@@ -1,0 +1,127 @@
+{% extends 'base-page.html' %} 
+{% load static %} 
+
+
+{% block title %}
+<title>Заказ</title>
+<link rel="stylesheet" href="{% static 'css/lk-styles.css' %}" />
+{% endblock title %} 
+
+{% block container %}
+<main class="main">
+  <div class="container">
+    <br />
+    <div class="row other_text">
+      <div class="col"><a href="/">Главная </a> > <a href="{% url 'user_detail' %}">Личный кабинет</a> > <a href=".">Заказ</a></div>
+    </div>
+    <br />
+
+    <h2 class="row">
+      Заказ от {{ order.created_at }} на {{ order.total_price|floatformat:0 }} руб.
+    </h2>
+    <br />
+    <table class="table">
+      <tbody>
+          <tr>
+              <td class="">
+                <strong>Заказчик:</strong>
+              </td>
+              <td class="">
+                {{ order.first_name }} {{ order.last_name }}
+          <tr>
+              <td class="">
+                <strong>Доставка</strong>
+              </td>
+              <td class="">
+                {{ order.delivery_method }} 
+                {% if order.custom_delivery %}
+                  {{ order.custom_delivery }}
+                {% endif %}
+              </td>
+          <tr>
+              <td class="">
+                <strong>Указанный адрес</strong>
+              </td>
+              <td class="">
+                {{ order.address }}
+              </td>
+          <tr>
+              <td class="">
+                <strong>Указанные контакты</strong>
+              </td>
+              <td class="">
+                {{ order.phone }} <br> {{ order.email }}
+              </td>
+          <tr>
+              <td class="">
+                <strong>Способ оплаты</strong>
+              </td>
+              <td class="">
+                {{ order.payment_method }}
+              </td>
+          <tr>
+              <td class="">
+                <strong>Статус заказа</strong>
+              </td>
+              <td class="">
+                <strong>{{ order.status }}</strong>
+              </td>
+      </tbody>
+    </table>
+
+    <br>
+    <h3>Товары:</h3>
+
+    <table class="table table-product">
+      <tbody>
+          {% for item in order_items %}
+          <tr>
+              <td class="mob-td-sev">
+                  <strong>Дверь:</strong>
+                  <div>
+                      {{ item.product.name }}
+                  </div>
+              </td>
+              <td class="mob-td-one td-img">
+                  {% with first_image=item.product.images.all|first %}
+                  <img class="product-img" src="{{ first_image.image.url }}" alt="{{ product.name }}">
+                  {% endwith %}
+              </td>
+              <td class="mob-td-sev">
+                  <strong>Детали:</strong>
+                  <div>Размер проема: <br class="mob-no">{{ item.size_option.size_name }}</div>
+                  <div>Открывание: <br class="mob-no">{{ item.opening_side }}</div>
+                  <div>Порог: <br class="mob-no">{{ item.threshold }}</div>
+                  <div>Ручка: <br class="mob-no">{{ item.handle_option }}</div>
+              </td>
+              <td class="td-price mob-td-sev">
+                  <strong>Цена:</strong>
+                  <div>{{item.price|floatformat:0}} руб.</div>
+              </td>
+              <td class="td-quantity mob-td-sev">
+                  <strong>Количество:</strong>
+                  <div>{{ item.quantity }} шт.</div>
+              </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  <br>
+        <h4>Итоговая стоимость: {{ order.total_price|floatformat:0 }} руб.</h4>
+    
+    <br>
+
+    
+
+
+
+    <br>
+
+    <a href="{% url 'user_detail' %}" class="mybtn"> < Назад</a>
+    
+    <br>
+    <br>
+
+  </div>
+</main>
+{% endblock container %}

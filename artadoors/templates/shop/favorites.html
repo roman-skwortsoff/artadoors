@@ -32,9 +32,10 @@
     <div class="row justify-content-center">
     {% for item in favorite_items %}
 
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 favorite-card"  > 
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"  > 
+            <div class="favorite-card product-card">
             <a href="{% url 'shop:product-view' item.product.slug %}" >
-                <h3 class="product-name" >{{ item.product.name }}</h3></a>
+                <h4 class="product-name" >{{ item.product.name }}</h4></a>
             <div>
             {% with first_image=item.product.images.all|first %}                   
 				<img 
@@ -64,7 +65,7 @@
                 {% for key, value in item.product.characteristics.items %}
                 <tr>
                     <td
-                    {% if key|contains:"Петли" %}
+                    {% if key|contains:"Петли" or key|contains:"Стекло" or key|contains:"Закрывание"%}
                      class="fav-table-big-field"
                     {% endif %} >{{ key }}:</td>
                     <td >{{ value }}</td>
@@ -133,12 +134,14 @@
                 </div> 
             </div>
                        
+            </div>
         </div>
     {% endfor %}
     {% else %}
     <br>
-    <div class="row">Избранное пусто. Добавьте товары в избранное!</div>
-    <br>
+ 
+    <h4 class="row" style="margin-left: 30px;">Избранное пусто. Добавьте товары в избранное!</h4>
+
     {% endif %}
         
 <!-- Модальное окно -->
@@ -146,15 +149,17 @@
     <span class="close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImage" src="" alt="Modal Image">
 </div>
-<div>
 <br>
-<br>
-<a href="{% url 'shop:catalog' %}" class="mybtn">Вернуться к покупкам</a></div>
+<div class="d-flex justify-content-center align-items-center" style="margin-top: 30px; margin-bottom: 30px;">
+    <div class="col text-start"><a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+      </svg> Назад</a></div>
+    <div class="col text-end"><a href="{% url 'shop:catalog' %}" class="mybtn">Каталог</a></div>
+</div>
 
 <script src="{% static 'js/favorite-view.js' %}"></script>
 </div>
-<br>
-<br>
+
 </div>
 
 {% endblock %}

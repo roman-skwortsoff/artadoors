@@ -1,0 +1,69 @@
+.nav-buttons a {
+    text-decoration: none;
+    font-size: inherit;
+    line-height: normal; /* Сделайте такой же, как у строки */
+    vertical-align: baseline; /* Или baseline, если нужно */
+    display: inline-block;
+    line-height: inherit;
+}
+
+.btn-back, .btn-catalog {
+    width: 8rem;
+    text-align: center;
+}
+
+
+.nav-buttons {
+    margin-top: 15px; 
+    margin-bottom: 30px; 
+    height: 60px;
+}
+
+.products-list h5 {
+    font-size: 18px;
+}
+
+
+
+@media (max-width: 1399px) {
+
+
+}
+
+
+@media (min-width: 992px) {
+
+
+}
+
+
+@media (max-width: 1118px) {
+
+}
+
+@media (max-width: 991px){
+
+}
+
+
+@media (max-width: 768px) {
+
+
+}
+
+@media (max-width: 576px){
+
+
+}
+
+@media (max-width: 399px){
+
+
+
+
+}
+
+@media (max-width: 360px){
+ 
+
+}

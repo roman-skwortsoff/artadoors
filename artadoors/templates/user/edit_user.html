@@ -5,7 +5,7 @@
   <div class="container">
     <br />
     <div class="row other_text">
-      <div class="col"><a href="/">Главная </a> > <a href=".">Личные данные</a></div>
+      <div class="col"><a href="/">Главная </a> > <a href="{% url 'user_detail' %}">Личный кабинет</a> > <a href=".">Личные данные</a></div>
     </div>
     <br />
     {% if messages %}
@@ -33,5 +33,6 @@
       <button type="submit">Сохранить</button>
   </form>
   </div>
+  <br>
 </main>
 {% endblock container %}

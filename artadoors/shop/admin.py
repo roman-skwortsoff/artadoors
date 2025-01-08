@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest
-from .models import Product, Category, SizeOption, HandleOption, ProductImage, CategoryImage, Favorite, Cart
+from .models import Product, Category, SizeOption, HandleOption, ProductImage, CategoryImage, Favorite, Cart, Order, OrderItem
 from django_mptt_admin.admin import DjangoMpttAdmin
 
 
@@ -64,3 +64,12 @@ class CartAdmin(admin.ModelAdmin):
     list_display = 'user', 'session_key', 'product', 'size_option', 'handle_option', 'threshold', 'opening_side', 'price', 'added_at'
 
 admin.site.register(Cart, CartAdmin)
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = 'id', 'user', 'session_key', 'last_name', 'first_name', 'total_price', 'created_at'
+
+    def get_fields(self, request, obj=None):
+        return ['id', 'user', 'session_key', 'last_name', 'first_name', 'total_price', 'created_at']
+
+    readonly_fields = ('id', 'user', 'session_key', 'last_name', 'first_name', 'total_price', 'created_at')

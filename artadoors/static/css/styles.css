@@ -2,6 +2,7 @@
     margin-left: -4px;
     margin-right: 0;
 }
+
 a {
     text-decoration: none;
     color: inherit;
@@ -19,11 +20,24 @@ a:hover {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 .other_text {
     color: #747070;
-    font-size: 12px;
+    font-size: 13px;
+}
+
+
+
+.form-select:hover, .form-control:hover {
+    border-color: #10717e; /* Бирюзовая рамка */
+    box-shadow: 0 0 0 0.15rem rgba(25, 114, 105, 0.2); /* Бирюзовая тень */
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #10717e; /* Бирюзовая рамка */
+    box-shadow: 0 0 0 0.15rem #f9f9f9;
 }
 
 
@@ -229,8 +243,8 @@ a:hover {
 
 .dropdown-menu li {
     margin: 0;
-    padding: 3px 0;
-    font-size: 15px;
+    padding: 5px 0;
+    font-size: 16px;
 }
 
 .dropdown-menu a {
@@ -266,7 +280,7 @@ a:hover {
 .dropdown-menu {
     display: flex;
     gap: 1rem;
-    padding: 20px 30px;
+    padding: 20px 22px;
 }
 
 
@@ -291,7 +305,10 @@ a:hover {
 }
 
 .mybtn:hover  {
-    color: #79bbbb; }
+    color: #8cd4ce; 
+    box-shadow: 6px 6px 14px rgba(66, 95, 86, 0.3);
+
+}
 
 .footer a:after {
     display: block;

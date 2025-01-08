@@ -102,79 +102,16 @@
         
         </div>
         <br>
+        
         <h4>Итоговая стоимость: {{ cart_items|sum_total|floatformat:0 }} руб.</h4>
+        <div class="order-text">*перед тем как оформить заказ, обновите количество товара. Это нужно для того, чтобы стоимость Вашего заказа была рассчитана верно</div>
+         <a href="{% url 'shop:order' %}">
+        <button id="show-order-form" class="order">Оформить заказ</button></a>
     
-        <!-- Кнопка "Заказать" -->
-        <button id="show-order-form" class="order">Оформить заказ</button>
-    
-        <!-- Форма заказа -->
-        <div id="order-form" style="display: none; margin-top: 20px;">
-            <h2>Детали заказа</h2>
-            <br>
-            <form method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="action" value="checkout">
-                <div class="form-group">
-                    <label for="last_name">Фамилия</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{ initial_data.last_name }}" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="first_name">Имя</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ initial_data.first_name }}" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="phone">Номер телефона</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ initial_data.phone }}" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="email">Электронная почта</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{ initial_data.email }}" required>
-                </div>
-            
-                <div class="form-group">
-                    <label for="address">Адрес доставки:</label>
-                    <input type="text" class="form-control" id="address" name="address" value="{{ initial_data.address }}">
-                </div>
-                <div class="form-group">
-                    <label for="delivery_method">Способ доставки</label>
-                    <select class="form-control" id="delivery_method" name="delivery_method" required>
-                        <option value="ТК Деловые линии">ТК Деловые линии</option>
-                        <option value="ТК КИТ">ТК КИТ</option>
-                        <option value="ТК Байкал-Сервис">ТК Байкал-Сервис</option>
-                        <option value="Самовывоз">Самовывоз</option>
-                        <option value="Сборный груз (проходящая машина), для близлежащих регионов">Сборный груз (проходящая машина), для близлежащих регионов</option>
-                        <option value="Другой вариант">Другой вариант</option>
-                    </select>
-                </div>
-                <!-- Поле custom_delivery -->
-                <div class="form-group" id="custom_delivery_group" style="display: none;">
-                    <label for="custom_delivery">Введите способ доставки</label>
-                    <input type="text" class="form-control" id="custom_delivery" name="custom_delivery" style="margin-left: 70px; width: calc(100% - 70px);">
-                </div>
-                <div class="form-group">
-                    <label for="address">Адрес доставки:</label>
-                    <input type="address" class="form-control" id="address" name="address">
-                </div>
-                <div class="form-group">
-                    <label for="payment_method">Способ оплаты</label>
-                    <select class="form-control" id="payment_method" name="payment_method" required>
-                        <option value="Оплата по QR коду">Оплата по QR коду</option>
-                        <option value="Оплата переводом на карту">Оплата переводом на карту</option>
-                        <option value="Банковский перевод с НДС">Банковский перевод с НДС</option>
-                        <option value="Банковский перевод без НДС">Банковский перевод без НДС</option>
-                        <option value="Оплата картой в офисе">Оплата картой в офисе</option>
-                        <option value="Оплата наличными в офисе">Оплата наличными в офисе</option>
-                    </select>
-                </div>
-                <br>
-                <button type="submit" class="order">Подтвердить заказ</button>
-            </form>
-        </div>
         {% else %}
-        <p>Ваша корзина пуста.</p>
+        
+        <br>
+        <h4 style="margin-left: 30px;">Ваша корзина пуста.</h4>
         {% endif %}
         
     
@@ -186,24 +123,13 @@
 
     
     <script>
-        document.getElementById("show-order-form").addEventListener("click", function () {
-            document.getElementById("order-form").style.display = "block";
-            this.style.display = "none";
-        });
-        document.getElementById('delivery_method').addEventListener('change', function () {
-            const customDeliveryGroup = document.getElementById('custom_delivery_group');
-            if (this.value === 'Другой вариант') {
-                customDeliveryGroup.style.display = 'block';
-            } else {
-                customDeliveryGroup.style.display = 'none';
-            }
-        });
-
         document.querySelectorAll('.quantity-input').forEach(function (input) {
             input.addEventListener('input', function () {
                 const updateBtn = document.querySelector(`.update-btn[data-id="${input.dataset.id}"]`);
+                const orderText = document.querySelector(`.order-text`);
                 if (updateBtn !== null) { // Проверяем существование элемента
                     updateBtn.style.display = 'block';
+                    orderText.style.display = 'block';
                 }
             });
         });

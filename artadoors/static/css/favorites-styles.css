@@ -4,6 +4,7 @@
 
 .favorite-card {
     padding: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .favorite-card:hover {
@@ -22,11 +23,11 @@
 
 
 .fav-table-big-field {
-    height: 3.3rem;
+    height: 2rem;
 }
 
 .fav-table tr{
-    height: 2.3rem;
+    height: 1.75rem;
 }
 
 .product-name {
@@ -41,7 +42,7 @@
 }
 
 .fav-table-first {
-    width: 8rem;
+    width: 9rem;
 }
 
 .card-cart {
@@ -50,6 +51,12 @@
 
 .form {
     padding: 0;
+}
+
+@media (max-width: 1399px) {
+    .fav-table-big-field {
+        height: 3rem;
+    }
 }
 
 @media (min-width: 1119px) {
@@ -63,6 +70,10 @@
 }
 
 @media (max-width: 1118px) {
+}
+
+@media (max-width: 991px){
+
     .product-image {
         padding: 0;
     }
@@ -72,15 +83,12 @@
     }
 
     .fav-table-big-field {
-        height: 6rem;
+        height: 4.5rem;
     }
     
     .fav-table tr{
-    height: 2.5rem;
+    height: 1.4rem;
     }
-}
-
-@media (max-width: 991px){
 
     .mob-no {
         display: none;

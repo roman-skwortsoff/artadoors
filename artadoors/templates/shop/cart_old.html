@@ -1,0 +1,214 @@
+{% extends 'base-page.html' %}
+{% load static %}
+{% load cart_tags %}
+
+{% block title %}
+<title>Корзина</title>
+<link rel="stylesheet" href="{% static 'css/product-styles.css' %}" />
+<link rel="stylesheet" href="{% static 'css/cart-styles.css' %}" />
+{% endblock %}
+
+{% block container %}
+<div class="main">
+
+    <div class="container">
+        <br>
+        <div class="row other_text">
+            <div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:cart' %}">Корзина</a>
+            </div>
+        </div>
+        <br>
+        <h1>Корзина</h1>
+        {% if messages %}
+        <div class="row">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="row">
+        {% if cart_items %}
+        <table class="table">
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td class="mob-td-sev">
+                        <strong>Дверь:</strong>
+                        <div><a href="{% url 'shop:product-view' item.product.slug %}">
+                            {{ item.product.name }}
+                        </a></div>
+                    </td>
+                    <td class="mob-td-one td-img">
+                        {% with first_image=item.product.images.all|first %}
+                        <img class="product-img" src="{{ first_image.image.url }}" alt="{{ product.name }}">
+                        {% endwith %}
+                    </td>
+                    <td class="mob-td-sev">
+                        <strong>Детали:</strong>
+                        <div>Размер проема: <br class="mob-no">{{ item.size_option.size_name }}</div>
+                        <div>Открывание: <br class="mob-no">{{ item.opening_side }}</div>
+                        <div>Порог: <br class="mob-no">{{ item.threshold }}</div>
+                        <div>Ручка: <br class="mob-no">{{ item.handle_option }}</div>
+                    </td>
+                    <td class="td-price mob-td-sev">
+                        <strong>Цена:</strong>
+                        <div>{{item.price|floatformat:0}} руб.</div>
+                    </td>
+                    <td class="td-quantity mob-td-sev">
+                        <strong>Количество:</strong>
+                        <form method="POST" class="d-flex align-items-center" >
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="update">
+                            <input type="hidden" name="cart_id" value="{{ item.id }}">
+                            <input type="number" id="quantity-{{ item.id }}" name="quantity" class="form-control quantity-input" data-id="{{ item.id }}" style="width: 4.5rem;" value="{{ item.quantity }}" min="1">
+                            <button type="submit" class="update-btn update-btn[data-id={{ item.id }}]" data-id="{{ item.id }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="22" 
+                                height="22" 
+                                fill="currentColor" 
+                                class="bi bi-arrow-counterclockwise" 
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </td>
+                    <td class="mob-td-sev">
+                        <strong>Стоимость:</strong> <div>{{ item.total_price|floatformat:0 }} руб.</div>
+                    </td>
+                    <td class="mob-td-one">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="remove">
+                            <input type="hidden" name="cart_id" value="{{ item.id }}">
+                            <button type="submit" class="delete-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="24" 
+                                height="24" 
+                                fill="currentColor" 
+                                class="bi bi-x-lg" 
+                                viewBox="0 0 16 16">
+                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                </svg></button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        </div>
+        <br>
+        <h4>Итоговая стоимость: {{ cart_items|sum_total|floatformat:0 }} руб.</h4>
+    
+        <!-- Кнопка "Заказать" -->
+        <button id="show-order-form" class="order">Оформить заказ</button>
+    
+        <!-- Форма заказа -->
+        <div id="order-form" style="display: none; margin-top: 20px;">
+            <h2>Детали заказа</h2>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="checkout">
+                <div class="form-group">
+                    <label for="last_name">Фамилия</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{ initial_data.last_name }}" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="first_name">Имя</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ initial_data.first_name }}" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ initial_data.phone }}" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ initial_data.email }}" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="address">Адрес доставки:</label>
+                    <input type="text" class="form-control" id="address" name="address" value="{{ initial_data.address }}">
+                </div>
+                <div class="form-group">
+                    <label for="delivery_method">Способ доставки</label>
+                    <select class="form-control" id="delivery_method" name="delivery_method" required>
+                        <option value="ТК Деловые линии">ТК Деловые линии</option>
+                        <option value="ТК КИТ">ТК КИТ</option>
+                        <option value="ТК Байкал-Сервис">ТК Байкал-Сервис</option>
+                        <option value="Самовывоз">Самовывоз</option>
+                        <option value="Сборный груз (проходящая машина), для близлежащих регионов">Сборный груз (проходящая машина), для близлежащих регионов</option>
+                        <option value="Другой вариант">Другой вариант</option>
+                    </select>
+                </div>
+                <!-- Поле custom_delivery -->
+                <div class="form-group" id="custom_delivery_group" style="display: none;">
+                    <label for="custom_delivery">Введите способ доставки</label>
+                    <input type="text" class="form-control" id="custom_delivery" name="custom_delivery" style="margin-left: 70px; width: calc(100% - 70px);">
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес доставки:</label>
+                    <input type="address" class="form-control" id="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="payment_method">Способ оплаты</label>
+                    <select class="form-control" id="payment_method" name="payment_method" required>
+                        <option value="Оплата по QR коду">Оплата по QR коду</option>
+                        <option value="Оплата переводом на карту">Оплата переводом на карту</option>
+                        <option value="Банковский перевод с НДС">Банковский перевод с НДС</option>
+                        <option value="Банковский перевод без НДС">Банковский перевод без НДС</option>
+                        <option value="Оплата картой в офисе">Оплата картой в офисе</option>
+                        <option value="Оплата наличными в офисе">Оплата наличными в офисе</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="order">Подтвердить заказ</button>
+            </form>
+        </div>
+        {% else %}
+        <p>Ваша корзина пуста.</p>
+        {% endif %}
+        
+    
+        <div style="margin-top: 30px;"><a href="{% url 'shop:catalog' %}" class="mybtn">Вернуться к покупкам</a></div>
+    </div>
+
+    <br>
+    <br>
+
+    
+    <script>
+        document.getElementById("show-order-form").addEventListener("click", function () {
+            document.getElementById("order-form").style.display = "block";
+            this.style.display = "none";
+        });
+        document.getElementById('delivery_method').addEventListener('change', function () {
+            const customDeliveryGroup = document.getElementById('custom_delivery_group');
+            if (this.value === 'Другой вариант') {
+                customDeliveryGroup.style.display = 'block';
+            } else {
+                customDeliveryGroup.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('.quantity-input').forEach(function (input) {
+            input.addEventListener('input', function () {
+                const updateBtn = document.querySelector(`.update-btn[data-id="${input.dataset.id}"]`);
+                if (updateBtn !== null) { // Проверяем существование элемента
+                    updateBtn.style.display = 'block';
+                }
+            });
+        });
+
+    </script>
+    
+</div>
+    {% endblock container %}
