@@ -1,23 +1,17 @@
-.nav-buttons a {
-    text-decoration: none;
-    font-size: inherit;
-    line-height: normal; /* Сделайте такой же, как у строки */
-    vertical-align: baseline; /* Или baseline, если нужно */
-    display: inline-block;
-    line-height: inherit;
-}
 
-.btn-back, .btn-catalog {
+
+.btn-catalog {
     width: 8rem;
     text-align: center;
 }
 
-
-.nav-buttons {
-    margin-top: 15px; 
-    margin-bottom: 30px; 
-    height: 60px;
+.btn-up {
+    width: 12rem;
+    text-align: center;
 }
+
+
+
 
 .products-list h5 {
     font-size: 18px;

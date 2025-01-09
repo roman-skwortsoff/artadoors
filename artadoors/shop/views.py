@@ -71,6 +71,12 @@ def show_category(request: HttpRequest, category_slug : str) -> HttpResponse:
 
     # Получаем текущую категорию
     category = get_object_or_404(Category, slug=category_slug)
+    print(category.get_ancestors())
+    ancestors = category.get_ancestors()
+    if ancestors:
+        parent_slug = ancestors.last().slug
+    else:
+        parent_slug = None
 
     # Собираем продукты из текущей категории и всех подкатегорий
     products = {}
@@ -117,7 +123,8 @@ def show_category(request: HttpRequest, category_slug : str) -> HttpResponse:
         'products': page_obj,
         'has_next': page_obj.has_next(),
         'childrens': category.get_children().prefetch_related("images"),
-        'ancestors': category.get_ancestors(),
+        'ancestors': ancestors,
+        'parent_slug': parent_slug,
     }
     return render(request, 'shop/category_product_list.html', context=context)
 

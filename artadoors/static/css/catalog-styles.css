@@ -1,4 +1,8 @@
-
+.nav-buttons {
+    margin-top: 15px; 
+    margin-bottom: 30px;
+    vertical-align: middle;
+}
 
 .mybtn {
     height: 60px;
@@ -29,6 +33,8 @@
 .rotate {
     animation: spin 2s linear infinite;
 }
+
+
 
 @keyframes spin {
     from {

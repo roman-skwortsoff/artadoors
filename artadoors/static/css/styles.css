@@ -295,13 +295,25 @@ a:hover {
     color: #0b707b;    
 }
 
+.nav-buttons a {
+    text-decoration: none;
+    font-size: inherit;
+    line-height: normal; /* Сделайте такой же, как у строки */
+    vertical-align: baseline; /* Или baseline, если нужно */
+    display: inline-block;
+    line-height: inherit;
+}
+
 .mybtn {
     background: linear-gradient(#837372, #7a5f5d);
     color: #faf7f5;
     text-decoration: none;    
     padding: 15px 15px;
     border: 1px solid #837372;
-    border-radius: 7px;
+    border-radius: 20px;
+    min-width: 8.5rem;
+    text-align: center;
+
 }
 
 .mybtn:hover  {

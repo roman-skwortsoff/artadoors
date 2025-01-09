@@ -1,14 +1,13 @@
 .order {
     border: 2px solid #ddd;
     padding: 1.1rem 1.2rem;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 2px;
 
 }
 
 .order:hover {
     border: 2px solid #10717e ; /* Коричневая окантовка */
-    border-radius: 5px;
     color: #246e6c;
 }
 /* #7a5f5d  #362423*/
