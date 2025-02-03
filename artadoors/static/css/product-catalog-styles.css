@@ -1,3 +1,97 @@
+#filter-form {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+}
+
+#filter-form:hover {
+    border-radius: 5px;
+    box-shadow: 4px 4px 14px rgba(66, 95, 86, 0.2);
+    transition: 0.3s;    
+}
+
+#filter-form h5 {
+    font-size: 17px;
+}
+
+/* Скрываем стандартный чекбокс */
+.filter-checkbox {
+    padding: 5px;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #837372; /* рамка */
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* При выборе чекбокса */
+.filter-checkbox:checked {
+    background-color: #0ea8b0; /* Бирюзовый фон */
+    border-color: #10717e;
+}
+
+
+.filter-checkbox:hover {
+    border-color: #10717e;
+}
+
+.filter-checkbox:hover + label {
+    cursor: pointer;
+}
+
+
+
+/* Добавляем кастомную галочку */
+.filter-checkbox:checked::after {
+    content: "✔";  /* Галочка */
+    font-size: 13px;
+    color: white; /* Белая галочка */
+
+}
+
+/* Делаем disabled чекбокс полупрозрачным */
+.filter-checkbox:disabled {
+    border: 1.5px solid #a2a2a2; /*рамка */
+    cursor: inherit;
+}
+
+#filter-form {
+    font-size: 13px;
+}
+
+.filter-panel strong {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+#handle-container div, .characteristics-container div, #size-container div {
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
+    gap: 2px;
+}
+
+.filter-checkbox {
+    margin-right: 5px;
+}
+
+.filter-container label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Если чекбокс отключен, делаем label серым */
+.filter-checkbox:disabled + label {
+    color: #999;  /* Серый цвет */
+    opacity: 0.8
+}
 
 
 .btn-catalog {
@@ -11,31 +105,44 @@
 }
 
 
-
-
 .products-list h5 {
     font-size: 18px;
 }
 
 
-
 @media (max-width: 1399px) {
+    .products-list h5 {
+        font-size: 15px;
+    }
 
+
+    #filter-form {
+        font-size: 12px;
+    }
+
+    #filter-form h5 {
+        font-size: 15px;
+    }
 
 }
 
-
-@media (min-width: 992px) {
-
-
-}
-
-
-@media (max-width: 1118px) {
-
-}
 
 @media (max-width: 991px){
+    .products-list h5 {
+        font-size: 14px;
+    }
+
+    #filter-form {
+        font-size: 10px;
+    }
+
+    #filter-form h5 {
+        font-size: 13px;
+    }
+
+    .cat-items img {
+        width: 120px;
+    }
 
 }
 

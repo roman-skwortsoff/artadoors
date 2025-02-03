@@ -41,7 +41,7 @@ class SessionRateLimitMiddleware:
             request.session['request_times'] = request_times
 
             # Проверяем, превышен ли лимит
-            if len(request_times) > 7:  # Например, лимит 7 запросов в минуту
+            if len(request_times) > 77:  # Например, лимит 7 запросов в минуту
                 return JsonResponse(
                     {"error": "Слишком много запросов! Попробуйте позже."},
                     status=429

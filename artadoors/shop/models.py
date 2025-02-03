@@ -69,9 +69,9 @@ class Cart(models.Model):
     
     @staticmethod
     def clean_old_sessions():
-        """Удаляет избранное с истекшими сессиями (старше 7 дней)"""
+        """Удаляет корзину с истекшими сессиями (старше 7 дней)"""
         expiration_date = now() - timedelta(days=7)
-        Favorite.objects.filter(user__isnull=True, added_at__lt=expiration_date).delete()
+        Cart.objects.filter(user__isnull=True, added_at__lt=expiration_date).delete()
     
 
 class Favorite(models.Model):

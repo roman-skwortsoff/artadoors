@@ -1,0 +1,19 @@
+{% for product in products %}
+<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center products-list align-self-start">
+    <a href="{% url 'shop:product-view' product_slug=product.slug %}">
+        <div class="col menu-item">
+            {% with first_image=product.images.all|first %}
+                <img src="{{ first_image.image.url }}"
+                     title="{{ product.name }}"
+                     alt="{{ product.name }}"
+                     width="250px"
+                     style="border-radius: 10px">
+            {% endwith %}
+            <div class="product-name">
+                <h5 style="min-height: 3rem;">{{ product.name }}</h5>
+                <h5>от {{ product.base_price }} руб.</h5>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}

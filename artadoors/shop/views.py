@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from .models import Category, Product, CategoryImage, ProductImage, SizeOption, HandleOption, Favorite, Cart, Order, OrderItem
 from .forms import ProductDetailForm
 from django.http import JsonResponse
+from django.template.loader import render_to_string
 from django.contrib import messages
 from datetime import timedelta
 from django.utils.timezone import now
@@ -40,84 +41,111 @@ def catalog(request):
     return render(request, "shop/catalog.html", context=context)
 
 
-def show_category(request: HttpRequest, category_slug : str) -> HttpResponse:
-#    category = Category.objects.get(slug=category_slug)
-#    products = {}
-#    product = Product.objects.filter(category=category)
-#    # записываем словарь продуктами категории в которой находимся
-#    if product:
-#        for obj in product:
-#            products[(obj.sales_sort, obj.name)] = obj
-#    # записываем словарь продуктами категорий потомков
-#    for cat in category.get_descendants():
-#        product = Product.objects.filter(category=cat)
-#        if product:
-#            for obj in product:
-#                products[(obj.sales_sort, obj.name)] = obj
-#    # Создаем дублирующий словарь для хранения отсортированных значений
-#    sorted_products = {}
-#    # Сортируем значения по убыванию числового значения в ключе
-#    sorted_values = sorted(products.items(), key=lambda x: int(x[0][0]), reverse=True)
-#    # Добавляем пары ключ-значение из отсортированного списка в новый словарь
-#    for key, value in sorted_values:
-#        sorted_products[key] = value
-#
-#    context = {
-#        'category': category,
-#        "products": sorted_products,
-#        'childrens': category.get_children().prefetch_related("images"),
-#        'ancestors': category.get_ancestors(),
-#        }
-
+def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
     # Получаем текущую категорию
     category = get_object_or_404(Category, slug=category_slug)
-    print(category.get_ancestors())
     ancestors = category.get_ancestors()
-    if ancestors:
-        parent_slug = ancestors.last().slug
-    else:
-        parent_slug = None
+    parent_slug = ancestors.last().slug if ancestors else None
 
-    # Собираем продукты из текущей категории и всех подкатегорий
-    products = {}
-    product = Product.objects.filter(category=category)
-    if product:
-        for obj in product:
-            products[(obj.sales_sort, obj.name)] = obj
-    for cat in category.get_descendants():
-        product = Product.objects.filter(category=cat)
-        if product:
-            for obj in product:
-                products[(obj.sales_sort, obj.name)] = obj
+    # Получаем продукты данной категории и её потомков
+    category_ids = category.get_descendants(include_self=True).values_list('id', flat=True)
+    products = Product.objects.filter(category__id__in=category_ids, archived=False).order_by('-sales_sort', 'name')
 
-    sorted_products = dict(
-        sorted(products.items(), key=lambda x: int(x[0][0]), reverse=True)
+    # Собираем доступные фильтры
+    characteristics = {}
+    for product in products:
+        for key, value in product.characteristics.items():
+            if key not in characteristics:
+                characteristics[key] = set()
+            characteristics[key].add(value)
+    characteristics = {key: sorted(list(values)) for key, values in characteristics.items()}
+
+    unique_sizes = (
+        SizeOption.objects.filter(product__category__id__in=category_ids)
+        .values_list('size_name', flat=True)
+        .distinct()
     )
-    product_list = list(sorted_products.values())
 
-    # Пагинация: по 16 продуктов на страницу
-    paginator = Paginator(product_list, 16)
-    page_number = request.GET.get('page', 1)
-    page_obj = paginator.get_page(page_number)
+    unique_handles = (
+        HandleOption.objects.filter(products__category__id__in=category_ids)
+        .values_list('handle_name', flat=True)
+        .distinct()
+    )
 
-    # Если запрос AJAX, отправляем JSON с продукцией
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        products_data = [
-            {
-                'id': product.id,
-                'name': product.name,
-                'slug': product.slug,
-                'image_url': product.images.first().image.url if product.images.exists() else '',
-                'base_price': product.base_price,
-            }
-            for product in page_obj.object_list
-        ]
-        return JsonResponse({
-            'products': products_data,
-            'has_next': page_obj.has_next(),
+    # Применение фильтров
+    filtered_products = products
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        # Получение данных фильтров из POST
+        characteristics_filter = request.POST.getlist('characteristics')
+        sizes_filter = request.POST.getlist('sizes')
+        handles_filter = request.POST.getlist('handles')
+        page = request.POST.get('page', 1)
+    
+        print('Принятые фильтры:', {
+            'characteristics': characteristics_filter,
+            'sizes': sizes_filter,
+            'handles': handles_filter,
+            'page': page,
         })
 
-    # Если обычный запрос, рендерим страницу
+        # Применение фильтров
+        if characteristics_filter:
+            for char in characteristics_filter:
+                try:
+                    key, value = char.split(':', 1)  # Разделение ключа и значения
+                    filtered_products = filtered_products.filter(**{f"characteristics__{key}": value})
+                except ValueError:
+                    print(f"Некорректный формат характеристики: {char}")
+    
+        if sizes_filter:
+            filtered_products = filtered_products.filter(sizes__size_name__in=sizes_filter)
+    
+        if handles_filter:
+            filtered_products = filtered_products.filter(handle_options__handle_name__in=handles_filter)
+
+
+        # Собираем новые доступные фильтры после применения фильтров
+        remaining_characteristics = {}
+        for product in filtered_products:
+            for key, value in product.characteristics.items():
+                if key not in remaining_characteristics:
+                    remaining_characteristics[key] = set()
+                remaining_characteristics[key].add(value)
+        remaining_characteristics = {key: sorted(list(values)) for key, values in remaining_characteristics.items()}
+        
+        remaining_sizes = list(
+            SizeOption.objects.filter(product__in=filtered_products)
+            .values_list('size_name', flat=True)
+            .distinct()
+        )
+        
+        remaining_handles = list(
+            HandleOption.objects.filter(products__in=filtered_products)
+            .values_list('handle_name', flat=True)
+            .distinct()
+        )
+        
+        # Пагинация
+        paginator = Paginator(filtered_products.distinct(), 12)
+        page_obj = paginator.get_page(page)
+        
+        # Генерация HTML для продуктов
+        html = render_to_string('partials/product-list.html', {'products': page_obj})
+        
+        return JsonResponse({
+            'html': html,
+            'has_next': page_obj.has_next(),
+            'characteristics': remaining_characteristics,
+            'sizes': remaining_sizes,
+            'handles': remaining_handles,
+        })
+
+    # Для обычного запроса (GET)
+    page_number = request.GET.get('page', 1)
+    paginator = Paginator(filtered_products, 12)
+    page_obj = paginator.get_page(page_number)
+
+    # Контекст для рендеринга страницы
     context = {
         'category': category,
         'products': page_obj,
@@ -125,8 +153,13 @@ def show_category(request: HttpRequest, category_slug : str) -> HttpResponse:
         'childrens': category.get_children().prefetch_related("images"),
         'ancestors': ancestors,
         'parent_slug': parent_slug,
+        'characteristics': characteristics,
+        'unique_sizes': unique_sizes,
+        'unique_handles': unique_handles
     }
     return render(request, 'shop/category_product_list.html', context=context)
+
+
 
 
 def view_product(request: HttpRequest, product_slug : str) -> HttpResponse:

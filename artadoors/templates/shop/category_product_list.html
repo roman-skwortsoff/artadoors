@@ -10,186 +10,302 @@
 
 {% block container %}
 <main class="main">
-<div class="container">
-	<br>
-	<div class="row other_text">
-		<div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:catalog' %}">Каталог</a>
-		{% for ancestor in ancestors %}
-		 	> <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
-		{% endfor %}
-		> <a href="{% url 'shop:product-by-category' category_slug=category.slug %}"> {{ category.temp_name }}</a>
-		</div>
-	</div>
-	<div class="row cat-title" style="margin-top: 15px;">
-		<div class="col-1 hidden"></div>
-		<div class="col">
-			{% if ancestors %}
-				{% if ancestors|length == 1 %}
-					{% if childrens|length > 0 %}
-					<h5>Варианты исполнения дверей {{category.title}}:</h5>
-					{% endif %}
-				{% elif ancestors|length >= 2 %}
-					{% if childrens|length > 0 %}
-						{% for item in ancestors|slice:"1:2" %}
-						<h5>Варианты исполнения дверей {{ item.temp_name }}:</h5>
-						{% endfor %}
-					{% endif %}
+    <div class="container">
+        <br>
+        <!-- Breadcrumb -->
+        <div class="row other_text">
+            <div class="col"><a href="/">Главная </a> > <a href="{% url 'shop:catalog' %}">Каталог</a>
+                {% for ancestor in ancestors %}
+                    > <a href="{% url 'shop:product-by-category' category_slug=ancestor.slug %}"> {{ ancestor.temp_name }}</a>
+                {% endfor %}
+                > <a href="{% url 'shop:product-by-category' category_slug=category.slug %}"> {{ category.temp_name }}</a>
+            </div>
+        </div>
+
+        <!-- Category Title -->
+        <div class="row cat-title text-center" style="margin-top: 15px;">
+            <div class="col">
+                {% if ancestors %}
+                    {% with ancestors_count=ancestors|length %}
+                        {% if ancestors_count == 1 and childrens|length > 0 %}
+                            <h5>Варианты исполнения дверей {{ category.title }}:</h5>
+                        {% elif ancestors_count >= 2 and childrens|length > 0 %}
+                            <h5>Варианты исполнения дверей {{ ancestors.1.temp_name }}:</h5>
+                        {% endif %}
+                    {% endwith %}
+                {% else %}
+                    <h3>{{ category.title }} представлены следующими комплектациями:</h3>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Child Categories -->
+        <div class="row justify-content-center cat-items">
+            {% for child in childrens %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 text-center">
+                    <a href="{% url 'shop:product-by-category' category_slug=child.slug %}">
+                        <div class="row text-start menu-item">
+                            <div class="col-4">
+                                {% with first_image=child.images.all|first %}
+                                    <img src="{{ first_image.image.url }}" 
+                                         title="{{ child.temp_name }}" 
+                                         width="140px" 
+                                         alt="{{ child.temp_name }}" 
+                                         style="border-radius: 5px;">
+                                {% endwith %}
+                            </div>
+                            <div class="col-8 cat-name">
+                                <h5 style="margin-top: 15px;">{{ child.temp_name }}</h5>
+                                <div class="other_text">{{ child.description }}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <br>
+
+        <!-- Products Section -->
+        <div class="row cat-name text-center">
+            <div class="col">
+				{% with ancestors_count=ancestors|length %}
+				{% if ancestors_count == 0 %}
+					<h3>{{ category.title }}:</h3>
+				{% else %}
+                    <h3>Двери {{ category.title }}:</h3>
 				{% endif %}
-			{% else %}
-			<h3>{{category.title}} представлены следующими комплектациями:</h3>	
-			{% endif %}
-		</div>
-	</div>
-
-	<div class="row justify-content-center cat-items">
-	{% for child in childrens %}
-		<div class="col-хl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center">
-		<a href="{% url 'shop:product-by-category' category_slug=child.slug %}">
-			<div class="row text-start menu-item"> 
-				<div class="col-4">
-				{% with first_image=child.images.all|first %}                   
-					<img src="{{ first_image.image.url }}" 
-					title="{{child.temp_name}}" 
-					width="140px"
-					alt="{{child.temp_name}}"
-					style="border-radius: 5px;"> 
 				{% endwith %}
-				</div>    
-				<div class="col-8 cat-name">                      
-					<h5 style="margin-top: 15px;">{{ child.temp_name }}</h5>
-					<div class="other_text">{{child.description}}</div>
-				</div>
-			</div>
-		</a>
-		</div>
-	{% endfor %}
-    </div>
-	<br>
+            </div>
+        </div>
 
-	<div class="row cat-name">
-		<div class="col-1"></div>
-		<div class="col">
-	{% if ancestors %}
-		<h3>Двери {{category.title}}:</h3>
-	{% else %}
-		<h3>{{category.title}}:</h3>
-	    </div>
-	{% endif %}
-	</div>
-</div>
-</div>
-<div class="products">
-	
-	<div class=" container">
-	<div id="product-list" class="row justify-content-center">
-	{% for product in products %}
-    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 text-center products-list">
-        <a href="{% url 'shop:product-view' product_slug=product.slug %}">
-            <div class="col menu-item">
-                {% with first_image=product.images.all|first %}
-                <img src="{{ first_image.image.url }}"
-                     title="{{ product.temp_name }}"
-                     width="240px"
-                     alt="{{ product.temp_name }}"
-                     style="border-radius: 10px">
-                {% endwith %}
-                <div class="product-name">
-                    <h5 style="min-height: 3rem;">{{ product.name }}</h5>
-                    <h5>от {{ product.base_price }} руб.</h5>
+        <div class="products">
+            <div class="container">
+				<div class="row justify-content-start">
+					<!-- Filters Panel -->
+						<div class="col-3">
+							<form id="filter-form">
+								{% csrf_token %}
+								<div class="filter-panel">
+									<h5>Фильтр по характеристикам:</h5>
+									<div id="characteristics-container">
+										{% for char_name, char_values in characteristics.items %}
+										<div class="characteristics-container">
+											<strong>{{ char_name }}</strong>
+											{% for value in char_values %}
+												<div>
+													<input type="checkbox" class="filter-checkbox" name="characteristics" 
+														   value="{{ value }}" data-key="{{ char_name }}" id="char-{{ value }}">
+													<label for="char-{{ value }}">{{ value }}</label>
+												</div>
+											{% endfor %}
+										</div>
+									{% endfor %}
+								    </div>
+									<strong>Размеры</strong>
+									<div id="size-container">
+									{% for size in unique_sizes %}
+										<div>
+											<input type="checkbox" class="filter-checkbox" name="sizes" value="{{ size }}" id="size-{{ size }}">
+											<label for="size-{{ size }}">{{ size }}</label>
+										</div>
+									{% endfor %}
+								    </div>
+									<strong>Ручки</strong>
+									<div id="handle-container">
+									{% for handle in unique_handles %}
+										<div>
+											<input type="checkbox" class="filter-checkbox" name="handles" value="{{ handle }}" id="handle-{{ handle }}">
+											<label for="handle-{{ handle }}">{{ handle }}</label>
+										</div>
+									{% endfor %}
+								    </div>
+								</div>
+							</form>
+						</div>
+					
+                    <!-- Products List -->
+                    <div id="product-list" class="col-9 row justify-content-center">						
+                        {% for product in products %}
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center products-list align-self-start">
+                                <a href="{% url 'shop:product-view' product_slug=product.slug %}">
+                                    <div class="col menu-item">
+                                        {% with first_image=product.images.all|first %}
+                                            <img src="{{ first_image.image.url }}"
+                                                 title="{{ product.name }}"
+                                                 alt="{{ product.name }}"
+												 width="250px"
+                                                 style="border-radius: 10px">
+                                        {% endwith %}
+                                        <div class="product-name">
+                                            <h5 style="min-height: 3rem;">{{ product.name }}</h5>
+                                            <h5>от {{ product.base_price }} руб.</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </a>
-    </div>
-    {% endfor %}
-    </div>
-    </div>
-</div>
-</div>
-<div class="container">
-	<br>
-	<div class="nav-buttons">
-	<div class="d-flex justify-content-between align-items-center">
-		{% if parent_slug %}
-		<div class="col" ><a href="{% url 'shop:product-by-category' category_slug=parent_slug %}" class="mybtn btn-up"> <svg style="margin-top: -10px;"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
-			<path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708z"/>
-		  </svg> Вверх по каталогу</a></div>
-		{% else %}
-		<div class="col" ><a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn btn-back"> <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-			<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-		  </svg> Назад</span></a></div>
-		{% endif %}
-		{% if has_next %}
-		<div class="col text-center">
-			<button id="load-more" class="mybtn" data-page="2">
-				<svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" style="margin-top: -3px; ">
-					<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
-					<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
-				</svg>
-				Показать ещё 
-			</button>
-		</div>
-		{% endif %}
-        <div class="col text-end"> <div><a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">Каталог</a></div></div>
-	</div>
-</div>
+        </div>
 
-</div>
+        <!-- Navigation Buttons -->
+        <br>
+        <div class="nav-buttons">
+            <div class="d-flex justify-content-between align-items-center">
+                {% if parent_slug %}
+                    <a href="{% url 'shop:product-by-category' category_slug=parent_slug %}" class="mybtn btn-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708z"/>
+                        </svg> Вверх по каталогу
+                    </a>
+                {% else %}
+                    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn btn-back">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                        </svg> Назад
+                    </a>
+                {% endif %}
+                {% if has_next %}
+                    <button id="load-more" class="mybtn" data-page="2">
+                        <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                        </svg> Показать ещё
+                    </button>
+                {% endif %}
+                <a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">Каталог</a>
+            </div>
+        </div>
+    </div>
 {% if has_next %}
 <script>
-    document.getElementById('load-more').addEventListener('click', function () {
-        const button = this;
-        const spinner = document.getElementById('spinner');
-        const page = button.getAttribute('data-page');
-        
-        // Показываем иконку и добавляем вращение
+document.addEventListener('DOMContentLoaded', function () {
+    const filterForm = document.getElementById('filter-form'); // Форма фильтрации
+    const productList = document.getElementById('product-list'); // Контейнер для списка товаров
+    const loadMoreButton = document.getElementById('load-more'); // Кнопка "Загрузить еще"
+    const spinner = document.getElementById('spinner'); // Спиннер загрузки
+
+    // Функция для получения CSRF-токена из cookie (для защиты от CSRF-атак)
+    function getCSRFToken() {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'csrftoken') {
+                return decodeURIComponent(value);
+            }
+        }
+        return null;
+    }
+
+    const csrfToken = getCSRFToken(); // Получаем CSRF-токен
+
+    // Функция загрузки товаров
+    function loadProducts(page = 1, reset = false) {
+        console.log('Загружаем данные...', { page, reset });
+
+        // Показываем иконку загрузки и запускаем вращение
         spinner.style.display = 'inline-block';
         spinner.classList.add('rotate');
 
-        // Устанавливаем задержку перед загрузкой
-        setTimeout(() => {
-            // Отправка AJAX-запроса
-            fetch(`?page=${page}`, {
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        // Создаем объект FormData из формы фильтров
+        const formData = new FormData(filterForm);
+        const characteristicFilters = [];
+        filterForm.querySelectorAll('.filter-checkbox:checked').forEach((checkbox) => {
+            if (checkbox.name === 'characteristics') {
+                const key = checkbox.dataset.key;
+                const value = checkbox.value;
+                characteristicFilters.push(`${key}:${value}`);
+            }
+        });
+        formData.delete('characteristics');
+        characteristicFilters.forEach((filter) => formData.append('characteristics', filter));
+        formData.append('page', page);
+        console.log('Отправляемые данные фильтров:', Object.fromEntries(formData));
+
+        setTimeout(() => { // Задержка перед отправкой запроса для плавности анимации
+            fetch(window.location.pathname, {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': csrfToken,
+                },
+                body: formData,
             })
-            .then(response => response.json())
-            .then(data => {
-                const productList = document.getElementById('product-list');
-                
-                // Добавляем новые товары в список
-                data.products.forEach(product => {
-                    const productHtml = `
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 text-center products-list">
-                            <a href="/shop/product-view/${product.slug}">
-                                <div class="col menu-item">
-                                    <img src="${product.image_url}" title="${product.name}" width="300px" alt="${product.name}" style="border-radius: 10px">
-                                    <div class="product-name">
-                                        <h5 style="min-height: 3rem;">${product.name}</h5>
-                                        <h5>от ${product.base_price} руб.</h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    `;
-                    productList.insertAdjacentHTML('beforeend', productHtml);
+                .then((response) => {
+                    console.log('Ответ сервера:', response);
+                    if (!response.ok) {
+                        throw new Error('Ошибка сети');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log('Полученные данные:', data);
+
+                    if (reset) {
+                        productList.innerHTML = ''; // Очищаем список товаров при новом поиске
+                    }
+                    productList.insertAdjacentHTML('beforeend', data.html); // Добавляем новые товары
+
+                    // Обновляем кнопку "Загрузить еще"
+                    if (data.has_next) {
+                        loadMoreButton.style.display = 'block';
+                        loadMoreButton.setAttribute('data-page', page + 1);
+                    } else {
+                        loadMoreButton.style.display = 'none';
+                    }
+
+                    updateFilters(data.characteristics, data.sizes, data.handles);
+                })
+                .catch((error) => {
+                    console.error('Ошибка загрузки продуктов:', error);
+                })
+                .finally(() => {
+                    spinner.classList.remove('rotate'); // Останавливаем вращение спиннера
                 });
+        }, 300); // Задержка в 300 мс
+    }
 
-                // Обновляем номер страницы
-                button.setAttribute('data-page', parseInt(page) + 1);
+    // Функция обновления фильтров (активные/неактивные параметры)
+    function updateFilters(characteristics, sizes, handles) {
+        document.querySelectorAll('#characteristics-container input[type="checkbox"]').forEach((checkbox) => {
+            const key = checkbox.dataset.key;
+            const value = checkbox.value;
+            checkbox.disabled = !(characteristics[key] && characteristics[key].includes(value));
+            if (checkbox.disabled) checkbox.checked = false;
+        });
 
-                // Скрываем кнопку, если больше страниц нет
-                if (!data.has_next) {
-                    button.style.display = 'none';
-                }
-            })
-            .catch(error => console.error('Ошибка при загрузке товаров:', error))
-            .finally(() => {
-                // Скрываем и останавливаем вращение иконки
-                //spinner.style.display = 'none';
-                spinner.classList.remove('rotate');
-            });
-        }, 300); // Задержка в миллисекундах (500 = 0.5 секунды)
+        document.querySelectorAll('#size-container input[type="checkbox"]').forEach((checkbox) => {
+            checkbox.disabled = !sizes.includes(checkbox.value);
+            if (checkbox.disabled) checkbox.checked = false;
+        });
+
+        document.querySelectorAll('#handle-container input[type="checkbox"]').forEach((checkbox) => {
+            checkbox.disabled = !handles.includes(checkbox.value);
+            if (checkbox.disabled) checkbox.checked = false;
+        });
+    }
+
+    // Обработчик изменения фильтров (перезагрузка списка товаров)
+    filterForm.addEventListener('change', function () {
+        console.log('Фильтры изменены, загружаем данные...');
+        loadProducts(1, true);
     });
+
+    // Обработчик кнопки "Загрузить еще"
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', function () {
+            const page = parseInt(loadMoreButton.getAttribute('data-page'), 10);
+            console.log('Загрузка страницы:', page);
+            loadProducts(page);
+        });
+    }
+});
+
 </script>
+	
+		
 {% endif %}
 
 </main>
