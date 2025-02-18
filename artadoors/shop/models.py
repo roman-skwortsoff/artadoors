@@ -101,7 +101,7 @@ class Favorite(models.Model):
         Favorite.objects.filter(user__isnull=True, added_at__lt=expiration_date).delete()
 
 def product_images_dir(instance, filename):
-    return 'static/imgs/product_{slug}/{filename}'.format(slug=instance.product.slug, filename=filename)
+    return 'imgs/product_{slug}/{filename}'.format(slug=instance.product.slug, filename=filename)
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
@@ -134,7 +134,7 @@ class Category(MPTTModel):
 
 
 def category_images_dir(instance, filename):
-    return 'static/imgs/category_{slug}/{filename}'.format(slug=instance.category.slug, filename=filename)
+    return 'imgs/category_{slug}/{filename}'.format(slug=instance.category.slug, filename=filename)
 
 
 class CategoryImage(models.Model):

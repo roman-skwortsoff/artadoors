@@ -14,8 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.views.static import serve
 from django.urls import include, path
 from .views import show_category, catalog, view_product, favorites_view, cart_view, order_view
+
+from django.urls import path
+
 
 app_name = 'shop'
 
@@ -26,5 +30,4 @@ urlpatterns = [
     path('favorites/', favorites_view, name='favorites'),
     path('cart/', cart_view, name='cart'),
     path('cart/order/', order_view, name='order'),
-
 ]

@@ -1,0 +1,140 @@
+
+#catalog {
+    border: 1px solid #faf7f5;
+    background: transparent;
+    padding: 5px 35px;
+}
+
+#catalog a {
+    color: #faf7f5;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+#catalog a:hover {
+    color: #26afb6;
+}
+
+#catalog:hover {
+    border: 1px solid #0ea8b0;
+    background: transparent;
+}
+
+.bg-se {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #faf7f5;
+}
+
+.spbutL , .spbutR {
+    border-radius: 25%;
+    color: #0b707b;
+    font-size: larger;
+    border: 1px solid #0b7b77;
+    font-weight: bolder;
+}
+
+.list-se {
+    padding: 0.5rem;
+}
+
+.bg-animation {
+    animation: bg-animation 70s ease-in-out infinite;
+    padding: 175px 20px;
+    background-image: url(https://i.ibb.co/CQRJ66s/Vmake-1729966758.jpg); /* Фоновая картинка */
+    background-repeat: no-repeat;
+    transition: 1s;
+}
+
+.hamamback {
+    background-image: url(https://i.ibb.co/wRmBWjy/snapedit-1729798136536.png);
+}
+
+.saunaback {
+    background-image: url(https://i.ibb.co/NnwC41F/IMG-20210219-WA0006.jpg);
+}
+
+.partback {
+    background-image: url(https://i.ibb.co/CQRJ66s/Vmake-1729966758.jpg);
+}
+
+.email {
+    margin-top: 5px;
+}
+
+.mess a{
+    margin-bottom: 3px;
+}
+
+@media (min-width: 1119px) {
+    .bg-animation {
+        padding: 255px 20px;
+    }
+}
+
+
+@media (max-width: 1118px) {
+
+    #catalog a {
+        padding: 5px 10px;
+    }
+
+    #catalog {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .spbutL, .spbutR { display: none;}
+
+    .bg-animation h3, .bg-se h4, .bg-se h5 {
+        font-size: 18px;
+    }
+
+    .bg-animation button {
+        margin: 10px;
+    }
+    .bg-animation {
+        padding: 175px 0px;
+    }   
+}
+
+@media (max-width: 999px){
+    .bg-animation {
+        padding: 125px 0px;
+    }
+}
+
+
+@media (max-width: 520px){
+    .bg-animation {
+        padding: 80px 0px;
+    }
+}
+
+@keyframes bg-animation {
+    0% {
+        background-size: 110%;
+        background-position: 40% 40%
+    }
+    20% {
+        background-size: 120%;
+        background-position: 60% 60%;
+    }    
+    40% {
+        background-size: 130%;
+        background-position: 90% 90%;
+    }
+    60% {
+        background-size: 140%;
+        background-position: 80% 100%;
+    }
+    80% {
+        background-size: 120%;
+        background-position: 60% 70%;
+    }    
+    100% {
+        background-size: 110%;
+        background-position: 40% 40%
+    }
+}
+
