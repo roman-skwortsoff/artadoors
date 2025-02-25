@@ -104,27 +104,32 @@
 						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes">
 						с порогом
 					</label>
-			{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"без порога" %}
-			        <br>
-					<label class="threshold-selection" style="margin-left: 20px; display: none;">
-						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
-						без порога
-					</label>
-					<label  class="threshold-selection" style="display: none;">
-						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes">
-						с порогом
-					</label>
-			{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"с порогом" %}
-			        <br>
-					<label class="threshold-selection" style="display: none;">
-						<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no">
-						без порога
-					</label>
-					<label  class="threshold-selection" style="margin-left: 20px; display: none;">
-						<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes" checked>
-						с порогом
-					</label>
+
+			{% elif product.name|contains:"Хамам Престиж" %}
+			    {% if product.name|contains:"с порогом" %}
+				<br>
+				<label class="threshold-selection" style="display: none;">
+					<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no">
+					без порога
+				</label>
+				<label  class="threshold-selection" style="margin-left: 20px; display: none;">
+					<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes" checked>
+					с порогом
+				</label>
+				{% else %}
+				<br>
+				<label class="threshold-selection" style="margin-left: 20px; display: none;">
+					<input type="radio" name="Порог" data-price-increase="0" value="нет" id="threshold-no" checked>
+					без порога
+				</label>
+				<label  class="threshold-selection" style="display: none;">
+					<input type="radio" name="Порог" data-price-increase="{{threshold_price_inc}}" value="да" id="threshold-yes">
+					с порогом
+				</label>
+				{% endif %}
+
 			{% endif %}
+			
 		    </div>
 
 				<div class="door-selection d-flex">
@@ -282,10 +287,13 @@
 
 {% if product.name|contains:"Хамам Стандарт" or product.name|contains:"Хамам Элит" %}
 	<script src="{% static 'js/hamam-standart-elit.js' %}"></script>
-{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"с порогом" %}
-	<script src="{% static 'js/hamam-prestizh.js' %}"></script>
-{% elif product.name|contains:"Хамам Престиж" and product.name|contains:"без порога" %}
-	<script src="{% static 'js/hamam-prestizh_bp.js' %}"></script>
+{% elif product.name|contains:"Хамам Престиж"%}
+    {% if product.name|contains:"с порогом" %}
+       <script src="{% static 'js/hamam-prestizh.js' %}"></script>
+    {% else %}
+	    <script src="{% static 'js/hamam-prestizh_bp.js' %}"></script>
+	{% endif %}
 {% endif %}
+
 
 {% endblock container %}

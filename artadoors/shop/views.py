@@ -64,12 +64,14 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
         SizeOption.objects.filter(product__category__id__in=category_ids)
         .values_list('size_name', flat=True)
         .distinct()
+        .order_by('size_name')
     )
 
     unique_handles = (
         HandleOption.objects.filter(products__category__id__in=category_ids)
         .values_list('handle_name', flat=True)
         .distinct()
+        .order_by('handle_name')
     )
 
     # Применение фильтров
@@ -81,12 +83,12 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
         handles_filter = request.POST.getlist('handles')
         page = request.POST.get('page', 1)
     
-        print('Принятые фильтры:', {
-            'characteristics': characteristics_filter,
-            'sizes': sizes_filter,
-            'handles': handles_filter,
-            'page': page,
-        })
+        # print('Принятые фильтры:', {
+        #     'characteristics': characteristics_filter,
+        #     'sizes': sizes_filter,
+        #     'handles': handles_filter,
+        #     'page': page,
+        # })
 
         # Применение фильтров
         if characteristics_filter:
@@ -280,12 +282,12 @@ def favorites_view(request):
     else:
         favorite_items = Favorite.objects.filter(session_key=session_key)
 
-    print("[VIEW] Количество товаров в избранном:", len(favorite_items))
+    # print("[VIEW] Количество товаров в избранном:", len(favorite_items))
 
     if request.method == "POST":
         action = request.POST.get('action')
         favorite_id = request.POST.get('favorite_id')
-        print("[POST] Действие:", action, "favorite_id:", favorite_id)
+        # print("[POST] Действие:", action, "favorite_id:", favorite_id)
 
         if request.user.is_authenticated:
             favorite_item = get_object_or_404(Favorite, id=favorite_id, user=request.user)
@@ -294,7 +296,7 @@ def favorites_view(request):
 
         if action == "add_to_cart":
             quantity = int(request.POST.get('quantity', 1))
-            print("[POST] Добавление в корзину, количество:", quantity)
+            # print("[POST] Добавление в корзину, количество:", quantity)
 
             Cart.objects.create(
                 user=request.user if request.user.is_authenticated else None,
@@ -311,7 +313,7 @@ def favorites_view(request):
             return redirect('shop:favorites')
 
         elif action == "remove":
-            print("[POST] Удаление из избранного")
+            # print("[POST] Удаление из избранного")
             favorite_item.delete()
             messages.success(request, "Товар удален из избранного!")
             return redirect('shop:favorites')
@@ -338,16 +340,16 @@ def cart_view(request):
     else:
         cart_items = Cart.objects.filter(session_key=session_key)
 
-    print("[VIEW] Количество товаров в корзине:", len(cart_items))
+    # print("[VIEW] Количество товаров в корзине:", len(cart_items))
          #Если пользователь зарегистрирован, предварительно заполняем данные
     
     if request.method == "POST":
         action = request.POST.get('action')
-        print("[POST] Действие:", action)
+        # print("[POST] Действие:", action)
 
         if action == "update" or action == "remove":
             cart_id = request.POST.get('cart_id')
-            print("[POST] Действие:", action, "cart_id:", cart_id)
+            # print("[POST] Действие:", action, "cart_id:", cart_id)
 
             if request.user.is_authenticated:
                 cart_item = get_object_or_404(Cart, id=cart_id, user=request.user)
@@ -458,7 +460,7 @@ def order_view(request):
     else:
         cart_items = Cart.objects.filter(session_key=session_key)
 
-    print("[VIEW] Количество товаров в корзине:", len(cart_items))
+    # print("[VIEW] Количество товаров в корзине:", len(cart_items))
          #Если пользователь зарегистрирован, предварительно заполняем данные
     
     if request.method == "POST":
@@ -470,7 +472,7 @@ def order_view(request):
             return render(request, 'shop/order.html', {'cart_items': cart_items, 'initial_data': request.POST})
         
         action = request.POST.get('action')
-        print("[POST] Действие:", action)
+        # print("[POST] Действие:", action)
 
         if action == "checkout":
             # Обработка формы заказа
@@ -483,8 +485,8 @@ def order_view(request):
             custom_delivery = request.POST.get('custom_delivery')
             payment_method = request.POST.get('payment_method')
             total_price=sum(item.price*item.quantity for item in cart_items)
-            print("[POST] Данные формы:",
-                  last_name, first_name, phone, email, address, delivery_method, payment_method, total_price)
+            # print("[POST] Данные формы:",
+            #       last_name, first_name, phone, email, address, delivery_method, payment_method, total_price)
 
             if not cart_items.exists():
                 messages.error(request, "Корзина пуста! Невозможно создать заказ.")
@@ -507,11 +509,11 @@ def order_view(request):
                         total_price=total_price,
                         status="В обработке"  # Устанавливаем начальный статус
                     )
-                    print("[ORDER] Создан заказ:", order)
+                    # print("[ORDER] Создан заказ:", order)
 
                     # Перенос товаров из корзины в заказ
                     for cart_item in cart_items:
-                        print("[ORDER ITEM] Перенос товара в заказ:", cart_item)
+                        # print("[ORDER ITEM] Перенос товара в заказ:", cart_item)
                         OrderItem.objects.create(
                             order=order,
                             product=cart_item.product,
@@ -525,14 +527,14 @@ def order_view(request):
 
                     # Очистка корзины
                     cart_items.delete()
-                    print("[CART] Корзина очищена")
+                    # print("[CART] Корзина очищена")
 
                 messages.success(request, "Заказ успешно создан!")
                 return redirect('shop:cart')
                 #return redirect('shop:order_detail', order_id=order.id)
 
             except Exception as e:
-                print("[ERROR] Ошибка при создании заказа:", str(e))
+                # print("[ERROR] Ошибка при создании заказа:", str(e))
                 messages.error(request, "Произошла ошибка при создании заказа. Попробуйте еще раз.")
                 return redirect('shop:cart')
 

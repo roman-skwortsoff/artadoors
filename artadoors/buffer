@@ -15,6 +15,9 @@ services:
       - "8000:8000"
 
 
+
+
+
 Prod:
 
 services:
@@ -46,3 +49,18 @@ services:
 volumes:
   static_volume:
   media_volume:
+
+
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'artadoors_db',
+        'USER': 'romario',
+        'PASSWORD': '11012017',
+        'HOST': '127.0.0.1',  # Локальный сервер PostgreSQL
+        'PORT': '5432',
+    }
+}

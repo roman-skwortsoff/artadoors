@@ -203,7 +203,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция загрузки товаров
     function loadProducts(page = 1, reset = false) {
-        console.log('Загружаем данные...', { page, reset });
 
         // Показываем иконку загрузки и запускаем вращение
         spinner.style.display = 'inline-block';
@@ -222,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.delete('characteristics');
         characteristicFilters.forEach((filter) => formData.append('characteristics', filter));
         formData.append('page', page);
-        console.log('Отправляемые данные фильтров:', Object.fromEntries(formData));
 
         setTimeout(() => { // Задержка перед отправкой запроса для плавности анимации
             fetch(window.location.pathname, {
@@ -234,14 +232,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: formData,
             })
                 .then((response) => {
-                    console.log('Ответ сервера:', response);
                     if (!response.ok) {
                         throw new Error('Ошибка сети');
                     }
                     return response.json();
                 })
                 .then((data) => {
-                    console.log('Полученные данные:', data);
 
                     if (reset) {
                         productList.innerHTML = ''; // Очищаем список товаров при новом поиске
@@ -289,7 +285,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Обработчик изменения фильтров (перезагрузка списка товаров)
     filterForm.addEventListener('change', function () {
-        console.log('Фильтры изменены, загружаем данные...');
         loadProducts(1, true);
     });
 
@@ -297,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (loadMoreButton) {
         loadMoreButton.addEventListener('click', function () {
             const page = parseInt(loadMoreButton.getAttribute('data-page'), 10);
-            console.log('Загрузка страницы:', page);
             loadProducts(page);
         });
     }

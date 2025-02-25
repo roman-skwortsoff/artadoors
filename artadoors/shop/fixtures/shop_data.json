@@ -1,0 +1,6211 @@
+[
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "name": "Хамам Стандарт бронза",
+    "category": 3,
+    "slug": "hamam-standart-bronza",
+    "description": "",
+    "archived": false,
+    "base_price": "28500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бронза прозрачная",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 490
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "name": "Хамам Элит бронза",
+    "category": 21,
+    "slug": "hamam-elit-bronza",
+    "description": "",
+    "archived": false,
+    "base_price": "39500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза прозрачная",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 499
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "name": "Хамам Стандарт белая матовая",
+    "category": 3,
+    "slug": "hamam-standart-belaya-matovaya",
+    "description": "",
+    "archived": false,
+    "base_price": "31000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, белое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 440
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "name": "Хамам Стандарт бронза матовая",
+    "category": 3,
+    "slug": "hamam-standart-bronza-matovaya",
+    "description": "",
+    "archived": false,
+    "base_price": "31000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бронза матовая",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 445
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "name": "Хамам Стандарт прозрачная",
+    "category": 3,
+    "slug": "hamam-standart-prozrachnaya",
+    "description": "",
+    "archived": false,
+    "base_price": "28500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бесцветное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 50
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "name": "Хамам Стандарт серая",
+    "category": 3,
+    "slug": "hamam-standart-grey",
+    "description": "",
+    "archived": false,
+    "base_price": "30500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, серое прозрачное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 400
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 7,
+  "fields": {
+    "name": "Хамам Стандарт серая матовая",
+    "category": 3,
+    "slug": "hamam-standart-grey-mat",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, серое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 209
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 8,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Джуна\"",
+    "category": 34,
+    "slug": "hamam-standart-art-dzhuna",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 200
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 9,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Туман\"",
+    "category": 34,
+    "slug": "hamam-standart-art-tuman",
+    "description": "",
+    "archived": false,
+    "base_price": "35000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 202
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 10,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Этно\"",
+    "category": 34,
+    "slug": "hamam-standart-art-belaya-matovaya-etno",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 10
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 11,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Самира\"",
+    "category": 34,
+    "slug": "hamam-standart-art-samira",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 195
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 12,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Русалка\"",
+    "category": 34,
+    "slug": "hamam-standart-rusalka",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 21
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 13,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Мозайка\"",
+    "category": 34,
+    "slug": "hamam-standart-prozrachnaya-mozajka",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 15
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 14,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Мечеть\"",
+    "category": 34,
+    "slug": "hamam-standart-art-mechet",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 30
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 15,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Месяц\"",
+    "category": 34,
+    "slug": "hamam-standart-art-mesyats",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 22
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 16,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Заир\"",
+    "category": 34,
+    "slug": "hamam-standart-art-zair",
+    "description": "",
+    "archived": false,
+    "base_price": "35000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 25
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 17,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Восток\"",
+    "category": 34,
+    "slug": "hamam-standart-art-vostok",
+    "description": "",
+    "archived": false,
+    "base_price": "35000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 24
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 18,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Богиня\"",
+    "category": 34,
+    "slug": "hamam-standart-art-boginya",
+    "description": "",
+    "archived": false,
+    "base_price": "35000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 30
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 19,
+  "fields": {
+    "name": "Хамам Стандарт АРТ \"Арка восточная\"",
+    "category": 34,
+    "slug": "hamam-standart-arka-vostochnaya",
+    "description": "",
+    "archived": false,
+    "base_price": "33000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Стандарт серые. Модель 65",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 190
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 20,
+  "fields": {
+    "name": "Хамам Элит бронза матовая",
+    "category": 21,
+    "slug": "hamam-elit-bronza-matovaya",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза матовая",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 410
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 21,
+  "fields": {
+    "name": "Хамам Элит белая матовая",
+    "category": 21,
+    "slug": "hamam-elit-belaya-matovaya",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, белое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 491
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 22,
+  "fields": {
+    "name": "Хамам Элит прозрачная",
+    "category": 21,
+    "slug": "hamam-elit-prozrachnaya",
+    "description": "",
+    "archived": false,
+    "base_price": "39500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бесцветное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 400
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 23,
+  "fields": {
+    "name": "Хамам Элит серая",
+    "category": 21,
+    "slug": "hamam-elit-seraya",
+    "description": "",
+    "archived": false,
+    "base_price": "41500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое прозрачное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 480
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 24,
+  "fields": {
+    "name": "Хамам Элит серая матовая",
+    "category": 21,
+    "slug": "hamam-elit-seraya-matovaya",
+    "description": "",
+    "archived": false,
+    "base_price": "45500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 479
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 25,
+  "fields": {
+    "name": "Хамам Элит бронза матовая с WC замком",
+    "category": 22,
+    "slug": "hamam-elit-bronza-matovaya-wc",
+    "description": "",
+    "archived": false,
+    "base_price": "53000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза матовая",
+      "Закрывание": "Замок с нажимной ручкой и  WC защелкой"
+    },
+    "sales_sort": 250
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 26,
+  "fields": {
+    "name": "Хамам Элит серая матовая с WC замком",
+    "category": 22,
+    "slug": "hamam-elit-seraya-matovaya-wc",
+    "description": "",
+    "archived": false,
+    "base_price": "55000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое матовое",
+      "Закрывание": "Замок с нажимной ручкой и  WC защелкой"
+    },
+    "sales_sort": 200
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 27,
+  "fields": {
+    "name": "Хамам Элит белая матовая с WC замком",
+    "category": 22,
+    "slug": "hamam-elit-belaya-matovaya-wc",
+    "description": "",
+    "archived": false,
+    "base_price": "53000",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, белое матовое",
+      "Закрывание": "Замок с нажимной ручкой и  WC защелкой"
+    },
+    "sales_sort": 200
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 28,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Арка восточная\"",
+    "category": 35,
+    "slug": "hamam-elit-art-bronza-arka-vostochnaya",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 200
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 29,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Богиня\"",
+    "category": 35,
+    "slug": "hamam-elit-art-seraya-boginya",
+    "description": "",
+    "archived": false,
+    "base_price": "45500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 150
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 30,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Восток\"",
+    "category": 35,
+    "slug": "hamam-elit-art-vostok",
+    "description": "",
+    "archived": false,
+    "base_price": "45500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 15
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 31,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Джуна\"",
+    "category": 35,
+    "slug": "hamam-elit-art-dzhuna",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 202
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 32,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Заир\"",
+    "category": 35,
+    "slug": "hamam-elit-art-zair",
+    "description": "",
+    "archived": false,
+    "base_price": "45500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 63
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 33,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Месяц\"",
+    "category": 35,
+    "slug": "hamam-elit-art-mesyats",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 20
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 34,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Мечеть\"",
+    "category": 35,
+    "slug": "hamam-elit-art-mechet",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 45
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 35,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Мозайка\"",
+    "category": 35,
+    "slug": "hamam-elit-art-mozajka",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 2
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 36,
+  "fields": {
+    "name": "Хамам Элит АРТ  \"Русалка\"",
+    "category": 35,
+    "slug": "hamam-elit-art-rusalka",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 18
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 37,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Самира\"",
+    "category": 35,
+    "slug": "hamam-elit-art-samira",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бронза с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 197
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 38,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Туман\"",
+    "category": 35,
+    "slug": "hamam-elit-art-tuman",
+    "description": "",
+    "archived": false,
+    "base_price": "45500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, серое с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 171
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 39,
+  "fields": {
+    "name": "Хамам Элит АРТ \"Этно\"",
+    "category": 35,
+    "slug": "hamam-elit-art-etno",
+    "description": "",
+    "archived": false,
+    "base_price": "43500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 50*44мм",
+      "Петли": "Хамам Элит анодированные. Модель 84",
+      "Стекло": "8мм, бесцветное с рисунком",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 11
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 40,
+  "fields": {
+    "name": "Хамам Престиж 60G бронза с вертикальной ручкой",
+    "category": 15,
+    "slug": "hamam-prestizh-60g-bronza-ver",
+    "description": "",
+    "archived": false,
+    "base_price": "51500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, бронза прозрачная",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 400
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 41,
+  "fields": {
+    "name": "Хамам Престиж 60G бронза матовая с вертикальной ручкой",
+    "category": 15,
+    "slug": "hamam-prestizh-60g-bronza-mat-ver",
+    "description": "",
+    "archived": false,
+    "base_price": "56500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, бронза матовая",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 230
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 42,
+  "fields": {
+    "name": "Хамам Престиж 60G серая с вертикальной ручкой",
+    "category": 15,
+    "slug": "hamam-prestizh-60g-grey-ver",
+    "description": "",
+    "archived": false,
+    "base_price": "53500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, серое прозрачное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 402
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 43,
+  "fields": {
+    "name": "Хамам Престиж 60G серая матовая с вертикальной ручкой",
+    "category": 15,
+    "slug": "hamam-prestizh-60g-grey-mat-ver",
+    "description": "",
+    "archived": false,
+    "base_price": "58500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, серое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 232
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 44,
+  "fields": {
+    "name": "Хамам Престиж 60G белая матовая с вертикальной ручкой",
+    "category": 15,
+    "slug": "hamam-prestizh-60g-bel-mat-ver",
+    "description": "",
+    "archived": false,
+    "base_price": "56500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, белое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 90
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 45,
+  "fields": {
+    "name": "Хамам Престиж 60G прозрачная с вертикальной ручкой",
+    "category": 15,
+    "slug": "hamam-prestizh-60g-prozr-ver",
+    "description": "",
+    "archived": false,
+    "base_price": "51500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, бесцветное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 89
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 46,
+  "fields": {
+    "name": "Хамам Престиж 60G бронза с вертикальной ручкой с порогом",
+    "category": 16,
+    "slug": "hamam-prestizh-60g-bronza-ver-porog",
+    "description": "",
+    "archived": false,
+    "base_price": "51500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, бронза прозрачная",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 300
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 47,
+  "fields": {
+    "name": "Хамам Престиж 60G бронза матовая с вертикальной ручкой с порогом",
+    "category": 16,
+    "slug": "hamam-prestizh-60g-bronza-mat-ver-porog",
+    "description": "",
+    "archived": false,
+    "base_price": "56500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, бронза матовая",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 100
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 48,
+  "fields": {
+    "name": "Хамам Престиж 60G серая с вертикальной ручкой с порогом",
+    "category": 16,
+    "slug": "hamam-prestizh-60g-grey-ver-porog",
+    "description": "",
+    "archived": false,
+    "base_price": "53500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, серое прозрачное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 212
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 49,
+  "fields": {
+    "name": "Хамам Престиж 60G серая матовая с вертикальной ручкой с порогом",
+    "category": 16,
+    "slug": "hamam-prestizh-60g-grey-mat-ver-porog",
+    "description": "",
+    "archived": false,
+    "base_price": "58500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, серое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 105
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 50,
+  "fields": {
+    "name": "Хамам Престиж 60G белая матовая с вертикальной ручкой с порогом",
+    "category": 16,
+    "slug": "hamam-prestizh-60g-bel-mat-ver-porog",
+    "description": "",
+    "archived": false,
+    "base_price": "56500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, белое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 150
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 51,
+  "fields": {
+    "name": "Хамам Престиж 60G прозрачная с вертикальной ручкой с порогом",
+    "category": 16,
+    "slug": "hamam-prestizh-60g-prozr-ver-porog",
+    "description": "",
+    "archived": false,
+    "base_price": "51500",
+    "characteristics": {
+      "Коробка": "Анодированный алюминий 60*55мм",
+      "Петли": "60G серебристые",
+      "Стекло": "8мм, бесцветное",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 102
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 52,
+  "fields": {
+    "name": "Хамам Престиж 60G бронза с вертикальной ручкой черная",
+    "category": 30,
+    "slug": "hamam-prestizh-60G-bronza-ver-black",
+    "description": "",
+    "archived": false,
+    "base_price": "64500",
+    "characteristics": {
+      "Коробка": "Черный анодированный алюминий 60*55мм",
+      "Петли": "60G черные",
+      "Стекло": "8мм, бронза прозрачная",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 501
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 53,
+  "fields": {
+    "name": "Хамам Престиж 60G серая матовая черная",
+    "category": 32,
+    "slug": "hamam-prestizh-60G-grey-mat-black",
+    "description": "",
+    "archived": false,
+    "base_price": "61500",
+    "characteristics": {
+      "Коробка": "Черный анодированный алюминий 60*55мм",
+      "Петли": "60G черные",
+      "Стекло": "8мм, серое матовое",
+      "Закрывание": "Магнитный уплотнитель"
+    },
+    "sales_sort": 400
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 1,
+  "fields": {
+    "product": 1,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 2,
+  "fields": {
+    "product": 1,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 3,
+  "fields": {
+    "product": 1,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 4,
+  "fields": {
+    "product": 1,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 5,
+  "fields": {
+    "product": 2,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 6,
+  "fields": {
+    "product": 2,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 7,
+  "fields": {
+    "product": 2,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 8,
+  "fields": {
+    "product": 2,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 9,
+  "fields": {
+    "product": 3,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 10,
+  "fields": {
+    "product": 3,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 11,
+  "fields": {
+    "product": 3,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 12,
+  "fields": {
+    "product": 3,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 13,
+  "fields": {
+    "product": 4,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 14,
+  "fields": {
+    "product": 4,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 15,
+  "fields": {
+    "product": 4,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 16,
+  "fields": {
+    "product": 4,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 17,
+  "fields": {
+    "product": 5,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 18,
+  "fields": {
+    "product": 5,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 19,
+  "fields": {
+    "product": 5,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 20,
+  "fields": {
+    "product": 5,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 21,
+  "fields": {
+    "product": 6,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 22,
+  "fields": {
+    "product": 6,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 23,
+  "fields": {
+    "product": 6,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 24,
+  "fields": {
+    "product": 6,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 25,
+  "fields": {
+    "product": 7,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 26,
+  "fields": {
+    "product": 7,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 27,
+  "fields": {
+    "product": 7,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 28,
+  "fields": {
+    "product": 7,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 29,
+  "fields": {
+    "product": 8,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 30,
+  "fields": {
+    "product": 8,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 31,
+  "fields": {
+    "product": 8,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 32,
+  "fields": {
+    "product": 8,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 33,
+  "fields": {
+    "product": 9,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 34,
+  "fields": {
+    "product": 9,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 35,
+  "fields": {
+    "product": 9,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 36,
+  "fields": {
+    "product": 9,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 37,
+  "fields": {
+    "product": 10,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 38,
+  "fields": {
+    "product": 10,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 39,
+  "fields": {
+    "product": 10,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 40,
+  "fields": {
+    "product": 10,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 41,
+  "fields": {
+    "product": 11,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 42,
+  "fields": {
+    "product": 11,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 43,
+  "fields": {
+    "product": 11,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 44,
+  "fields": {
+    "product": 11,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 45,
+  "fields": {
+    "product": 12,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 46,
+  "fields": {
+    "product": 12,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 47,
+  "fields": {
+    "product": 12,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 48,
+  "fields": {
+    "product": 12,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 49,
+  "fields": {
+    "product": 13,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 50,
+  "fields": {
+    "product": 13,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 51,
+  "fields": {
+    "product": 13,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 52,
+  "fields": {
+    "product": 13,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 53,
+  "fields": {
+    "product": 14,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 54,
+  "fields": {
+    "product": 14,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 55,
+  "fields": {
+    "product": 14,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 56,
+  "fields": {
+    "product": 14,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 57,
+  "fields": {
+    "product": 15,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 58,
+  "fields": {
+    "product": 15,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 59,
+  "fields": {
+    "product": 15,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 60,
+  "fields": {
+    "product": 15,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 61,
+  "fields": {
+    "product": 16,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 62,
+  "fields": {
+    "product": 16,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 63,
+  "fields": {
+    "product": 16,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 64,
+  "fields": {
+    "product": 16,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 65,
+  "fields": {
+    "product": 17,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 66,
+  "fields": {
+    "product": 17,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 67,
+  "fields": {
+    "product": 17,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 68,
+  "fields": {
+    "product": 17,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 69,
+  "fields": {
+    "product": 18,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 70,
+  "fields": {
+    "product": 18,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 71,
+  "fields": {
+    "product": 18,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 72,
+  "fields": {
+    "product": 18,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 73,
+  "fields": {
+    "product": 19,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 74,
+  "fields": {
+    "product": 19,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 75,
+  "fields": {
+    "product": 19,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 76,
+  "fields": {
+    "product": 19,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 77,
+  "fields": {
+    "product": 20,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 78,
+  "fields": {
+    "product": 20,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 79,
+  "fields": {
+    "product": 20,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 80,
+  "fields": {
+    "product": 20,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 81,
+  "fields": {
+    "product": 21,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 82,
+  "fields": {
+    "product": 21,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 83,
+  "fields": {
+    "product": 21,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 84,
+  "fields": {
+    "product": 21,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 85,
+  "fields": {
+    "product": 22,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 86,
+  "fields": {
+    "product": 22,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 87,
+  "fields": {
+    "product": 22,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 88,
+  "fields": {
+    "product": 22,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 89,
+  "fields": {
+    "product": 23,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 90,
+  "fields": {
+    "product": 23,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 91,
+  "fields": {
+    "product": 23,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 92,
+  "fields": {
+    "product": 23,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 93,
+  "fields": {
+    "product": 24,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 94,
+  "fields": {
+    "product": 24,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 95,
+  "fields": {
+    "product": 24,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 96,
+  "fields": {
+    "product": 24,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 97,
+  "fields": {
+    "product": 25,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 98,
+  "fields": {
+    "product": 25,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 99,
+  "fields": {
+    "product": 25,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 100,
+  "fields": {
+    "product": 25,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 101,
+  "fields": {
+    "product": 26,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 102,
+  "fields": {
+    "product": 26,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 103,
+  "fields": {
+    "product": 26,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 104,
+  "fields": {
+    "product": 26,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 105,
+  "fields": {
+    "product": 27,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 106,
+  "fields": {
+    "product": 27,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 107,
+  "fields": {
+    "product": 27,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 108,
+  "fields": {
+    "product": 27,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 109,
+  "fields": {
+    "product": 28,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 110,
+  "fields": {
+    "product": 28,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 111,
+  "fields": {
+    "product": 28,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 112,
+  "fields": {
+    "product": 28,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 113,
+  "fields": {
+    "product": 29,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 114,
+  "fields": {
+    "product": 29,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 115,
+  "fields": {
+    "product": 29,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 116,
+  "fields": {
+    "product": 29,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 117,
+  "fields": {
+    "product": 30,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 118,
+  "fields": {
+    "product": 30,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 119,
+  "fields": {
+    "product": 30,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 120,
+  "fields": {
+    "product": 30,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 121,
+  "fields": {
+    "product": 31,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 122,
+  "fields": {
+    "product": 31,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 123,
+  "fields": {
+    "product": 31,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 124,
+  "fields": {
+    "product": 31,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 125,
+  "fields": {
+    "product": 32,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 126,
+  "fields": {
+    "product": 32,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 127,
+  "fields": {
+    "product": 32,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 128,
+  "fields": {
+    "product": 32,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 129,
+  "fields": {
+    "product": 33,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 130,
+  "fields": {
+    "product": 33,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 131,
+  "fields": {
+    "product": 33,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 132,
+  "fields": {
+    "product": 33,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 133,
+  "fields": {
+    "product": 34,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 134,
+  "fields": {
+    "product": 34,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 135,
+  "fields": {
+    "product": 34,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 136,
+  "fields": {
+    "product": 34,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 137,
+  "fields": {
+    "product": 35,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 138,
+  "fields": {
+    "product": 35,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 139,
+  "fields": {
+    "product": 35,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 140,
+  "fields": {
+    "product": 35,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 141,
+  "fields": {
+    "product": 36,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 142,
+  "fields": {
+    "product": 36,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 143,
+  "fields": {
+    "product": 36,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 144,
+  "fields": {
+    "product": 36,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 145,
+  "fields": {
+    "product": 37,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 146,
+  "fields": {
+    "product": 37,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 147,
+  "fields": {
+    "product": 37,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 148,
+  "fields": {
+    "product": 37,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 149,
+  "fields": {
+    "product": 38,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 150,
+  "fields": {
+    "product": 38,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 151,
+  "fields": {
+    "product": 38,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 152,
+  "fields": {
+    "product": 38,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 153,
+  "fields": {
+    "product": 39,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 154,
+  "fields": {
+    "product": 39,
+    "size_name": "1900*800",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 155,
+  "fields": {
+    "product": 39,
+    "size_name": "2000*700",
+    "price_increase": "2000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 156,
+  "fields": {
+    "product": 39,
+    "size_name": "2000*800",
+    "price_increase": "4000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 157,
+  "fields": {
+    "product": 40,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 158,
+  "fields": {
+    "product": 40,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 159,
+  "fields": {
+    "product": 40,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 160,
+  "fields": {
+    "product": 40,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 161,
+  "fields": {
+    "product": 40,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 162,
+  "fields": {
+    "product": 40,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 163,
+  "fields": {
+    "product": 40,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 164,
+  "fields": {
+    "product": 40,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 165,
+  "fields": {
+    "product": 40,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 166,
+  "fields": {
+    "product": 41,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 167,
+  "fields": {
+    "product": 41,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 168,
+  "fields": {
+    "product": 41,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 169,
+  "fields": {
+    "product": 41,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 170,
+  "fields": {
+    "product": 41,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 171,
+  "fields": {
+    "product": 41,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 172,
+  "fields": {
+    "product": 41,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 173,
+  "fields": {
+    "product": 41,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 174,
+  "fields": {
+    "product": 41,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 175,
+  "fields": {
+    "product": 42,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 176,
+  "fields": {
+    "product": 42,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 177,
+  "fields": {
+    "product": 42,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 178,
+  "fields": {
+    "product": 42,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 179,
+  "fields": {
+    "product": 42,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 180,
+  "fields": {
+    "product": 42,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 181,
+  "fields": {
+    "product": 42,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 182,
+  "fields": {
+    "product": 42,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 183,
+  "fields": {
+    "product": 42,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 184,
+  "fields": {
+    "product": 43,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 185,
+  "fields": {
+    "product": 43,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 186,
+  "fields": {
+    "product": 43,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 187,
+  "fields": {
+    "product": 43,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 188,
+  "fields": {
+    "product": 43,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 189,
+  "fields": {
+    "product": 43,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 190,
+  "fields": {
+    "product": 43,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 191,
+  "fields": {
+    "product": 43,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 192,
+  "fields": {
+    "product": 43,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 193,
+  "fields": {
+    "product": 44,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 194,
+  "fields": {
+    "product": 44,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 195,
+  "fields": {
+    "product": 44,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 196,
+  "fields": {
+    "product": 44,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 197,
+  "fields": {
+    "product": 44,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 198,
+  "fields": {
+    "product": 44,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 199,
+  "fields": {
+    "product": 44,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 200,
+  "fields": {
+    "product": 44,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 201,
+  "fields": {
+    "product": 44,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 202,
+  "fields": {
+    "product": 45,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 203,
+  "fields": {
+    "product": 45,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 204,
+  "fields": {
+    "product": 45,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 205,
+  "fields": {
+    "product": 45,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 206,
+  "fields": {
+    "product": 45,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 207,
+  "fields": {
+    "product": 45,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 208,
+  "fields": {
+    "product": 45,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 209,
+  "fields": {
+    "product": 45,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 210,
+  "fields": {
+    "product": 45,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 211,
+  "fields": {
+    "product": 46,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 212,
+  "fields": {
+    "product": 46,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 213,
+  "fields": {
+    "product": 46,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 214,
+  "fields": {
+    "product": 46,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 215,
+  "fields": {
+    "product": 46,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 216,
+  "fields": {
+    "product": 46,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 217,
+  "fields": {
+    "product": 46,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 218,
+  "fields": {
+    "product": 46,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 219,
+  "fields": {
+    "product": 46,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 220,
+  "fields": {
+    "product": 47,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 221,
+  "fields": {
+    "product": 47,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 222,
+  "fields": {
+    "product": 47,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 223,
+  "fields": {
+    "product": 47,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 224,
+  "fields": {
+    "product": 47,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 225,
+  "fields": {
+    "product": 47,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 226,
+  "fields": {
+    "product": 47,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 227,
+  "fields": {
+    "product": 47,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 228,
+  "fields": {
+    "product": 47,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 229,
+  "fields": {
+    "product": 48,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 230,
+  "fields": {
+    "product": 48,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 231,
+  "fields": {
+    "product": 48,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 232,
+  "fields": {
+    "product": 48,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 233,
+  "fields": {
+    "product": 48,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 234,
+  "fields": {
+    "product": 48,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 235,
+  "fields": {
+    "product": 48,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 236,
+  "fields": {
+    "product": 48,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 237,
+  "fields": {
+    "product": 48,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 238,
+  "fields": {
+    "product": 49,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 239,
+  "fields": {
+    "product": 49,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 240,
+  "fields": {
+    "product": 49,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 241,
+  "fields": {
+    "product": 49,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 242,
+  "fields": {
+    "product": 49,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 243,
+  "fields": {
+    "product": 49,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 244,
+  "fields": {
+    "product": 49,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 245,
+  "fields": {
+    "product": 49,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 246,
+  "fields": {
+    "product": 49,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 247,
+  "fields": {
+    "product": 50,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 248,
+  "fields": {
+    "product": 50,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 249,
+  "fields": {
+    "product": 50,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 250,
+  "fields": {
+    "product": 50,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 251,
+  "fields": {
+    "product": 50,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 252,
+  "fields": {
+    "product": 50,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 253,
+  "fields": {
+    "product": 50,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 254,
+  "fields": {
+    "product": 50,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 255,
+  "fields": {
+    "product": 50,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 256,
+  "fields": {
+    "product": 51,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 257,
+  "fields": {
+    "product": 51,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 258,
+  "fields": {
+    "product": 51,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 259,
+  "fields": {
+    "product": 51,
+    "size_name": "2000*800",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 260,
+  "fields": {
+    "product": 51,
+    "size_name": "2000*900",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 261,
+  "fields": {
+    "product": 51,
+    "size_name": "2100*700",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 262,
+  "fields": {
+    "product": 51,
+    "size_name": "2100*800",
+    "price_increase": "8000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 263,
+  "fields": {
+    "product": 51,
+    "size_name": "2100*900",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 264,
+  "fields": {
+    "product": 51,
+    "size_name": "2100*1000",
+    "price_increase": "13000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 265,
+  "fields": {
+    "product": 52,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 266,
+  "fields": {
+    "product": 52,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 267,
+  "fields": {
+    "product": 52,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 268,
+  "fields": {
+    "product": 52,
+    "size_name": "2000*800",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 269,
+  "fields": {
+    "product": 52,
+    "size_name": "2000*900",
+    "price_increase": "10000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 270,
+  "fields": {
+    "product": 52,
+    "size_name": "2100*700",
+    "price_increase": "10000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 271,
+  "fields": {
+    "product": 52,
+    "size_name": "2100*800",
+    "price_increase": "12000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 272,
+  "fields": {
+    "product": 52,
+    "size_name": "2100*900",
+    "price_increase": "18000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 273,
+  "fields": {
+    "product": 52,
+    "size_name": "2100*1000",
+    "price_increase": "18000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 274,
+  "fields": {
+    "product": 53,
+    "size_name": "1900*700",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 275,
+  "fields": {
+    "product": 53,
+    "size_name": "1900*800",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 276,
+  "fields": {
+    "product": 53,
+    "size_name": "2000*700",
+    "price_increase": "3500"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 277,
+  "fields": {
+    "product": 53,
+    "size_name": "2000*800",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 278,
+  "fields": {
+    "product": 53,
+    "size_name": "2000*900",
+    "price_increase": "10000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 279,
+  "fields": {
+    "product": 53,
+    "size_name": "2100*700",
+    "price_increase": "10000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 280,
+  "fields": {
+    "product": 53,
+    "size_name": "2100*800",
+    "price_increase": "12000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 281,
+  "fields": {
+    "product": 53,
+    "size_name": "2100*900",
+    "price_increase": "18000"
+  }
+},
+{
+  "model": "shop.sizeoption",
+  "pk": 282,
+  "fields": {
+    "product": 53,
+    "size_name": "2100*1000",
+    "price_increase": "18000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 1,
+  "fields": {
+    "products": 1,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 2,
+  "fields": {
+    "products": 1,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 3,
+  "fields": {
+    "products": 1,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 4,
+  "fields": {
+    "products": 1,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 5,
+  "fields": {
+    "products": 5,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 6,
+  "fields": {
+    "products": 5,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 7,
+  "fields": {
+    "products": 5,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 8,
+  "fields": {
+    "products": 5,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 9,
+  "fields": {
+    "products": 4,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 10,
+  "fields": {
+    "products": 4,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 11,
+  "fields": {
+    "products": 4,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 12,
+  "fields": {
+    "products": 4,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 13,
+  "fields": {
+    "products": 3,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 14,
+  "fields": {
+    "products": 3,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 15,
+  "fields": {
+    "products": 3,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 16,
+  "fields": {
+    "products": 3,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 17,
+  "fields": {
+    "products": 2,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 18,
+  "fields": {
+    "products": 2,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 19,
+  "fields": {
+    "products": 6,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 20,
+  "fields": {
+    "products": 6,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 21,
+  "fields": {
+    "products": 6,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 22,
+  "fields": {
+    "products": 6,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 23,
+  "fields": {
+    "products": 7,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 24,
+  "fields": {
+    "products": 7,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 25,
+  "fields": {
+    "products": 7,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 26,
+  "fields": {
+    "products": 7,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 27,
+  "fields": {
+    "products": 8,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 28,
+  "fields": {
+    "products": 8,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 29,
+  "fields": {
+    "products": 8,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 30,
+  "fields": {
+    "products": 8,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 31,
+  "fields": {
+    "products": 9,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 32,
+  "fields": {
+    "products": 9,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 33,
+  "fields": {
+    "products": 9,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 34,
+  "fields": {
+    "products": 9,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 35,
+  "fields": {
+    "products": 10,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 36,
+  "fields": {
+    "products": 10,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 37,
+  "fields": {
+    "products": 10,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 38,
+  "fields": {
+    "products": 10,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 39,
+  "fields": {
+    "products": 11,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 40,
+  "fields": {
+    "products": 11,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 41,
+  "fields": {
+    "products": 11,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 42,
+  "fields": {
+    "products": 11,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 43,
+  "fields": {
+    "products": 12,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 44,
+  "fields": {
+    "products": 12,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 45,
+  "fields": {
+    "products": 12,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 46,
+  "fields": {
+    "products": 12,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 47,
+  "fields": {
+    "products": 13,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 48,
+  "fields": {
+    "products": 13,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 49,
+  "fields": {
+    "products": 13,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 50,
+  "fields": {
+    "products": 13,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 51,
+  "fields": {
+    "products": 14,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 52,
+  "fields": {
+    "products": 14,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 53,
+  "fields": {
+    "products": 14,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 54,
+  "fields": {
+    "products": 14,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 55,
+  "fields": {
+    "products": 15,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 56,
+  "fields": {
+    "products": 15,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 57,
+  "fields": {
+    "products": 15,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 58,
+  "fields": {
+    "products": 15,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 59,
+  "fields": {
+    "products": 16,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 60,
+  "fields": {
+    "products": 16,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 61,
+  "fields": {
+    "products": 16,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 62,
+  "fields": {
+    "products": 16,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 63,
+  "fields": {
+    "products": 17,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 64,
+  "fields": {
+    "products": 17,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 65,
+  "fields": {
+    "products": 17,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 66,
+  "fields": {
+    "products": 17,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 67,
+  "fields": {
+    "products": 18,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 68,
+  "fields": {
+    "products": 18,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 69,
+  "fields": {
+    "products": 18,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 70,
+  "fields": {
+    "products": 18,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 71,
+  "fields": {
+    "products": 19,
+    "handle_name": "Алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 72,
+  "fields": {
+    "products": 19,
+    "handle_name": "Комбинированная деревянная/алюминиевая с заглушками",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 73,
+  "fields": {
+    "products": 19,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "5000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 74,
+  "fields": {
+    "products": 19,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "3000"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 75,
+  "fields": {
+    "products": 20,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 76,
+  "fields": {
+    "products": 20,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 77,
+  "fields": {
+    "products": 21,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 78,
+  "fields": {
+    "products": 21,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 79,
+  "fields": {
+    "products": 22,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 80,
+  "fields": {
+    "products": 22,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 81,
+  "fields": {
+    "products": 23,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 82,
+  "fields": {
+    "products": 23,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 83,
+  "fields": {
+    "products": 24,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 84,
+  "fields": {
+    "products": 24,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 85,
+  "fields": {
+    "products": 25,
+    "handle_name": "Нажимная в замке",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 86,
+  "fields": {
+    "products": 26,
+    "handle_name": "Нажимная в замке",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 87,
+  "fields": {
+    "products": 27,
+    "handle_name": "Нажимная в замке",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 88,
+  "fields": {
+    "products": 28,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 89,
+  "fields": {
+    "products": 28,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 90,
+  "fields": {
+    "products": 29,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 91,
+  "fields": {
+    "products": 29,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 92,
+  "fields": {
+    "products": 30,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 93,
+  "fields": {
+    "products": 30,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 94,
+  "fields": {
+    "products": 31,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 95,
+  "fields": {
+    "products": 31,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 96,
+  "fields": {
+    "products": 32,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 97,
+  "fields": {
+    "products": 32,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 98,
+  "fields": {
+    "products": 33,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 99,
+  "fields": {
+    "products": 33,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 100,
+  "fields": {
+    "products": 34,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 101,
+  "fields": {
+    "products": 34,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 102,
+  "fields": {
+    "products": 35,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 103,
+  "fields": {
+    "products": 35,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 104,
+  "fields": {
+    "products": 36,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 105,
+  "fields": {
+    "products": 36,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 106,
+  "fields": {
+    "products": 37,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 107,
+  "fields": {
+    "products": 37,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 108,
+  "fields": {
+    "products": 38,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 109,
+  "fields": {
+    "products": 38,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 110,
+  "fields": {
+    "products": 39,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 111,
+  "fields": {
+    "products": 39,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 112,
+  "fields": {
+    "products": 40,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 113,
+  "fields": {
+    "products": 40,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 114,
+  "fields": {
+    "products": 41,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 115,
+  "fields": {
+    "products": 41,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 116,
+  "fields": {
+    "products": 42,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 117,
+  "fields": {
+    "products": 42,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 118,
+  "fields": {
+    "products": 43,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 119,
+  "fields": {
+    "products": 43,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 120,
+  "fields": {
+    "products": 44,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 121,
+  "fields": {
+    "products": 44,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 122,
+  "fields": {
+    "products": 45,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 123,
+  "fields": {
+    "products": 45,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 124,
+  "fields": {
+    "products": 46,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 125,
+  "fields": {
+    "products": 46,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 126,
+  "fields": {
+    "products": 47,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 127,
+  "fields": {
+    "products": 47,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 128,
+  "fields": {
+    "products": 48,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 129,
+  "fields": {
+    "products": 48,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 130,
+  "fields": {
+    "products": 49,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 131,
+  "fields": {
+    "products": 49,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 132,
+  "fields": {
+    "products": 50,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 133,
+  "fields": {
+    "products": 50,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 134,
+  "fields": {
+    "products": 51,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 135,
+  "fields": {
+    "products": 51,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 136,
+  "fields": {
+    "products": 52,
+    "handle_name": "Вертикальная алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 137,
+  "fields": {
+    "products": 52,
+    "handle_name": "Вертикальная комбинированная деревянная/алюминиевая",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 138,
+  "fields": {
+    "products": 53,
+    "handle_name": "Алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.handleoption",
+  "pk": 139,
+  "fields": {
+    "products": 53,
+    "handle_name": "Комбинированная деревянная/алюминиевая цельная",
+    "price_increase": "0"
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 2,
+  "fields": {
+    "product": 2,
+    "image": "imgs/product_hamam-elit-bronza/elit-bronza.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 3,
+  "fields": {
+    "product": 1,
+    "image": "imgs/product_hamam-standart-bronza/бронза.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 4,
+  "fields": {
+    "product": 3,
+    "image": "imgs/product_hamam-standart-belaya-matovaya/белая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 5,
+  "fields": {
+    "product": 4,
+    "image": "imgs/product_hamam-standart-bronza-matovaya/бронза_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 6,
+  "fields": {
+    "product": 5,
+    "image": "imgs/product_hamam-standart-prozrachnaya/прозрачная.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 7,
+  "fields": {
+    "product": 6,
+    "image": "imgs/product_hamam-standart-grey/серая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 8,
+  "fields": {
+    "product": 7,
+    "image": "imgs/product_hamam-standart-grey-mat/серая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 9,
+  "fields": {
+    "product": 8,
+    "image": "imgs/product_hamam-standart-art-dzhuna/Джуна.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 10,
+  "fields": {
+    "product": 9,
+    "image": "imgs/product_hamam-standart-art-tuman/Туман.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 11,
+  "fields": {
+    "product": 10,
+    "image": "imgs/product_hamam-standart-art-belaya-matovaya-etno/Этно.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 12,
+  "fields": {
+    "product": 11,
+    "image": "imgs/product_hamam-standart-art-samira/Самира.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 13,
+  "fields": {
+    "product": 12,
+    "image": "imgs/product_hamam-standart-rusalka/Русалка.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 14,
+  "fields": {
+    "product": 13,
+    "image": "imgs/product_hamam-standart-prozrachnaya-mozajka/Мозайка.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 15,
+  "fields": {
+    "product": 14,
+    "image": "imgs/product_hamam-standart-art-mechet/Мечеть.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 16,
+  "fields": {
+    "product": 15,
+    "image": "imgs/product_hamam-standart-art-mesyats/Месяц.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 17,
+  "fields": {
+    "product": 16,
+    "image": "imgs/product_hamam-standart-art-zair/Заир.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 18,
+  "fields": {
+    "product": 17,
+    "image": "imgs/product_hamam-standart-art-vostok/Восток.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 19,
+  "fields": {
+    "product": 18,
+    "image": "imgs/product_hamam-standart-art-boginya/Богиня.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 20,
+  "fields": {
+    "product": 19,
+    "image": "imgs/product_hamam-standart-arka-vostochnaya/Арка_восточная.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 21,
+  "fields": {
+    "product": 20,
+    "image": "imgs/product_hamam-elit-bronza-matovaya/хром_бронза_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 22,
+  "fields": {
+    "product": 21,
+    "image": "imgs/product_hamam-elit-belaya-matovaya/хром_белая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 23,
+  "fields": {
+    "product": 22,
+    "image": "imgs/product_hamam-elit-prozrachnaya/хром_белая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 24,
+  "fields": {
+    "product": 23,
+    "image": "imgs/product_hamam-elit-seraya/хром_серая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 25,
+  "fields": {
+    "product": 24,
+    "image": "imgs/product_hamam-elit-seraya-matovaya/хром_серая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 26,
+  "fields": {
+    "product": 25,
+    "image": "imgs/product_hamam-elit-bronza-matovaya-wc/бронза_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 27,
+  "fields": {
+    "product": 26,
+    "image": "imgs/product_hamam-elit-seraya-matovaya-wc/серая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 28,
+  "fields": {
+    "product": 27,
+    "image": "imgs/product_hamam-elit-belaya-matovaya-wc/белая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 29,
+  "fields": {
+    "product": 28,
+    "image": "imgs/product_hamam-elit-art-bronza-arka-vostochnaya/хром_арка.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 30,
+  "fields": {
+    "product": 29,
+    "image": "imgs/product_hamam-elit-art-seraya-boginya/хром_богиня.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 31,
+  "fields": {
+    "product": 30,
+    "image": "imgs/product_hamam-elit-art-vostok/Восток.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 32,
+  "fields": {
+    "product": 31,
+    "image": "imgs/product_hamam-elit-art-dzhuna/хром_джуна.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 33,
+  "fields": {
+    "product": 32,
+    "image": "imgs/product_hamam-elit-art-zair/хром_заир.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 34,
+  "fields": {
+    "product": 33,
+    "image": "imgs/product_hamam-elit-art-mesyats/хром_месяц.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 35,
+  "fields": {
+    "product": 34,
+    "image": "imgs/product_hamam-elit-art-mechet/хром_мечеть.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 36,
+  "fields": {
+    "product": 35,
+    "image": "imgs/product_hamam-elit-art-mozajka/хром_мозаика.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 37,
+  "fields": {
+    "product": 36,
+    "image": "imgs/product_hamam-elit-art-rusalka/хром_русалка.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 38,
+  "fields": {
+    "product": 37,
+    "image": "imgs/product_hamam-elit-art-samira/хром_самира.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 39,
+  "fields": {
+    "product": 38,
+    "image": "imgs/product_hamam-elit-art-tuman/хром_туман.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 40,
+  "fields": {
+    "product": 39,
+    "image": "imgs/product_hamam-elit-art-etno/хром_этно.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 41,
+  "fields": {
+    "product": 40,
+    "image": "imgs/product_hamam-prestizh-60g-bronza-s-vertikalnoj-ruchkoj-bez-poroga/бронза__в_XLslQ2P.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 42,
+  "fields": {
+    "product": 41,
+    "image": "imgs/product_hamam-prestizh-60g-bronza-mat-ver/бронза__матовая_в_сером_профиле__с_9lfcPap.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 43,
+  "fields": {
+    "product": 42,
+    "image": "imgs/product_hamam-prestizh-60g-grey-ver/серая__в_сером_профиле__с_верт__ручкой_б_UFQQhlH.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 44,
+  "fields": {
+    "product": 43,
+    "image": "imgs/product_hamam-prestizh-60g-grey-mat-ver/серая__матовая_в_сером_профиле__с_ве_gXw37ww.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 45,
+  "fields": {
+    "product": 44,
+    "image": "imgs/product_hamam-prestizh-60g-bel-mat-ver/белая_матовая_в_сером_профиле__с_верт_TOppNXE.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 46,
+  "fields": {
+    "product": 45,
+    "image": "imgs/product_hamam-prestizh-60g-prozr-ver/прозрачная_в_сером_профиле__с_верт__руч_OwTRk3S.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 47,
+  "fields": {
+    "product": 46,
+    "image": "imgs/product_hamam-prestizh-60g-bronza-ver-porog/Бронза__хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 48,
+  "fields": {
+    "product": 47,
+    "image": "imgs/product_hamam-prestizh-60g-bronza-mat-ver-porog/Бронза__мат_хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 49,
+  "fields": {
+    "product": 48,
+    "image": "imgs/product_hamam-prestizh-60g-grey-ver-porog/Серая__хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 50,
+  "fields": {
+    "product": 49,
+    "image": "imgs/product_hamam-prestizh-60g-grey-mat-ver-porog/Серая_мат_хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 51,
+  "fields": {
+    "product": 50,
+    "image": "imgs/product_hamam-prestizh-60g-bel-mat-ver-porog/белая_мат_хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 52,
+  "fields": {
+    "product": 51,
+    "image": "imgs/product_hamam-prestizh-60g-prozr-ver-porog/белая__хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 53,
+  "fields": {
+    "product": 52,
+    "image": "imgs/product_hamam-prestizh-bronza-s-vertikalnoj-ruchkoj-bez-poroga-chernaya/брон_Ihzftgf.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.productimage",
+  "pk": 54,
+  "fields": {
+    "product": 53,
+    "image": "imgs/product_hamam-prestizh-60G-grey-mat-black/серая_матовая_в_черном_профиле_без_порога.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "title": "Двери в сауну и баню",
+    "temp_name": "Двери в сауну и баню",
+    "parent": null,
+    "slug": "sauna",
+    "description": "",
+    "products_description": "",
+    "lft": 1,
+    "rght": 10,
+    "tree_id": 2,
+    "level": 0
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 2,
+  "fields": {
+    "title": "Двери в хамам",
+    "temp_name": "Двери в хамам",
+    "parent": null,
+    "slug": "hamam",
+    "description": "",
+    "products_description": "",
+    "lft": 1,
+    "rght": 44,
+    "tree_id": 1,
+    "level": 0
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 3,
+  "fields": {
+    "title": "Хамам Стандарт",
+    "temp_name": "Хамам Стандарт",
+    "parent": 2,
+    "slug": "hamam-standart",
+    "description": "Простые двери в хамам",
+    "products_description": "Двери Хамам Стандарт от компании \"АРТА\" - это не только качественное и безопасное решение, но и выгодный выбор для тех, кто ищет экономичное решение для своего хамама.\r\n<br>\r\n<br>\r\nПолотно дверей выполнено из закаленного стекла толщиной 8 мм, а коробка - из анодированного алюминиевого профиля, что обеспечивает надежность и долговечность дверей. Несмотря на то, что фурнитура дверей Хамам относится к категории бюджетных, она обладает всеми необходимыми качествами, чтобы обеспечить комфорт и безопасность в вашем хамаме.\r\n<br>\r\n<br>\r\nПри этом, двери Хамам Стандарт от компании \"АРТА\" - это отличное соотношение цены и качества. Их цена доступна, а Вы можете быть уверены, что приобретая эти двери, вы получите надежный продукт.<br>\r\nТак что, если вы ищете экономичное и качественное решение для своего хамама, Хамам Стандарт от компании \"АРТА\" - это лучший выбор для вас!",
+    "lft": 40,
+    "rght": 43,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 4,
+  "fields": {
+    "title": "Хамам Элит",
+    "temp_name": "Хамам Элит",
+    "parent": 2,
+    "slug": "hamam-elit",
+    "description": "Качественные и красивые двери в хамам",
+    "products_description": "Двери Хамам Элит от компании \"АРТА\" — это не только качественное и безопасное решение, но и оптимальный выбор для тех, кто ищет лучшее сочетание цены, внешнего вида и качества дверей. <br>\r\n<br>\r\nДвери изготовлены без порога, полотно дверей выполнено из закаленного стекла толщиной 8 мм, а коробка и фурнитура из анодированного алюминия, что обеспечивает надежность, долговечность и единый стиль всех элементов двери.<br>\r\n<br>\r\nДанные двери обладают всеми необходимыми качествами, чтобы обеспечить безопасность и комфорт в вашем хамаме — надежные петли, цельнолитая ручка, а специальный магнитный уплотнитель позволяет мягко и плотно закрываться двери, предотвращая утечки пара, предусмотрен каплесборник и зазор для вентиляции в нижней части двери.<br>\r\n<br>\r\nДвери Хамам Элит от компании \"АРТА\" - проверенное годами решение, вы можете быть уверены, что получите надежный и качественный продукт.",
+    "lft": 32,
+    "rght": 39,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 5,
+  "fields": {
+    "title": "Хамам Престиж 60G",
+    "temp_name": "Хамам Престиж 60G",
+    "parent": 2,
+    "slug": "hamam-prestizh-60g",
+    "description": "Впечатляют внешним видом. Двери в хамам, проверенные временем",
+    "products_description": "",
+    "lft": 2,
+    "rght": 31,
+    "tree_id": 1,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 6,
+  "fields": {
+    "title": "Сауна Статус 60G",
+    "temp_name": "Сауна Статус 60G",
+    "parent": 1,
+    "slug": "sauna-status-60g",
+    "description": "Премиальные двери в сауну",
+    "products_description": "",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 7,
+  "fields": {
+    "title": "Хамам Престиж 60G с вертикальной ручкой",
+    "temp_name": "с вертикальной ручкой",
+    "parent": 27,
+    "slug": "hamam-prestizh-60g-ver",
+    "description": "",
+    "products_description": "",
+    "lft": 4,
+    "rght": 9,
+    "tree_id": 1,
+    "level": 3
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 8,
+  "fields": {
+    "title": "Хамам Престиж 60G с горизонтальной ручкой",
+    "temp_name": "с горизонтальной ручкой",
+    "parent": 27,
+    "slug": "hamam-prestizh-60g-hor",
+    "description": "",
+    "products_description": "",
+    "lft": 10,
+    "rght": 15,
+    "tree_id": 1,
+    "level": 3
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 9,
+  "fields": {
+    "title": "Хамам Престиж 60G с горизонтальной ручкой с порогом",
+    "temp_name": "с порогом",
+    "parent": 8,
+    "slug": "hamam-prestizh-60g-hor-porog",
+    "description": "порог специальной формы, чтобы капли со стекла стекали внутрь хамама",
+    "products_description": "",
+    "lft": 13,
+    "rght": 14,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 10,
+  "fields": {
+    "title": "Хамам Престиж 60G с горизонтальной ручкой без порога",
+    "temp_name": "без порога",
+    "parent": 8,
+    "slug": "hamam-prestizh-60g-hor-bez-poroga",
+    "description": "для ровного пола",
+    "products_description": "",
+    "lft": 11,
+    "rght": 12,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 15,
+  "fields": {
+    "title": "Хамам Престиж 60G с вертикальной ручкой без порога",
+    "temp_name": "без порога",
+    "parent": 7,
+    "slug": "hamam-prestizh-60g-ver-bez-poroga",
+    "description": "для ровного пола",
+    "products_description": "Двери Хамам Престиж — воплощение изысканности и функциональности в мире пара и влаги. Они словно стражи уюта и безопасности, оберегающие парные от превратностей влажности. В отличие от пластика, не выдерживающего высоких температур, и дерева, которое разбухает и гниет, двери Хамам стойко противостоят испытаниям влажной среды.<br>\r\n<br>\r\nИх полотна, созданные из закаленного стекла толщиной 8 мм, надежно защищают от внешних воздействий, а коробка из анодированного алюминия и магнитный уплотнитель гарантируют мягкое и плотное закрытие двери, даже если она намокла.<br>\r\n<br>\r\nДвери Хамам Престиж станут эффектным дополнением к интерьеру вашей парной, придадут ей изысканный вид и подчеркнут её индивидуальность.\r\nНаши двери прошли проверку временем: они надёжны и долговечны. Вы можете быть уверены в том, что приобретаете лучшие двери для хамама.",
+    "lft": 5,
+    "rght": 6,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 16,
+  "fields": {
+    "title": "Хамам Престиж 60G с вертикальной ручкой с порогом",
+    "temp_name": "с порогом",
+    "parent": 7,
+    "slug": "hamam-prestizh-60g-ver-porog",
+    "description": "порог специальной формы, чтобы капли со стекла стекали внутрь хамама",
+    "products_description": "Двери Хамам Престиж — воплощение изысканности и функциональности в мире пара и влаги. Они словно стражи уюта и безопасности, оберегающие парные от превратностей влажности. В отличие от пластика, не выдерживающего высоких температур, и дерева, которое разбухает и гниет, двери Хамам стойко противостоят испытаниям влажной среды.<br>\r\n<br>\r\nИх полотна, созданные из закаленного стекла толщиной 8 мм, надежно защищают от внешних воздействий, а коробка из анодированного алюминия и магнитный уплотнитель гарантируют мягкое и плотное закрытие двери, даже если она намокла. Специальный порог предотвращает протечки, а вентиляционный зазор в нижней части двери позволяет свежему воздуху попадать внутрь.<br>\r\n<br>\r\nДвери Хамам Престиж станут эффектным дополнением к интерьеру вашей парной, придадут ей изысканный вид и подчеркнут её индивидуальность.\r\nНаши двери прошли проверку временем: они надёжны и долговечны. Вы можете быть уверены в том, что приобретаете лучшие двери для хамама.",
+    "lft": 7,
+    "rght": 8,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 21,
+  "fields": {
+    "title": "Хамам Элит с горизонтальной ручкой",
+    "temp_name": "с горизонтальной ручкой",
+    "parent": 4,
+    "slug": "hamam-elit-hor",
+    "description": "в хамам, сауну или душевую",
+    "products_description": "Двери Хамам Элит от компании \"АРТА\" — это не только качественное и безопасное решение, но и оптимальный выбор для тех, кто ищет лучшее сочетание цены, внешнего вида и качества дверей. <br>\r\n<br>\r\nДвери изготовлены без порога, полотно дверей выполнено из закаленного стекла толщиной 8 мм, а коробка и фурнитура из анодированного алюминия, что обеспечивает надежность, долговечность и единый стиль всех элементов двери.<br>\r\n<br>\r\nДанные двери обладают всеми необходимыми качествами, чтобы обеспечить безопасность и комфорт в вашем хамаме — надежные петли, цельнолитая ручка, а специальный магнитный уплотнитель позволяет мягко и плотно закрываться двери, предотвращая утечки пара, предусмотрен каплесборник и зазор для вентиляции в нижней части двери.<br>\r\n<br>\r\nДвери Хамам Элит от компании \"АРТА\" - проверенное годами решение, вы можете быть уверены, что получите надежный и качественный продукт.",
+    "lft": 33,
+    "rght": 36,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 22,
+  "fields": {
+    "title": "Хамам Элит с WC замком",
+    "temp_name": "с WC замком",
+    "parent": 4,
+    "slug": "hamam-elit-wc",
+    "description": "в санузел, в комнату отдыха",
+    "products_description": "Двери Хамам Элит от компании \"АРТА\" — это не только качественное и безопасное решение, но и оптимальный выбор для тех, кто ищет лучшее сочетание цены, внешнего вида и качества дверей. <br>\r\n<br>\r\nДвери изготовлены без порога, полотно дверей выполнено из закаленного стекла толщиной 8 мм, а коробка и фурнитура из анодированного алюминия, что обеспечивает надежность, долговечность и единый стиль всех элементов двери.<br>\r\n<br>\r\nДанные двери обладают всеми необходимыми качествами, чтобы обеспечить безопасность и комфорт — надежные петли,  качественная фурнитура, а благодаря замку можно закрыться изнутри и наслаждаться временем в приятной атмосфере.<br>\r\n<br>\r\nДвери Хамам Элит от компании \"АРТА\" - проверенное годами решение, вы можете быть уверены, что получите надежный и качественный продукт.",
+    "lft": 37,
+    "rght": 38,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 26,
+  "fields": {
+    "title": "Хамам Престиж 60G черные",
+    "temp_name": "Черные",
+    "parent": 5,
+    "slug": "hamam-prestizh-60g-black",
+    "description": "",
+    "products_description": "",
+    "lft": 17,
+    "rght": 30,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 27,
+  "fields": {
+    "title": "Хамам Престиж 60G серебристые",
+    "temp_name": "Серебристые",
+    "parent": 5,
+    "slug": "hamam-prestizh-60g-anod",
+    "description": "",
+    "products_description": "",
+    "lft": 3,
+    "rght": 16,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 28,
+  "fields": {
+    "title": "Хамам Престиж 60G черные с вертикальной ручкой",
+    "temp_name": "с вертикальной ручкой",
+    "parent": 26,
+    "slug": "hamam-prestizh-60g-black-vr1",
+    "description": "",
+    "products_description": "",
+    "lft": 18,
+    "rght": 23,
+    "tree_id": 1,
+    "level": 3
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 29,
+  "fields": {
+    "title": "Хамам Престиж 60G черные c горизонтальной ручкой",
+    "temp_name": "с горизонтальной ручкой",
+    "parent": 26,
+    "slug": "hamam-prestizh-60g-black-hor",
+    "description": "",
+    "products_description": "",
+    "lft": 24,
+    "rght": 29,
+    "tree_id": 1,
+    "level": 3
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 30,
+  "fields": {
+    "title": "Хамам Престиж 60G черные с вертикальной ручкой без порога",
+    "temp_name": "без порога",
+    "parent": 28,
+    "slug": "hamam-prestizh-60g-chernye-ver-bez-poroga",
+    "description": "для ровного пола",
+    "products_description": "",
+    "lft": 19,
+    "rght": 20,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 31,
+  "fields": {
+    "title": "Хамам Престиж 60G черные с вертикальной ручкой с порогом",
+    "temp_name": "с порогом",
+    "parent": 28,
+    "slug": "hamam-prestizh-60g-black-ver-porog",
+    "description": "порог специальной формы, чтобы капли стекали внутрь хамама",
+    "products_description": "",
+    "lft": 21,
+    "rght": 22,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 32,
+  "fields": {
+    "title": "Хамам Престиж 60G черные c горизонтальной ручкой без порога",
+    "temp_name": "без порога",
+    "parent": 29,
+    "slug": "hamam-prestizh-60g-black-hor-bez-poroga",
+    "description": "для ровного пола",
+    "products_description": "",
+    "lft": 25,
+    "rght": 26,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 33,
+  "fields": {
+    "title": "Хамам Престиж 60G черные c горизонтальной ручкой с порогом",
+    "temp_name": "с порогом",
+    "parent": 29,
+    "slug": "hamam-prestizh-60g-black-hor-porog",
+    "description": "порог специальной формы, чтобы капли стекали внутрь хамама",
+    "products_description": "",
+    "lft": 27,
+    "rght": 28,
+    "tree_id": 1,
+    "level": 4
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 34,
+  "fields": {
+    "title": "Хамам Стандарт АРТ",
+    "temp_name": "Хамам Стандарт АРТ",
+    "parent": 3,
+    "slug": "hamam-standart-art",
+    "description": "с рисунком на стекле",
+    "products_description": "Двери Хамам Стандарт от компании \"АРТА\" - это не только качественное и безопасное решение, но и выгодный выбор для тех, кто ищет экономичное решение для своего хамама.<br>\r\n<br>\r\nПолотно дверей выполнено из закаленного стекла толщиной 8 мм, а коробка из анодированного алюминиевого профиля, что обеспечивает надежность и долговечность дверей. Двери имеют красивый пескоструйный рисунок на стекле.<br>\r\n<br>\r\nНесмотря на то, что фурнитура дверей Хамам относится к категории бюджетных, она обладает всеми необходимыми качествами, чтобы обеспечить комфорт и безопасность в вашем хамаме.<br>\r\n<br>\r\nПри этом, двери Хамам Стандарт от компании \"АРТА\" - это отличное соотношение цены и качества. Их цена доступна, а Вы можете быть уверены, что приобретая эти двери, вы получите надежный продукт.<br>\r\nТак что, если вы ищете экономичное и качественное решение для своего хамама, Хамам Стандарт от компании \"АРТА\" - это лучший выбор для вас!",
+    "lft": 41,
+    "rght": 42,
+    "tree_id": 1,
+    "level": 2
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 35,
+  "fields": {
+    "title": "Хамам Элит АРТ",
+    "temp_name": "Хамам Элит АРТ",
+    "parent": 21,
+    "slug": "hamam-elit-ar",
+    "description": "с рисунком на стекле",
+    "products_description": "Двери Хамам Элит от компании \"АРТА\" — это не только качественное и безопасное решение, но и оптимальный выбор для тех, кто ищет лучшее сочетание цены, внешнего вида и качества дверей. <br>\r\n<br>\r\nДвери изготовлены без порога, полотно дверей выполнено из закаленного стекла толщиной 8 мм, а коробка и фурнитура из анодированного алюминия, что обеспечивает надежность, долговечность и единый стиль всех элементов двери.<br>\r\n<br>\r\nДанные двери обладают всеми необходимыми качествами, чтобы обеспечить безопасность и комфорт в вашем хамаме — надежные петли, цельнолитая ручка, а специальный магнитный уплотнитель позволяет мягко и плотно закрываться двери, предотвращая утечки пара, предусмотрен каплесборник и зазор для вентиляции в нижней части двери.<br>\r\n<br>\r\nДвери Хамам Элит от компании \"АРТА\" - проверенное годами решение, вы можете быть уверены, что получите надежный и качественный продукт.",
+    "lft": 34,
+    "rght": 35,
+    "tree_id": 1,
+    "level": 3
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 36,
+  "fields": {
+    "title": "Сауна Люкс",
+    "temp_name": "Сауна Люкс",
+    "parent": 1,
+    "slug": "sauna-lux",
+    "description": "Надежные двери с магнитным уплотнителем",
+    "products_description": "написать в категории, и добавить фото",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 37,
+  "fields": {
+    "title": "Сауна Классика",
+    "temp_name": "Сауна Классика",
+    "parent": 1,
+    "slug": "sauna-classic",
+    "description": "Оптимальные по соотношению цена/качество",
+    "products_description": "написать в категории и добавить фото",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 38,
+  "fields": {
+    "title": "Сауна Стандарт",
+    "temp_name": "Сауна Стандарт",
+    "parent": 1,
+    "slug": "sauna-standart",
+    "description": "Бюджетные двери в сауну",
+    "products_description": "написать в категории и записать фото",
+    "lft": 8,
+    "rght": 9,
+    "tree_id": 2,
+    "level": 1
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 10,
+  "fields": {
+    "category": 5,
+    "image": "imgs/category_hamam-prestizh-60g/Хамам_Престиж.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 12,
+  "fields": {
+    "category": 2,
+    "image": "imgs/category_hamam/Бронза__мат_хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 13,
+  "fields": {
+    "category": 1,
+    "image": "imgs/category_sauna/Дверь_в_сауну_термолипа.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 14,
+  "fields": {
+    "category": 6,
+    "image": "imgs/category_sauna-status-60g/Дверь_в_сауну_термолипа.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 15,
+  "fields": {
+    "category": 3,
+    "image": "imgs/category_hamam-standart/серая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 16,
+  "fields": {
+    "category": 3,
+    "image": "imgs/category_hamam-standart/Профиль_Хамам_5044мм.png",
+    "description": "Анодированный алюминиевый профиль 50*44мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 17,
+  "fields": {
+    "category": 3,
+    "image": "imgs/category_hamam-standart/Петля_Хамам_Стандарт.jpg",
+    "description": "Петли Хамам Стандарт серые. Модель 65"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 18,
+  "fields": {
+    "category": 3,
+    "image": "imgs/category_hamam-standart/Handle_Standart.jpg",
+    "description": "Анодированная алюминиевая ручка с заглушками"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 19,
+  "fields": {
+    "category": 3,
+    "image": "imgs/category_hamam-standart/Handle_Prestizh.jpg",
+    "description": "Доп.опция: цельная анодированная алюминиевая ручка"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 20,
+  "fields": {
+    "category": 4,
+    "image": "imgs/category_hamam-elit/хром_бронза_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 24,
+  "fields": {
+    "category": 3,
+    "image": "imgs/category_hamam-standart/porog_12mm.jpeg",
+    "description": "Доп.опция: порог 12мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 25,
+  "fields": {
+    "category": 34,
+    "image": "imgs/category_hamam-standart-art/Туман.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 26,
+  "fields": {
+    "category": 34,
+    "image": "imgs/category_hamam-standart-art/Профиль_Хамам_Стандарт_Элит.png",
+    "description": "Анодированный алюминиевый профиль 50*44мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 27,
+  "fields": {
+    "category": 34,
+    "image": "imgs/category_hamam-standart-art/Петля_Хамам_Стандарт.jpg",
+    "description": "Петли Хамам Стандарт серые. Модель 65"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 28,
+  "fields": {
+    "category": 34,
+    "image": "imgs/category_hamam-standart-art/Handle_Standart.jpg",
+    "description": "Анодированная алюминиевая ручка с заглушками"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 29,
+  "fields": {
+    "category": 34,
+    "image": "imgs/category_hamam-standart-art/Handle_Prestizh.jpg",
+    "description": "Доп.опция: цельная анодированная алюминиевая ручка"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 30,
+  "fields": {
+    "category": 34,
+    "image": "imgs/category_hamam-standart-art/porog_12mm.jpeg",
+    "description": "Доп.опция: порог 12мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 35,
+  "fields": {
+    "category": 21,
+    "image": "imgs/category_hamam-elit-hor/хром_серая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 36,
+  "fields": {
+    "category": 21,
+    "image": "imgs/category_hamam-elit-hor/Профиль_Хамам_Стандарт_Элит.png",
+    "description": "Анодированный алюминиевый профиль 50*44мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 37,
+  "fields": {
+    "category": 21,
+    "image": "imgs/category_hamam-elit-hor/Петля_Хамам_Элит_СТАРАЯ.JPG",
+    "description": "Петли Хамам Элит анодированные. Модель 84"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 38,
+  "fields": {
+    "category": 21,
+    "image": "imgs/category_hamam-elit-hor/Handle_Prestizh.jpg",
+    "description": "Цельная анодированная алюминиевая ручка"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 39,
+  "fields": {
+    "category": 21,
+    "image": "imgs/category_hamam-elit-hor/porog_12mm.jpeg",
+    "description": "Доп.опция: порог 12мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 40,
+  "fields": {
+    "category": 22,
+    "image": "imgs/category_hamam-elit-wc/серая_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 41,
+  "fields": {
+    "category": 22,
+    "image": "imgs/category_hamam-elit-wc/Профиль_Хамам_Стандарт_Элит.png",
+    "description": "Анодированный алюминиевый профиль 50*44мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 42,
+  "fields": {
+    "category": 22,
+    "image": "imgs/category_hamam-elit-wc/Петля_Хамам_Элит_СТАРАЯ.JPG",
+    "description": "Петли Хамам Элит анодированные. Модель 84"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 43,
+  "fields": {
+    "category": 22,
+    "image": "imgs/category_hamam-elit-wc/Замок.jpeg",
+    "description": "WC замок"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 44,
+  "fields": {
+    "category": 22,
+    "image": "imgs/category_hamam-elit-wc/porog_12mm.jpeg",
+    "description": "Доп.опция: порог 12мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 45,
+  "fields": {
+    "category": 35,
+    "image": "imgs/category_hamam-elit-ar/хром_туман.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 46,
+  "fields": {
+    "category": 35,
+    "image": "imgs/category_hamam-elit-ar/Профиль_Хамам_Стандарт_Элит.png",
+    "description": "Анодированный алюминиевый профиль 50*44мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 47,
+  "fields": {
+    "category": 35,
+    "image": "imgs/category_hamam-elit-ar/Петля_Хамам_Элит_СТАРАЯ.JPG",
+    "description": "Петли Хамам Элит анодированные. Модель 84"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 48,
+  "fields": {
+    "category": 35,
+    "image": "imgs/category_hamam-elit-ar/Handle_Prestizh.jpg",
+    "description": "Цельная анодированная алюминиевая ручка"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 49,
+  "fields": {
+    "category": 35,
+    "image": "imgs/category_hamam-elit-ar/porog_12mm.jpeg",
+    "description": "Доп.опция: порог 12мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 50,
+  "fields": {
+    "category": 36,
+    "image": "imgs/category_sauna-lux/бронза.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 51,
+  "fields": {
+    "category": 37,
+    "image": "imgs/category_sauna-classic/image-07-05-24-12-55-1.jpeg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 52,
+  "fields": {
+    "category": 38,
+    "image": "imgs/category_sauna-standart/бронза.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 53,
+  "fields": {
+    "category": 27,
+    "image": "imgs/category_hamam-prestizh-60g-anod/хромбронза_матовая_гор.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 54,
+  "fields": {
+    "category": 26,
+    "image": "imgs/category_hamam-prestizh-60g-black/черная_бронза_матовая_ручка_гор.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 55,
+  "fields": {
+    "category": 7,
+    "image": "imgs/category_hamam-prestizh-60g-ver/Бронза__хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 56,
+  "fields": {
+    "category": 8,
+    "image": "imgs/category_hamam-prestizh-60g-hor/хромбронза__гор.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 57,
+  "fields": {
+    "category": 28,
+    "image": "imgs/category_hamam-prestizh-60g-black-vr1/черный_бронза_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 58,
+  "fields": {
+    "category": 29,
+    "image": "imgs/category_hamam-prestizh-60g-black-hor/черная_бронза_матовая_ручка_гор.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 59,
+  "fields": {
+    "category": 15,
+    "image": "imgs/category_hamam-prestizh-60g-ver-bez-poroga/бронза__в_сером_профиле__с_верт___de08uv6.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 60,
+  "fields": {
+    "category": 16,
+    "image": "imgs/category_hamam-prestizh-60g-ver-porog/Бронза__хром.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 61,
+  "fields": {
+    "category": 10,
+    "image": "imgs/category_hamam-prestizh-60g-hor-bez-poroga/серая_в_сером_профиле_с_гориз_руч_8EtjoHD.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 62,
+  "fields": {
+    "category": 9,
+    "image": "imgs/category_hamam-prestizh-60g-hor-porog/хромсерая__гор.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 63,
+  "fields": {
+    "category": 30,
+    "image": "imgs/category_hamam-prestizh-60g-chernye-ver-bez-poroga/бронза_матовая__в_черном__YX0xNGF.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 64,
+  "fields": {
+    "category": 31,
+    "image": "imgs/category_hamam-prestizh-60g-black-ver-porog/черный_бронза_матовая.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 65,
+  "fields": {
+    "category": 32,
+    "image": "imgs/category_hamam-prestizh-60g-black-hor-bez-poroga/бронза_матовая_в_черном_про_TdSHbiW.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 66,
+  "fields": {
+    "category": 33,
+    "image": "imgs/category_hamam-prestizh-60g-black-hor-porog/черная_бронза_матовая_ручка_гор.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 67,
+  "fields": {
+    "category": 15,
+    "image": "imgs/category_hamam-prestizh-60g-ver-bez-poroga/Профиль.png",
+    "description": "Анодированный алюминиевый профиль 60*55мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 68,
+  "fields": {
+    "category": 15,
+    "image": "imgs/category_hamam-prestizh-60g-ver-bez-poroga/Петля_Хамам_престиж.jpg",
+    "description": "Петли 60G серебристые"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 69,
+  "fields": {
+    "category": 15,
+    "image": "imgs/category_hamam-prestizh-60g-ver-bez-poroga/Ручка_с_сайта_2.jpg",
+    "description": "Вертикальная анодированная алюминиевая ручка"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 70,
+  "fields": {
+    "category": 16,
+    "image": "imgs/category_hamam-prestizh-60g-ver-porog/Профиль.png",
+    "description": "Анодированный алюминиевый профиль 60*55мм"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 71,
+  "fields": {
+    "category": 16,
+    "image": "imgs/category_hamam-prestizh-60g-ver-porog/Петля_Хамам_престиж.jpg",
+    "description": "Петля 60G серебристая"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 72,
+  "fields": {
+    "category": 16,
+    "image": "imgs/category_hamam-prestizh-60g-ver-porog/порог_серебристый.png",
+    "description": "Порог специальной формы"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 73,
+  "fields": {
+    "category": 16,
+    "image": "imgs/category_hamam-prestizh-60g-ver-porog/Ручка_с_сайта_2.jpg",
+    "description": "Вертикальная анодированная алюминиевая ручка"
+  }
+}
+]

@@ -41,21 +41,21 @@
 .bg-animation {
     animation: bg-animation 70s ease-in-out infinite;
     padding: 175px 20px;
-    background-image: url(https://i.ibb.co/CQRJ66s/Vmake-1729966758.jpg); /* Фоновая картинка */
+    background-image: url('/static/imgs/index7.jpg'); /* Фоновая картинка */
     background-repeat: no-repeat;
     transition: 1s;
 }
 
 .hamamback {
-    background-image: url(https://i.ibb.co/wRmBWjy/snapedit-1729798136536.png);
+    background-image: url('/static/imgs/index4.jpg');
 }
 
 .saunaback {
-    background-image: url(https://i.ibb.co/NnwC41F/IMG-20210219-WA0006.jpg);
+    background-image: url('/static/imgs/index8.jpg');
 }
 
 .partback {
-    background-image: url(https://i.ibb.co/CQRJ66s/Vmake-1729966758.jpg);
+    background-image: url('/static/imgs/index7.jpg');
 }
 
 .email {
