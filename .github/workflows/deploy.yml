@@ -20,8 +20,8 @@ jobs:
 
       - name: Debug SSH connection
         run: |
-          ssh -v -o StrictHostKeyChecking=no server@deb-server 'echo "SSH connection successful"'
+          ssh -v -o StrictHostKeyChecking=no server@skwortsoff.twilightparadox.com 'echo "SSH connection successful"'
 
       - name: Update repository on server
         run: |
-          ssh server@deb-server 'cd /home/server/project && git pull origin master'
+          ssh server@skwortsoff.twilightparadox.com 'cd /home/server/project && git pull origin master'
