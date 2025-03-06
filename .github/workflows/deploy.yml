@@ -3,7 +3,7 @@ name: Deploy to Web Server
 on:
   push:
     branches:
-      - master  # Указываем ветку master
+      - master
 
 jobs:
   deploy:
@@ -17,6 +17,10 @@ jobs:
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Debug SSH connection
+        run: |
+          ssh -v -o StrictHostKeyChecking=no server@deb-server 'echo "SSH connection successful"'
 
       - name: Update repository on server
         run: |
