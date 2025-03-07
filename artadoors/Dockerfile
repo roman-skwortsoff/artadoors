@@ -26,5 +26,5 @@ COPY .env.docker /code/.env
 ENV APP_NAME=ARTADOORS  
 ENV DJANGO_SETTINGS_MODULE=artadoors.settings.prod
 
-# Запускаем Gunicorn с 3 воркерами и увеличенным таймаутом
-CMD ["/wait-for-it.sh", "db:5432", "--strict", "--timeout=60", "--", "gunicorn", "artadoors.wsgi:application", "-b", "0.0.0.0:8000", "--workers", "3", "--timeout", "120"]
+# Запускаем Gunicorn с 4 воркерами и увеличенным таймаутом
+CMD ["/wait-for-it.sh", "db:5432", "--strict", "--timeout=60", "--", "sh", "-c", "python manage.py collectstatic --noinput && gunicorn artadoors.wsgi:application -b 0.0.0.0:8000 --workers 4 --timeout 60"]

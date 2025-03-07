@@ -24,4 +24,12 @@ jobs:
 
       - name: Update repository on server
         run: |
-          ssh server@skwortsoff.twilightparadox.com 'cd /home/server/project && git pull origin master'
+          ssh server@skwortsoff.twilightparadox.com 'cd /home/server/project && git pull origin master' 
+
+      - name: Restart Docker containers
+        run: |
+          ssh server@skwortsoff.twilightparadox.com << 'EOF'
+          cd /home/server/project/artadoors
+          docker compose down
+          docker compose up -d --build
+          EOF

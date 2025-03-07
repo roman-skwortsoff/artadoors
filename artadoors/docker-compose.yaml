@@ -7,7 +7,8 @@ services:
     command: >
       sh -c "/wait-for-it.sh db:5432 --strict --timeout=60 -- &&
              python manage.py migrate &&
-             gunicorn artadoors.wsgi:application -b 0.0.0.0:8000 --workers 3 --timeout 120"
+             python manage.py collectstatic --noinput &&
+             gunicorn artadoors.wsgi:application -b 0.0.0.0:8000 --workers 4 --timeout 60"
     volumes:
       - .:/code
       - static_volume:/code/static  # Статика
