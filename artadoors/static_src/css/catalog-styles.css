@@ -1,3 +1,8 @@
+.parent-name {
+    display: flex;
+    align-items: center;
+}
+
 .nav-buttons {
     margin-top: 15px; 
     margin-bottom: 30px;
@@ -12,7 +17,7 @@
 }
 
 .menu-item {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 }
 
 .menu-item:hover {
@@ -56,9 +61,30 @@
         font-size: 1.1rem;
     }
 
+    .parent-name {
+        min-height: 5rem;
+        align-items: center;
+    }
+
 }
 
 @media (max-width: 999px){
+    .parent-name {
+        min-height: 2rem;
+    }
+    
+
+
+}
+
+@media (max-width: 991px){
+    .parent-name {
+        font-size: 21px;
+        min-height: 4rem;
+    }
+    
+
+
 }
 
 

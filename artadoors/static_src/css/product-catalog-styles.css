@@ -62,12 +62,11 @@
 }
 
 #filter-form {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .filter-panel strong {
     margin-top: 5px;
-    font-size: 14px;
 }
 
 #handle-container div, .characteristics-container div, #size-container div {
@@ -140,6 +139,11 @@
         font-size: 13px;
     }
 
+    #filter-form strong {
+        font-size: 12px;
+    }
+
+
     .cat-items img {
         width: 120px;
     }
@@ -153,9 +157,37 @@
 }
 
 @media (max-width: 576px){
-
+    h3 {
+        font-size: 20px;
+    }
 
 }
+
+@media (max-width: 520px) {
+    .nav-but-name {
+        display: none;
+    }
+
+    .nav-but-more {
+        font-size: 15px;
+    }
+
+    .btn-catalog {
+        width: 5rem;
+        text-align: center;
+    }
+    
+    .btn-up {
+        width: 5rem;
+        text-align: center;
+    }
+
+    .mybtn {
+        min-width: 5rem;
+    }
+
+}
+
 
 @media (max-width: 399px){
 

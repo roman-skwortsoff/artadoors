@@ -14,7 +14,7 @@ function checkVariable() {
 }
 
 // Запускаем функцию checkVariable каждые 30 секунд
-const intervalId = setInterval(checkVariable, 30000);
+const intervalId = setInterval(checkVariable, 45000);
 
 butimgR.addEventListener('click', () => {
     clearInterval(intervalId)

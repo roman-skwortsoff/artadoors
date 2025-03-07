@@ -4796,6 +4796,144 @@
   }
 },
 {
+  "model": "shop.cart",
+  "pk": 81,
+  "fields": {
+    "user": null,
+    "session_key": "gpw9cxn3yxpbndevpvvyh8nr7jf9gvul",
+    "product": 46,
+    "size_option": 211,
+    "handle_option": 124,
+    "threshold": "да",
+    "opening_side": "Правое (на себя, петли справа)",
+    "quantity": 1,
+    "price": "51500.00",
+    "added_at": "2025-02-23T09:55:08.118Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 82,
+  "fields": {
+    "user": 1,
+    "session_key": null,
+    "product": 2,
+    "size_option": 5,
+    "handle_option": 17,
+    "threshold": "нет",
+    "opening_side": "Правое (на себя, петли справа)",
+    "quantity": 2,
+    "price": "39500.00",
+    "added_at": "2025-03-07T16:45:14.428Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 83,
+  "fields": {
+    "user": null,
+    "session_key": "7kh9rriicgeathtuha7h22trmwpjl7hr",
+    "product": 2,
+    "size_option": 5,
+    "handle_option": 17,
+    "threshold": "нет",
+    "opening_side": "Правое (на себя, петли справа)",
+    "quantity": 1,
+    "price": "39500.00",
+    "added_at": "2025-03-07T17:42:52.738Z"
+  }
+},
+{
+  "model": "shop.favorite",
+  "pk": 121,
+  "fields": {
+    "user": null,
+    "session_key": "x9u2dywzmsobd3gca3q4igqkoypstrqi",
+    "product": 21,
+    "size_option": 81,
+    "handle_option": 77,
+    "threshold": "нет",
+    "opening_side": "Правое (на себя, петли справа)",
+    "price": "43500.00",
+    "added_at": "2025-02-22T21:36:10.363Z",
+    "box_size": "1890*690",
+    "glass_size": "1835*620",
+    "air_gap": "20мм"
+  }
+},
+{
+  "model": "shop.favorite",
+  "pk": 122,
+  "fields": {
+    "user": null,
+    "session_key": "gpw9cxn3yxpbndevpvvyh8nr7jf9gvul",
+    "product": 42,
+    "size_option": 175,
+    "handle_option": 116,
+    "threshold": "нет",
+    "opening_side": "Левое (на себя, петли слева)",
+    "price": "53500.00",
+    "added_at": "2025-02-23T09:53:57.254Z",
+    "box_size": "1890*690",
+    "glass_size": "1825*600",
+    "air_gap": "20мм"
+  }
+},
+{
+  "model": "shop.favorite",
+  "pk": 123,
+  "fields": {
+    "user": null,
+    "session_key": "gpw9cxn3yxpbndevpvvyh8nr7jf9gvul",
+    "product": 46,
+    "size_option": 211,
+    "handle_option": 124,
+    "threshold": "да",
+    "opening_side": "Правое (на себя, петли справа)",
+    "price": "51500.00",
+    "added_at": "2025-02-23T09:55:02.675Z",
+    "box_size": "1890*690",
+    "glass_size": "1770*600",
+    "air_gap": "15-20мм"
+  }
+},
+{
+  "model": "shop.favorite",
+  "pk": 124,
+  "fields": {
+    "user": 1,
+    "session_key": null,
+    "product": 2,
+    "size_option": 5,
+    "handle_option": 17,
+    "threshold": "нет",
+    "opening_side": "Правое (на себя, петли справа)",
+    "price": "39500.00",
+    "added_at": "2025-03-07T16:42:48.419Z",
+    "box_size": "1890*690",
+    "glass_size": "1835*620",
+    "air_gap": "20мм"
+  }
+},
+{
+  "model": "shop.favorite",
+  "pk": 125,
+  "fields": {
+    "user": null,
+    "session_key": "7kh9rriicgeathtuha7h22trmwpjl7hr",
+    "product": 2,
+    "size_option": 5,
+    "handle_option": 17,
+    "threshold": "нет",
+    "opening_side": "Правое (на себя, петли справа)",
+    "price": "39500.00",
+    "added_at": "2025-03-07T17:42:49.516Z",
+    "box_size": "1890*690",
+    "glass_size": "1835*620",
+    "air_gap": "20мм"
+  }
+},
+{
   "model": "shop.productimage",
   "pk": 2,
   "fields": {
@@ -5705,6 +5843,70 @@
   }
 },
 {
+  "model": "shop.category",
+  "pk": 39,
+  "fields": {
+    "title": "Стеклянные перегородки",
+    "temp_name": "Стеклянные перегородки",
+    "parent": null,
+    "slug": "parts",
+    "description": "",
+    "products_description": "",
+    "lft": 1,
+    "rght": 8,
+    "tree_id": 3,
+    "level": 0
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 40,
+  "fields": {
+    "title": "Перегородки в хамам",
+    "temp_name": "Перегородки в хамам",
+    "parent": 39,
+    "slug": "hamam_parts",
+    "description": "",
+    "products_description": "",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 41,
+  "fields": {
+    "title": "Перегородки в сауну",
+    "temp_name": "Перегородки в сауну",
+    "parent": 39,
+    "slug": "sauna_parts",
+    "description": "",
+    "products_description": "",
+    "lft": 4,
+    "rght": 5,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 42,
+  "fields": {
+    "title": "Душевые перегородки",
+    "temp_name": "Душевые перегородки",
+    "parent": 39,
+    "slug": "wash_parts",
+    "description": "",
+    "products_description": "",
+    "lft": 6,
+    "rght": 7,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
   "model": "shop.categoryimage",
   "pk": 10,
   "fields": {
@@ -6206,6 +6408,33 @@
     "category": 16,
     "image": "imgs/category_hamam-prestizh-60g-ver-porog/Ручка_с_сайта_2.jpg",
     "description": "Вертикальная анодированная алюминиевая ручка"
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 74,
+  "fields": {
+    "category": 40,
+    "image": "imgs/category_hamam_parts/h_part_enhanced.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 75,
+  "fields": {
+    "category": 41,
+    "image": "imgs/category_sauna_parts/sauna_2_2.jpg",
+    "description": ""
+  }
+},
+{
+  "model": "shop.categoryimage",
+  "pk": 76,
+  "fields": {
+    "category": 42,
+    "image": "imgs/category_wash_parts/wash.jpg",
+    "description": ""
   }
 }
 ]

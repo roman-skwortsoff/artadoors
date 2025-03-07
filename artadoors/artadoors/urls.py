@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('myauth.urls')),
     path('shop/', include('shop.urls')),
     path('select-door/', include('selection.urls')),
+    path('about/', views.about, name = 'about'),
 ]
 
 if settings.DEBUG:

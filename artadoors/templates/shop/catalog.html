@@ -18,23 +18,24 @@
         <br>
         <div class="row justify-content-center">   
             {% for parent, childrens in family.items %}
-            <div class="col-хl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center ">
-	            <a href="{{parent.get_absolute_url}}"><h3 class="menu-item">{{ parent.temp_name }}</h3></a>
+            <div class="col-хl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	            <a href="{{parent.get_absolute_url}}"><h3 class="menu-item parent-name" >{{ parent.temp_name }}</h3></a>
                 {% for child in childrens %}
                     <a href="{{child.get_absolute_url}}">
                     <div class="row text-start menu-item"> 
-                        <div class="col-5">
+                        <div class="col-1"></div>
+                        <div class="col-4">
                         {% with first_image=child.images.all|first %}                   
                             <img src="{{ first_image.image.url }}" 
                             title="{{child.temp_name}}" 
-                            width="200px"
+                            width="140px"
                             alt="{{child.temp_name}}"
                             style="border-radius: 10px;"> 
                             {% endwith %}
                         </div>    
                         <div class="col-7">                         
                             <h5 style="margin-top: 15px;">{{ child.temp_name }}</h5>
-                            <div class="other_text">{{child.description}}</div>
+                            <div class="other_text"></div> 
                         </div>                    
                     </div>
                 </a>

@@ -83,11 +83,20 @@
             <div class="container">
 				<div class="row justify-content-start">
 					<!-- Filters Panel -->
-						<div class="col-3">
+						<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-5">
 							<form id="filter-form">
 								{% csrf_token %}
 								<div class="filter-panel">
-									<h5>Фильтр по характеристикам:</h5>
+									<h5>Выбор по характеристикам:</h5>
+                                    <strong>Размер проема</strong>
+									<div id="size-container">
+									{% for size in unique_sizes %}
+										<div>
+											<input type="checkbox" class="filter-checkbox" name="sizes" value="{{ size }}" id="size-{{ size }}">
+											<label for="size-{{ size }}">{{ size }}</label>
+										</div>
+									{% endfor %}
+								    </div>
 									<div id="characteristics-container">
 										{% for char_name, char_values in characteristics.items %}
 										<div class="characteristics-container">
@@ -102,15 +111,7 @@
 										</div>
 									{% endfor %}
 								    </div>
-									<strong>Размеры</strong>
-									<div id="size-container">
-									{% for size in unique_sizes %}
-										<div>
-											<input type="checkbox" class="filter-checkbox" name="sizes" value="{{ size }}" id="size-{{ size }}">
-											<label for="size-{{ size }}">{{ size }}</label>
-										</div>
-									{% endfor %}
-								    </div>
+									
 									<strong>Ручки</strong>
 									<div id="handle-container">
 									{% for handle in unique_handles %}
@@ -125,7 +126,7 @@
 						</div>
 					
                     <!-- Products List -->
-                    <div id="product-list" class="col-9 row justify-content-center">						
+                    <div id="product-list" class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-7 row justify-content-center">						
                         {% for product in products %}
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center products-list align-self-start">
                                 <a href="{% url 'shop:product-view' product_slug=product.slug %}">
@@ -158,24 +159,38 @@
                     <a href="{% url 'shop:product-by-category' category_slug=parent_slug %}" class="mybtn btn-up">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708z"/>
-                        </svg> Вверх по каталогу
+                        </svg> <span class="nav-but-name">Вверх по каталогу</span>
                     </a>
                 {% else %}
-                    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn btn-back">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                        </svg> Назад
-                    </a>
+                <a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                    </svg>
+                    <span class="nav-but-name">Каталог</span>
+                </a>
                 {% endif %}
                 {% if has_next %}
                     <button id="load-more" class="mybtn" data-page="2">
                         <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
                             <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
-                        </svg> Показать ещё
+                        </svg> <span class="nav-but-more">Показать ещё</span>
                     </button>
                 {% endif %}
-                <a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">Каталог</a>
+                {% if parent_slug %}
+                <a href="{% url 'shop:catalog' %}" class="mybtn btn-catalog">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                    </svg>
+                    <span class="nav-but-name">Каталог</span></a>
+                </a>
+                {% else %}
+                    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="mybtn btn-back">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                        </svg> <span class="nav-but-name">Назад</span>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
