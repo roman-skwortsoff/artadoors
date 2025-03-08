@@ -174,7 +174,7 @@ class Order(models.Model):
     session_key = models.CharField(max_length=40, null=True, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=22)
     email = models.EmailField()
     delivery_method = models.CharField(max_length=60, choices=DELIVERY_CHOICES)
     custom_delivery = models.CharField(max_length=200, blank=True, null=True)  # Если пользователь выбрал "Другая компания"

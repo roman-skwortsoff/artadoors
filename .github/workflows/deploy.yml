@@ -32,4 +32,6 @@ jobs:
           cd /home/server/project/artadoors
           docker compose down
           docker compose up -d --build
+          docker cp /home/server/project/artadoors/media/. nginx_proxy:/code/media/
+          docker restart nginx_proxy
           EOF
