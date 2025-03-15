@@ -16,6 +16,7 @@ from django.forms.models import model_to_dict
 from django_ratelimit.decorators import ratelimit
 import re
 from django.core.exceptions import ValidationError
+from .tasks import send_order_message, send_user_order_message
 
 def validate_order_form(data):
     errors = {}
@@ -509,6 +510,11 @@ def order_view(request):
                         total_price=total_price,
                         status="В обработке"  # Устанавливаем начальный статус
                     )
+
+                    if request.user.is_authenticated:
+                        send_user_order_message(email, total_price)
+                    else:
+                        send_order_message(email, total_price)
                     # print("[ORDER] Создан заказ:", order)
 
                     # Перенос товаров из корзины в заказ

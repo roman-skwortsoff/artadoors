@@ -6,6 +6,7 @@ from django.core import validators
 from django.core.validators import RegexValidator
 from .models import Profile
 import datetime
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 class LoginForm(forms.Form):
@@ -27,6 +28,19 @@ class LoginForm(forms.Form):
 
 
 class RegisterForm(forms.ModelForm):
+    verification_code = forms.CharField(
+        label='Код подтверждения', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-input'})
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        # Проверяем, что все обязательные поля заполнены и валидны
+        if not all(cleaned_data.get(field) for field in ['username', 'password', 'first_name', 'last_name']):
+            raise forms.ValidationError("Заполните все поля корректно перед подтверждением email.")
+
+        return cleaned_data
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,7 +52,7 @@ class RegisterForm(forms.ModelForm):
         fields = ('username', 'password', 'first_name', 'last_name')
 
     username = forms.EmailField(label='Email', validators=[validators.validate_email])
-    password = forms.CharField(label='Пароль', validators=[validators.MinLengthValidator(4, "Минимум 4 знака/буквы/цифры")],
+    password = forms.CharField(label='Пароль', validators=[validators.RegexValidator(r'^(?!\d+$).+', 'Пароль не должен быть из цифр'), validators.MinLengthValidator(8, "Введённый пароль слишком короткий. Он должен содержать как минимум 8 символов")],
                                widget=forms.PasswordInput)
     first_name = forms.CharField(label='Имя', validators=[validators.RegexValidator(r'^[А-Яа-я]', 'Только русскими буквами, не должно быть пустым'), validators.MinLengthValidator(2, "Неверный ввод")])
     last_name = forms.CharField(label='Фамилия', validators=[validators.RegexValidator(r'^[А-Яа-я]', 'Только русскими буквами, не должно быть пустым')])
@@ -108,3 +122,8 @@ class ProfileUpdateForm(forms.ModelForm):
         if commit:
             profile.save()
         return profile
+
+class UserPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(label="Старый пароль", widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    new_password1 = forms.CharField(label="Новый пароль", widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    new_password2 = forms.CharField(label="Подтверждение пароля", widget=forms.PasswordInput(attrs={'class': 'form-input'}))

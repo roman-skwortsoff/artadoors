@@ -125,14 +125,37 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static_src/'),  # Исходные файлы
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-#STATIC_ROOT = ''
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    }
+}
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Адрес Redis (порт по умолчанию)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
+
+# Для хранения результатов задач
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_TIMEZONE = 'Asia/Baku'
+
+# Настройки для отправки email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env("EMAIL_HOST")  # SMTP-сервер
+EMAIL_PORT = env("EMAIL_PORT")   # Порт для TLS
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)  # Включаем TLS для безопасности
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")  # Ваш email
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")  # Пароль email приложения
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Ваш email для отправки
+

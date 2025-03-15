@@ -1,42 +1,181 @@
 {% extends 'base-page.html' %} {% load static %} {% block title %}
-<title>Register</title>
+<title>Регистрация</title>
 {% endblock title %} {% block container %}
+  
 <main class="main">
 <div class="container">
     <br>
     <div class="row other_text">
         <div class="col"><a href="/">Главная </a> > <a href=".">Регистрация</a></div>
-    </div>    
-  <form method="post" action="{% url 'register' %}">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
-        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 text-center">
-        <h2 class="">Регистрация</h2>
+    </div> 
+    <br>   
+
+
+  <div class="row" style="padding-bottom: 20px;">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 text-center">
+    <h2 class="">Регистрация</h2>
+  </div>
+  <br>
+  </div>
+  <form method="post" action="{% url 'register' %}" id="register-form">
+      {% csrf_token %}
+      
+      <!-- Поля формы -->
+      {% for field in user_form %}
+          {% if field.name != 'verification_code' %}
+            <div class="row" style="padding-bottom: 10px;">
+              <div class="col-xl-4 col-lg-4 col-md-3 col-sm-1"></div>
+              <div class="col-xl-1 col-lg-1 col-md-2 col-sm-4">{{ field.label_tag }}</div>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">{{ field }}</div>
+            </div>
+            {% if field.errors %}  <!-- Показываем ошибки формы -->
+              <div class="row" style="padding-bottom: 10px;">
+                <div class="col text-center">
+                  <span style="color: red; font-size: 12px;">{{ field.errors.0 }}</span>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+      {% endfor %}
+
+
+      <div class="row" id="verification-code-field" style="display: none; padding-bottom: 10px;">
+        <div class="col-xl-3 col-lg-2 col-md-1 col-sm-0 col-0"></div>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-5" style="display: flex; justify-content: end;">{{ user_form.verification_code.label_tag }}</div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12" id="verification_code">{{ user_form.verification_code }}</div>
       </div>
-    </div>
-    <br>
-    {% for field in user_form %}
-    <div class="row" style="padding-bottom: 10px">
-      <div class="col-xl-4 col-lg-3 col-md-3 col-sm-1"></div>
-      <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2">{{ field.label_tag}}</div>
-      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">{{ field }} </div>
-    <div class="row">
-      <div class="col text-center">
-        <span style="color: red; font-size: 12px;">{{ field.errors }}</span>
-      </div>
-    </div>
-    </div>
-    {% endfor %}
-    <br>
-    <div class="row">
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
-        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 text-center">
-          <button type="submit" class="mybtn">Зарегистрировать</button>
+
+      <!-- Сообщение об отправке кода -->
+      <div class="row">
+        <div class="col text-center">
+            <span id="verification-message" style="color: green; font-size: 14px;"></span>
         </div>
-    </div>
-    <br>
+      </div>
+
+      <br>
+          <!-- Сообщение об ошибке -->
+      <div class="row">
+        <div class="col text-center">
+            <span id="error-message" style="color: red; font-size: 14px;"></span>
+            <span id="error-verification-code" style="color: red; font-size: 12px;"></span>
+        </div>
+      </div>
+
+  
+      <!-- Кнопки -->
+      <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-2"></div>
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5" style="display: flex; justify-content: center;">
+              <button type="submit" name="confirm_email" id="confirm-email-btn" class="mybtn">Подтвердить E-mail</button>
+              <button type="submit" name="register" id="register-btn" class="mybtn" style="display: none;">Зарегистрировать</button>
+          </div>
+      </div>
   </form>
+  <br>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () { 
+    const form = document.querySelector("form");
+    const confirmButton = document.getElementById("confirm-email-btn");
+    const registerButton = document.getElementById("register-btn");
+    const verificationField = document.getElementById("verification-code-field");
+    const verificationMessage = document.getElementById("verification-message");
+    const errorVerificationCode = document.getElementById("error-verification-code");
+
+    // Функция очистки старых ошибок
+    function clearErrors() {
+        document.querySelectorAll(".form-error").forEach(el => el.remove());
+        errorVerificationCode.textContent = "";
+    }
+
+    // Функция для показа ошибок формы под полями
+    function showFormErrors(errors) {
+        for (const [field, messages] of Object.entries(errors)) {
+            const fieldElement = document.querySelector(`[name="${field}"]`);
+            if (fieldElement) {
+                const errorContainer = document.createElement("div");
+                errorContainer.classList.add("form-error");
+                errorContainer.style.color = "red";
+                errorContainer.textContent = messages[0];  // Показываем только первую ошибку
+                fieldElement.insertAdjacentElement("afterend", errorContainer);
+            }
+        }
+    }
+
+    // Перехватываем отправку формы
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Отключаем стандартную отправку формы
+        clearErrors();  // Убираем старые ошибки
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())  
+        .then(data => {
+            if (data.status === "ok") {
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;  // Перенаправляем пользователя
+                } else {
+                    verificationMessage.textContent = "Код отправлен на вашу почту!";
+                    verificationMessage.style.color = "green";
+                    confirmButton.style.display = "none";
+                    verificationField.style.display = "flex";
+                    registerButton.style.display = "block";
+                }
+            } else if (data.errors) {
+                showFormErrors(data.errors);  // Показываем ошибки формы
+            } else {
+                errorVerificationCode.textContent = data.message || "Ошибка ввода";
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+            errorVerificationCode.textContent = "Ошибка на сервере";
+        });
+    });
+
+    // Обработчик для кнопки "Подтвердить Email"
+    confirmButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        clearErrors();  // Очищаем старые ошибки
+
+        confirmButton.disabled = true; // Блокируем кнопку, чтобы предотвратить повторные клики
+
+        const formData = new FormData(form);
+        formData.set("verification_code", "000");  // Принудительно устанавливаем значение
+
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "ok") {
+                verificationMessage.textContent = "Код отправлен на вашу почту!";
+                verificationMessage.style.color = "green";
+                confirmButton.style.display = "none";
+                verificationField.style.display = "flex";
+                registerButton.style.display = "block";
+            } else if (data.errors) {
+                confirmButton.disabled = false; // Разблокируем кнопку при ошибке
+                showFormErrors(data.errors);  // Показываем ошибки формы                
+            } else {
+                confirmButton.disabled = false; // Разблокируем кнопку при ошибке
+                errorVerificationCode.textContent = data.message || "Произошла ошибка";   
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+            confirmButton.disabled = false; // Разблокируем кнопку при ошибке
+            errorVerificationCode.textContent = "Произошла ошибка при обработке запроса.";
+        });
+    });
+});
+</script>
 </main>
 {% endblock container %}

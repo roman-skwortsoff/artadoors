@@ -2,7 +2,7 @@
 {% load static %} 
 
 {% block title %}
-<title>Log In</title>
+<title>Личный кабинет</title>
 {% endblock title %} 
 
 {% block container %}
@@ -13,6 +13,13 @@
       <div class="col"><a href="/">Главная </a> > <a href=".">Личный кабинет</a></div>
     </div>
     <br />
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 
     <h2 class="row">
       Здравствуйте, {{ request.user.first_name }}!

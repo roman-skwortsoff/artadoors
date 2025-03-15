@@ -1,11 +1,11 @@
 {% extends 'base-page.html' %} {% load static %} {% block title %}
-<title>Log In</title>
+<title>Личные данные</title>
 {% endblock title %} {% block container %}
 <main class="main">
   <div class="container">
     <br />
     <div class="row other_text">
-      <div class="col"><a href="/">Главная </a> > <a href="{% url 'user_detail' %}">Личный кабинет</a> > <a href=".">Личные данные</a></div>
+      <div class="col"><a href="/">Главная </a> > <a href="{% url 'user_detail' %}">Личный кабинет</a> > <a href=".">Изменение данных</a></div>
     </div>
     <br />
     {% if messages %}
@@ -15,23 +15,61 @@
         {% endfor %}
     </ul>
     {% endif %}
+
+    <div class="row">
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2"></div>
+      <div class="col-xl-6 col-lg-6 col-md-8 col-sm-7 text-center">    
+        <h2>Личные данные</h2>
+      </div>
+    </div>
     
-    <h1>Редактирование данных</h1>
+    <br>
     <form method="post">
       {% csrf_token %}
-      {{ user_form.as_p }}
-      {{ profile_form.city.label_tag }} {{ profile_form.city }}
-      {{ profile_form.phone_number.label_tag }} {{ profile_form.phone_number }}
-  
-      <label for="id_day">День</label>
-      {{ profile_form.day }}
-      <label for="id_month">Месяц</label>
-      {{ profile_form.month }}
-      <label for="id_year">Год</label>
-      {{ profile_form.year }}
-  
-      <button type="submit">Сохранить</button>
+      {% for field in user_form %}
+            <div class="row" style="padding-bottom: 10px;">
+              <div class="col-xl-3 col-lg-3 col-md-2 col-sm-0"></div>
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">{{ field.label_tag }}</div>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">{{ field }}</div>
+            </div>
+      {% endfor %}
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-0"></div>
+        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">{{ profile_form.city.label_tag }}</div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">{{ profile_form.city }}</div>
+      </div>
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-0"></div>
+        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">{{ profile_form.phone_number.label_tag }}</div>
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">{{ profile_form.phone_number }}</div>
+      </div>
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-0"></div>
+        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">Дата рождения:</div>
+        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-8"><label for="id_day">День</label>
+          {{ profile_form.day }}
+          <label for="id_month">Месяц</label>
+          {{ profile_form.month }}
+          <label for="id_year">Год</label>
+          {{ profile_form.year }}
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-7 text-center"> 
+          <button type="submit" style="padding: 5px 10px;" >Сохранить</button>
+        </div>
+      </div>
   </form>
+  {% if create_profile != True %}
+  <br>
+  <p>
+    <a href="{% url 'password_change' %}" style="color: #0ea8b0;">Изменить пароль</a>
+  </p>
+  {% endif %}
   </div>
   <br>
 </main>

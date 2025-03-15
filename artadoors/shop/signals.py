@@ -7,12 +7,12 @@ def sync_cart_and_favorites_on_login(sender, request, user, **kwargs):
     session_key = request.session.session_key
     old_session_key = request.session.pop('old_session_key', None)
 
-    print(f"[LOGIN] Пользователь вошел. old_session_key: {old_session_key}")
-    print(f"[LOGIN] Текущий session_key: {session_key}")
+    #print(f"[LOGIN] Пользователь вошел. old_session_key: {old_session_key}")
+    #print(f"[LOGIN] Текущий session_key: {session_key}")
 
     if old_session_key:
         # Синхронизация корзины
-        print("[SYNC] Начало синхронизации корзины.")
+        #print("[SYNC] Начало синхронизации корзины.")
         session_cart_items = Cart.objects.filter(session_key=old_session_key, user__isnull=True)
 
         for item in session_cart_items:
@@ -39,10 +39,10 @@ def sync_cart_and_favorites_on_login(sender, request, user, **kwargs):
 
         # Удаляем старые записи из корзины
         session_cart_items.delete()
-        print("[SYNC] Синхронизация корзины завершена.")
+        #print("[SYNC] Синхронизация корзины завершена.")
 
         # Синхронизация избранного
-        print("[SYNC] Начало синхронизации избранного.")
+        #print("[SYNC] Начало синхронизации избранного.")
         session_favorites = Favorite.objects.filter(session_key=old_session_key, user__isnull=True)
 
         for item in session_favorites:
@@ -63,6 +63,6 @@ def sync_cart_and_favorites_on_login(sender, request, user, **kwargs):
 
         # Удаляем старые записи из избранного
         session_favorites.delete()
-        print("[SYNC] Синхронизация избранного завершена.")
+        #print("[SYNC] Синхронизация избранного завершена.")
     else:
         print(f"[LOGIN] Старый session_key отсутствует. Синхронизация не выполнена.")

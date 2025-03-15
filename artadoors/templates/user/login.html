@@ -1,5 +1,5 @@
 {% extends 'base-page.html' %} {% load static %} {% block title %}
-<title>Log In</title>
+<title>Вход</title>
 {% endblock title %} {% block container %}
 <main class="main">
   <div class="container">
@@ -78,7 +78,7 @@
           <a href="{% url 'register' %}">Регистрация</a>
         </div>
         <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
-          <a href="#">Забыли пароль?</a>
+          <a href="{% url 'password_reset' %}">Забыли пароль?</a>
         </div>
       </div>
       <br />
