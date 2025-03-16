@@ -190,21 +190,40 @@ class CustomPasswordResetView(PasswordResetView):
     timeout = 60  # Время блокировки повторной отправки (в секундах)
 
     def form_valid(self, form):
+        print("[DEBUG] Вызван form_valid")  # 1. Проверяем, что метод вызывается
+
         domain = self.request.get_host()
         use_https = self.request.is_secure()
         email = form.cleaned_data["email"]
 
+        print(f"[DEBUG] Домен: {domain}, HTTPS: {use_https}, Email: {email}")  # 2. Выводим ключевые переменные
+
         cache_key = f"password_reset_{email}"
         last_request_time = cache.get(cache_key)
 
+        print(f"[DEBUG] Данные из кэша: {last_request_time}")  # 3. Проверяем работу кэша
+
         if last_request_time:
+            print("[DEBUG] Email уже запрашивал сброс пароля недавно")
             form.add_error(None, "Вы недавно уже запрашивали сброс пароля. Попробуйте позже.")
             return self.form_invalid(form)
 
         # Сохраняем метку времени последней отправки в кэше
         cache.set(cache_key, now(), self.timeout)
+        print("[DEBUG] Записали в кэш временную метку")
 
-        for user in form.get_users(email):
+        users = list(form.get_users(email))  # Приводим к списку, чтобы избежать ленивого выполнения
+        print(f"[DEBUG] Найдено пользователей: {len(users)}")  # 4. Проверяем, есть ли пользователи
+
+        if not users:
+            print("[DEBUG] Email не найден в системе")
+            form.add_error(None, "Email не найден в системе.")
+            return self.form_invalid(form)
+
+
+        for user in users:
+            print(f"[DEBUG] Отправляем письмо пользователю: {user.email}")
             send_password_reset_email.delay(user.email, domain, use_https)
 
+        print("[DEBUG] Завершаем form_valid успешно")
         return super().form_valid(form)
