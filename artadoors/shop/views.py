@@ -151,8 +151,6 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
     return render(request, 'shop/category_product_list.html', context=context)
 
 
-
-
 def view_product(request: HttpRequest, product_slug : str) -> HttpResponse:
 
     product = get_object_or_404(Product, slug=product_slug)
@@ -354,70 +352,6 @@ def cart_view(request):
                 messages.success(request, "Товар удален из корзины!")
                 return redirect('shop:cart')
 
-#        elif action == "checkout":
-#            # Обработка формы заказа
-#            last_name = request.POST.get('last_name')
-#            first_name = request.POST.get('first_name')
-#            phone = request.POST.get('phone')
-#            email = request.POST.get('email')
-#            address = request.POST.get('address')
-#            delivery_method = request.POST.get('delivery_method')
-#            custom_delivery = request.POST.get('custom_delivery')
-#            payment_method = request.POST.get('payment_method')
-#            total_price=sum(item.price for item in cart_items)
-#            print("[POST] Данные формы:",
-#                  last_name, first_name, phone, email, address, delivery_method, payment_method, total_price)
-#
-#            if not cart_items.exists():
-#                messages.error(request, "Корзина пуста! Невозможно создать заказ.")
-#                return redirect('shop:cart')
-#
-#            try:
-#                with transaction.atomic():
-#                    # Создание заказа
-#                    order = Order.objects.create(
-#                        user=request.user if request.user.is_authenticated else None,
-#                        session_key=session_key if not request.user.is_authenticated else None,
-#                        last_name=last_name,
-#                        first_name=first_name,
-#                        phone=phone,
-#                        email=email,
-#                        address=address,
-#                        delivery_method=delivery_method,
-#                        custom_delivery=custom_delivery,
-#                        payment_method=payment_method,
-#                        total_price=total_price,
-#                        status="В обработке"  # Устанавливаем начальный статус
-#                    )
-#                    print("[ORDER] Создан заказ:", order)
-#
-#                    # Перенос товаров из корзины в заказ
-#                    for cart_item in cart_items:
-#                        print("[ORDER ITEM] Перенос товара в заказ:", cart_item)
-#                        OrderItem.objects.create(
-#                            order=order,
-#                            product=cart_item.product,
-#                            size_option=cart_item.size_option,
-#                            opening_side=cart_item.opening_side,
-#                            threshold=cart_item.threshold,
-#                            handle_option=cart_item.handle_option,
-#                            price=cart_item.price,
-#                            quantity=cart_item.quantity
-#                        )
-#
-#                    # Очистка корзины
-#                    cart_items.delete()
-#                    print("[CART] Корзина очищена")
-#
-#                messages.success(request, "Заказ успешно создан!")
-#                return redirect('shop:cart')
-#                #return redirect('shop:order_detail', order_id=order.id)
-#
-#            except Exception as e:
-#                print("[ERROR] Ошибка при создании заказа:", str(e))
-#                messages.error(request, "Произошла ошибка при создании заказа. Попробуйте еще раз.")
-#                return redirect('shop:cart')
-
     return render(request, 'shop/cart.html', {'cart_items': cart_items})
 
 
@@ -475,11 +409,7 @@ def order_view(request):
             total_price=sum(item.price*item.quantity for item in cart_items)
             
             print("[POST] Данные формы:",
-                  last_name, first_name, phone, email, address, delivery_method, payment_method, total_price)
-
-            if not cart_items.exists():
-                messages.error(request, "Корзина пуста! Невозможно создать заказ.")
-                return redirect('shop:cart')
+                  last_name, first_name, phone, email, address, delivery_method, payment_method, total_price, session_key)
 
             try:
                 with transaction.atomic():
@@ -523,7 +453,7 @@ def order_view(request):
 
                     # Очистка корзины
                     cart_items.delete()
-                    # print("[CART] Корзина очищена")
+                    print("[CART] Корзина очищена")
 
                 messages.success(request, "Заказ успешно создан!")
                 return redirect('shop:cart')
