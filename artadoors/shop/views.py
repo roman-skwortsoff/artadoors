@@ -18,18 +18,6 @@ import re
 from django.core.exceptions import ValidationError
 from .tasks import send_order_message, send_user_order_message
 
-def validate_order_form(data):
-    errors = {}
-    if not re.match(r'^[А-Яа-я]', data.get('first_name')):
-        errors['first_name'] = 'Введите имя кириллицей!'
-    if not re.match(r'^[А-Яа-я]', data.get('last_name')):
-        errors['last_name'] = 'Введите фамилию кириллицей!'
-    if not re.match(r'^((\+7|8)[-\s]?)?(\(?\d{3}\)?[-\s]?)?\d{3}[-\s]?\d{2}[-\s]?\d{2}$', data.get('phone', '')):
-        errors['phone'] = 'Введите корректный номер телефона без пробелов!'
-    if not data.get('email') or '@' not in data.get('email'):
-        errors['email'] = 'Введите корректный email!'
-    return errors
-
 
 def catalog(request):
     parents = Category.objects.filter(parent=None).prefetch_related("images")  # Получить всех родителей
@@ -84,12 +72,12 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
         handles_filter = request.POST.getlist('handles')
         page = request.POST.get('page', 1)
     
-        # print('Принятые фильтры:', {
-        #     'characteristics': characteristics_filter,
-        #     'sizes': sizes_filter,
-        #     'handles': handles_filter,
-        #     'page': page,
-        # })
+        print('Принятые фильтры:', {
+            'characteristics': characteristics_filter,
+            'sizes': sizes_filter,
+            'handles': handles_filter,
+            'page': page,
+        })
 
         # Применение фильтров
         if characteristics_filter:
@@ -169,7 +157,8 @@ def view_product(request: HttpRequest, product_slug : str) -> HttpResponse:
 
     product = get_object_or_404(Product, slug=product_slug)
     ancestors = product.category.get_ancestors().prefetch_related("images")
-    if 'Престиж' in product.name:
+
+    if 'Престиж' in product.name: # для расчета конечной стоимости одной подкатегории товаров
         threshold_price_inc = 0
     else:
         threshold_price_inc = 1500
@@ -283,12 +272,12 @@ def favorites_view(request):
     else:
         favorite_items = Favorite.objects.filter(session_key=session_key)
 
-    # print("[VIEW] Количество товаров в избранном:", len(favorite_items))
+    print("[VIEW] Количество товаров в избранном:", len(favorite_items))
 
     if request.method == "POST":
         action = request.POST.get('action')
         favorite_id = request.POST.get('favorite_id')
-        # print("[POST] Действие:", action, "favorite_id:", favorite_id)
+        print("[POST] Действие:", action, "favorite_id:", favorite_id)
 
         if request.user.is_authenticated:
             favorite_item = get_object_or_404(Favorite, id=favorite_id, user=request.user)
@@ -297,7 +286,7 @@ def favorites_view(request):
 
         if action == "add_to_cart":
             quantity = int(request.POST.get('quantity', 1))
-            # print("[POST] Добавление в корзину, количество:", quantity)
+            print("[POST] Добавление в корзину, количество:", quantity)
 
             Cart.objects.create(
                 user=request.user if request.user.is_authenticated else None,
@@ -314,7 +303,7 @@ def favorites_view(request):
             return redirect('shop:favorites')
 
         elif action == "remove":
-            # print("[POST] Удаление из избранного")
+            print("[POST] Удаление из избранного")
             favorite_item.delete()
             messages.success(request, "Товар удален из избранного!")
             return redirect('shop:favorites')
@@ -326,31 +315,21 @@ def cart_view(request):
     # Получаем или создаем session_key
     session_key = request.session.session_key or request.session.create()
     
-#    # Предзаполнение формы, если пользователь аутентифицирован
-#    initial_data = {}
-#    # корзина для авторизованных и анонимных
     if request.user.is_authenticated:
         cart_items = Cart.objects.filter(user=request.user)
-#        initial_data = {
-#            'last_name': request.user.last_name,
-#            'first_name': request.user.first_name,
-#            'phone': request.user.profile.phone_number if hasattr(request.user, 'profile') else '',
-#            'email': request.user.email,
-#            'address': request.user.profile.city if hasattr(request.user, 'profile') else ''
-#        }
     else:
         cart_items = Cart.objects.filter(session_key=session_key)
 
-    # print("[VIEW] Количество товаров в корзине:", len(cart_items))
-         #Если пользователь зарегистрирован, предварительно заполняем данные
-    
+    print("[VIEW] Количество товаров в корзине:", len(cart_items))
+         
+
     if request.method == "POST":
         action = request.POST.get('action')
-        # print("[POST] Действие:", action)
+        print("[POST] Действие:", action)
 
         if action == "update" or action == "remove":
             cart_id = request.POST.get('cart_id')
-            # print("[POST] Действие:", action, "cart_id:", cart_id)
+            print("[POST] Действие:", action, "cart_id:", cart_id)
 
             if request.user.is_authenticated:
                 cart_item = get_object_or_404(Cart, id=cart_id, user=request.user)
@@ -442,6 +421,18 @@ def cart_view(request):
     return render(request, 'shop/cart.html', {'cart_items': cart_items})
 
 
+def validate_order_form(data):
+    errors = {}
+    if not re.match(r'^[А-Яа-я]', data.get('first_name')):
+        errors['first_name'] = 'Введите имя кириллицей!'
+    if not re.match(r'^[А-Яа-я]', data.get('last_name')):
+        errors['last_name'] = 'Введите фамилию кириллицей!'
+    if not re.match(r'^((\+7|8)[-\s]?)?(\(?\d{3}\)?[-\s]?)?\d{3}[-\s]?\d{2}[-\s]?\d{2}$', data.get('phone', '')):
+        errors['phone'] = 'Введите корректный номер телефона без пробелов!'
+    if not data.get('email') or '@' not in data.get('email'):
+        errors['email'] = 'Введите корректный email!'
+    return errors
+
 def order_view(request):
     # Получаем или создаем session_key
     session_key = request.session.session_key or request.session.create()
@@ -461,11 +452,7 @@ def order_view(request):
     else:
         cart_items = Cart.objects.filter(session_key=session_key)
 
-    # print("[VIEW] Количество товаров в корзине:", len(cart_items))
-         #Если пользователь зарегистрирован, предварительно заполняем данные
-    
     if request.method == "POST":
-
         errors = validate_order_form(request.POST)
         if errors:
             for field, error in errors.items():
@@ -473,8 +460,8 @@ def order_view(request):
             return render(request, 'shop/order.html', {'cart_items': cart_items, 'initial_data': request.POST})
         
         action = request.POST.get('action')
-        # print("[POST] Действие:", action)
 
+        # кнопка оформить заказ
         if action == "checkout":
             # Обработка формы заказа
             last_name = request.POST.get('last_name')
@@ -486,8 +473,9 @@ def order_view(request):
             custom_delivery = request.POST.get('custom_delivery')
             payment_method = request.POST.get('payment_method')
             total_price=sum(item.price*item.quantity for item in cart_items)
-            # print("[POST] Данные формы:",
-            #       last_name, first_name, phone, email, address, delivery_method, payment_method, total_price)
+            
+            print("[POST] Данные формы:",
+                  last_name, first_name, phone, email, address, delivery_method, payment_method, total_price)
 
             if not cart_items.exists():
                 messages.error(request, "Корзина пуста! Невозможно создать заказ.")
@@ -511,12 +499,6 @@ def order_view(request):
                         status="В обработке"  # Устанавливаем начальный статус
                     )
 
-                    if request.user.is_authenticated:
-                        send_user_order_message(email, total_price)
-                    else:
-                        send_order_message(email, total_price)
-                    # print("[ORDER] Создан заказ:", order)
-
                     # Перенос товаров из корзины в заказ
                     for cart_item in cart_items:
                         # print("[ORDER ITEM] Перенос товара в заказ:", cart_item)
@@ -530,6 +512,14 @@ def order_view(request):
                             price=cart_item.price,
                             quantity=cart_item.quantity
                         )
+
+                    # отправка email уведомления
+                    if request.user.is_authenticated:
+                        send_user_order_message(email, total_price)
+                    else:
+                        send_order_message(email, total_price)
+                    
+                    print("[ORDER] Создан заказ:", order)
 
                     # Очистка корзины
                     cart_items.delete()
