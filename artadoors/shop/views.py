@@ -82,14 +82,18 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
         # Применение фильтров
         if characteristics_filter:
             for char in characteristics_filter:
-                try:
-                    key, value = char.split(':', 1)  # Разделение ключа и значения
-                    filtered_products = filtered_products.filter(**{f"characteristics__{key}": value})
-                except ValueError:
-                    print(f"Некорректный формат характеристики: {char}")
-    
+                key, value = char.split(':', 1)  # Разделение ключа и значения
+                filtered_products = filtered_products.filter(**{f"characteristics__{key}": value})
+                
         if sizes_filter:
             filtered_products = filtered_products.filter(sizes__size_name__in=sizes_filter)
+            remaining_sizes = sizes_filter[0] # фикс выбора только одного пункта размера в фильтре
+        else:
+            remaining_sizes = list(
+            SizeOption.objects.filter(product__in=filtered_products)
+            .values_list('size_name', flat=True)
+            .distinct())
+
     
         if handles_filter:
             filtered_products = filtered_products.filter(handle_options__handle_name__in=handles_filter)
@@ -104,12 +108,12 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
                 remaining_characteristics[key].add(value)
         remaining_characteristics = {key: sorted(list(values)) for key, values in remaining_characteristics.items()}
         
-        remaining_sizes = list(
-            SizeOption.objects.filter(product__in=filtered_products)
-            .values_list('size_name', flat=True)
-            .distinct()
-        )
-        
+        #remaining_sizes = list(
+        #    SizeOption.objects.filter(product__in=filtered_products)
+        #    .values_list('size_name', flat=True)
+        #    .distinct()
+        #)
+ 
         remaining_handles = list(
             HandleOption.objects.filter(products__in=filtered_products)
             .values_list('handle_name', flat=True)
@@ -460,7 +464,7 @@ def order_view(request):
                 #return redirect('shop:order_detail', order_id=order.id)
 
             except Exception as e:
-                # print("[ERROR] Ошибка при создании заказа:", str(e))
+                print("[ERROR] Ошибка при создании заказа:", str(e))
                 messages.error(request, "Произошла ошибка при создании заказа. Попробуйте еще раз.")
                 return redirect('shop:cart')
 
