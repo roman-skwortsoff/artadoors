@@ -85,6 +85,10 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
                 key, value = char.split(':', 1)  # Разделение ключа и значения
                 filtered_products = filtered_products.filter(**{f"characteristics__{key}": value})
                 
+        if handles_filter:
+            filtered_products = filtered_products.filter(handle_options__handle_name__in=handles_filter)
+            remaining_handles = handles_filter[0] # фикс выбора только одного пункта в ручках
+
         if sizes_filter:
             filtered_products = filtered_products.filter(sizes__size_name__in=sizes_filter)
             remaining_sizes = sizes_filter[0] # фикс выбора только одного пункта размера в фильтре
@@ -94,10 +98,13 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
             .values_list('size_name', flat=True)
             .distinct())
 
-    
-        if handles_filter:
-            filtered_products = filtered_products.filter(handle_options__handle_name__in=handles_filter)
-
+        if not handles_filter:
+            remaining_handles = list(
+                HandleOption.objects.filter(products__in=filtered_products)
+                .values_list('handle_name', flat=True)
+                .distinct()
+            )
+        
 
         # Собираем новые доступные фильтры после применения фильтров
         remaining_characteristics = {}
@@ -107,19 +114,8 @@ def show_category(request: HttpRequest, category_slug: str) -> HttpResponse:
                     remaining_characteristics[key] = set()
                 remaining_characteristics[key].add(value)
         remaining_characteristics = {key: sorted(list(values)) for key, values in remaining_characteristics.items()}
-        
-        #remaining_sizes = list(
-        #    SizeOption.objects.filter(product__in=filtered_products)
-        #    .values_list('size_name', flat=True)
-        #    .distinct()
-        #)
- 
-        remaining_handles = list(
-            HandleOption.objects.filter(products__in=filtered_products)
-            .values_list('handle_name', flat=True)
-            .distinct()
-        )
-        
+
+
         # Пагинация
         paginator = Paginator(filtered_products.distinct(), 12)
         page_obj = paginator.get_page(page)
