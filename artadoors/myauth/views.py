@@ -68,7 +68,7 @@ class RegisterView(TemplateView):
                 request.session['user_data'] = user_form.cleaned_data
 
                 # Отправляем код асинхронно
-                send_verification_email(email, verification_code) 
+                send_verification_email.delay(email, verification_code) 
     
                 return JsonResponse({'status': 'ok', 'message': 'Код отправлен на email!'})
     
@@ -93,7 +93,7 @@ class RegisterView(TemplateView):
                 last_name=user_data['last_name']
             )
 
-            send_reg_message(user_data['username'])
+            send_reg_message.delay(user_data['username'])
     
             session_key = request.session.session_key or request.session.create()
             request.session['old_session_key'] = session_key

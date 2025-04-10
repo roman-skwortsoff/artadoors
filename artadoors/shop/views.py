@@ -445,9 +445,9 @@ def order_view(request):
 
                     # отправка email уведомления
                     if request.user.is_authenticated:
-                        send_user_order_message(email, total_price)
+                        send_user_order_message.delay(email, total_price)
                     else:
-                        send_order_message(email, total_price)
+                        send_order_message.delay(email, total_price)
                     
                     print("[ORDER] Создан заказ:", order)
 
