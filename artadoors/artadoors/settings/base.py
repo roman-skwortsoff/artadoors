@@ -117,9 +117,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static_src/'),  # Исходные файлы
@@ -144,6 +141,7 @@ CELERY_BROKER_URL = "redis://redis:6379/0"
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
 # Для хранения результатов задач
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 CELERY_TIMEZONE = 'Asia/Baku'
@@ -153,7 +151,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = env("EMAIL_HOST")  # SMTP-сервер
 EMAIL_PORT = env("EMAIL_PORT")   # Порт для TLS
 EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)  # Включаем TLS для безопасности
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")  # Ваш email
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")  # email
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")  # Пароль email приложения
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Ваш email для отправки
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # email для отправки
 
