@@ -23,6 +23,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r artadoors/requirements/dev.txt
       
+      
+      - name: Create .env file for tests
+        run: |
+          cat <<EOF > artadoors/.env
+          SECRET_KEY=$(python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')
+          EOF
+      
       - name: Run migrations
         run: |
           python artadoors/manage.py migrate --settings=artadoors.settings.test
